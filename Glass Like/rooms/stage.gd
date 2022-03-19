@@ -40,6 +40,8 @@ func _process(delta):
 	
 	if position.x == -5000:
 		queue_free()
+	if position.x == 0:
+		get_node("../Player").set_physics_process(true)
 
 func defeated_all():
 	if !all_enemies_gone_called:

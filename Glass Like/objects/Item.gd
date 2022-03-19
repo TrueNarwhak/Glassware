@@ -32,6 +32,11 @@ func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):
 		print("collected")
 		emit_signal("collected")
+		
+		body.can_attack_boost = true
+		body.set_physics_process(false)
+		
+		
 		get_parent().all_enemies_gone_called = true
 		get_parent().stage_shift(next_stage)
 		queue_free()

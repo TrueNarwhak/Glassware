@@ -27,6 +27,7 @@ position = Vector2( 496, 200 )
 position = Vector2( 485, 392 )
 
 [node name="Ground" type="Node2D" parent="."]
+position = Vector2( 2, 0 )
 
 [node name="Shelf" type="StaticBody2D" parent="Ground"]
 position = Vector2( 79, 502 )

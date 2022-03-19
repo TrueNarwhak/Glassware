@@ -16,7 +16,6 @@ position = Vector2( 480, 271 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 464 )
-has_baseball = true
 
 [node name="Stage" parent="." instance=ExtResource( 5 )]
 
