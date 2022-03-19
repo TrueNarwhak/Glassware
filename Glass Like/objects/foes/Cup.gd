@@ -21,7 +21,6 @@ func _ready():
 
 func _physics_process(delta):
 	
-	
 	if !body.is_on_floor(): 
 		motion.x -= accel * delta * target_fps
 		motion.x = clamp(motion.x, -current_jump_distance, current_jump_distance)

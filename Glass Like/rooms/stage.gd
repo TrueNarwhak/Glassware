@@ -5,14 +5,14 @@ export(int) var intensity
 onready var enemies = $Enemies
 onready var item_spawner = get_node_or_null("ItemSpawner") 
 
-export var shift_speed = 16
+export var shift_speed = 26
 var all_enemies_gone_called = false
 var can_shift = false
 
 var current_possible_stages
 
+#THIS SHOULD BE IN ITEM
 onready var next_stage = load("res://rooms/stages/StageThreeKettles.tscn")
-
 onready var intensity_1_stages = [
 	load("res://rooms/stages/StageThreeKettles.tscn")
 ]
@@ -32,13 +32,14 @@ func _process(delta):
 		defeated_all()
 	
 	position.x -= shift_speed
+#	position.x = lerp(position.x, -4500*int(all_enemies_gone_called), 0.09)
 	
 	if !all_enemies_gone_called:
-		position.x = clamp(position.x, 0, 5000)
+		position.x = clamp(position.x, 0, 1500)
 	else:
-		position.x = clamp(position.x, -5000, 5000)
+		position.x = clamp(position.x, -1500, 1500)
 	
-	if position.x == -5000:
+	if position.x == -1500:
 		queue_free()
 	if position.x == 0:
 		get_node("../Player").set_physics_process(true)
