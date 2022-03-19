@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://images/enemies/champaign/1x/Champaign.png" type="Texture" id=1]
+[ext_resource path="res://objects/foes/Champaign.gd" type="Script" id=2]
+[ext_resource path="res://images/enemies/champaign/1x/label.png" type="Texture" id=3]
+[ext_resource path="res://images/enemies/champaign/1x/Champaign2.png" type="Texture" id=4]
+[ext_resource path="res://images/enemies/champaign/1x/Champaign3.png" type="Texture" id=5]
+[ext_resource path="res://images/enemies/champaign/1x/Champaign1.png" type="Texture" id=6]
+[ext_resource path="res://images/enemies/champaign/1x/label1.png" type="Texture" id=7]
+[ext_resource path="res://images/enemies/champaign/1x/label3.png" type="Texture" id=8]
+[ext_resource path="res://images/enemies/champaign/1x/label2.png" type="Texture" id=9]
+[ext_resource path="res://objects/foes/ChampaignExplosion.tscn" type="PackedScene" id=10]
+[ext_resource path="res://images/enemies/champaign/1x/Cap.png" type="Texture" id=11]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 197.681
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Explode",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Explode",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 97 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 105 )
+
+[node name="Champaign" type="Node2D" groups=["Enemies"]]
+scale = Vector2( 0.6, 0.6 )
+script = ExtResource( 2 )
+explode_attack = ExtResource( 10 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="ActivationArea" type="Area2D" parent="KinematicBody2D"]
+modulate = Color( 0.317647, 1, 0.278431, 1 )
+scale = Vector2( 1, 0.8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActivationArea"]
+shape = SubResource( 3 )
+
+[node name="Cap" type="Sprite" parent="KinematicBody2D"]
+visible = false
+position = Vector2( 0, -108.333 )
+texture = ExtResource( 11 )
+
+[node name="Sprites" type="Node2D" parent="KinematicBody2D"]
+position = Vector2( -2, 0 )
+
+[node name="Bottle" type="AnimatedSprite" parent="KinematicBody2D/Sprites"]
+frames = SubResource( 4 )
+
+[node name="Label" type="AnimatedSprite" parent="KinematicBody2D/Sprites"]
+frames = SubResource( 5 )
+
+[node name="Hitbox" type="Area2D" parent="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Hitbox"]
+modulate = Color( 1, 0, 0.772549, 1 )
+position = Vector2( 0, 29 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, 20 )
+shape = SubResource( 1 )
+
+[node name="JumpTimer" type="Timer" parent="KinematicBody2D"]
+wait_time = 0.203
+autostart = true
+
+[node name="ExplodeTimer" type="Timer" parent="KinematicBody2D"]
+wait_time = 0.53
+
+[connection signal="body_entered" from="KinematicBody2D/ActivationArea" to="." method="_on_ActivationArea_body_entered"]
+[connection signal="area_entered" from="KinematicBody2D/Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="timeout" from="KinematicBody2D/JumpTimer" to="." method="_on_JumpTimer_timeout"]
+[connection signal="timeout" from="KinematicBody2D/ExplodeTimer" to="." method="_on_ExplodeTimer_timeout"]

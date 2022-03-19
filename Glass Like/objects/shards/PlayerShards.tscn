@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://images/shard/Player Shards.png" type="Texture" id=1]
+[ext_resource path="res://objects/shards/Shards.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 18.0278
+
+[node name="PlayerShards" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.526037, 0.526037 )
+texture = ExtResource( 1 )
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.705744, 0.705744 )
+shape = SubResource( 1 )

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/foes/Cup.tscn" type="PackedScene" id=1]
+
+[node name="StageTemplateDONTUSE" type="Node2D"]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Cup" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 391, 222 )
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="PUTITEMSHERE" type="ColorRect" parent="."]
+margin_left = 328.0
+margin_top = 312.0
+margin_right = 568.0
+margin_bottom = 448.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

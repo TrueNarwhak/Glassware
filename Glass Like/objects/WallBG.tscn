@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://images/Wall/wall1.png" type="Texture" id=1]
+[ext_resource path="res://images/Wall/wall2.png" type="Texture" id=2]
+[ext_resource path="res://images/Wall/wall.png" type="Texture" id=3]
+[ext_resource path="res://images/lights/square mask.png" type="Texture" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 2
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.5
+} ]
+
+[node name="Wall" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 390, 246 )
+scale = Vector2( 2.52215, 2.52215 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+margin_right = 956.0
+margin_bottom = 538.0
+color = Color( 1, 0.705882, 0.815686, 0.964706 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 478, 269 )
+scale = Vector2( 29.875, 16.8125 )
+texture = ExtResource( 4 )
+mode = 2

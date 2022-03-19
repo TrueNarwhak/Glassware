@@ -1,0 +1,171 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://images/enemies/kettle/KettleTiltShoor.png" type="Texture" id=1]
+[ext_resource path="res://images/enemies/kettle/KettleTilt.png" type="Texture" id=2]
+[ext_resource path="res://objects/foes/Kettle.gd" type="Script" id=3]
+[ext_resource path="res://images/enemies/kettle/KettleCharge.png" type="Texture" id=4]
+[ext_resource path="res://objects/foes/CoffeeShot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/resorces/ItemSpawn.tres" type="Animation" id=6]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 640.45
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Shoot",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 61.0737
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Charges:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Charges:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Charges/CoffeeTopLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -107, -102 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Charges/CoffeBottomLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -107, 102 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Charges/CoffeBottomRight:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 107, 102 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Charges/CoffeeTopRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 107, -102 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[node name="Kettle" type="Node2D" groups=["Enemies"]]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 3 )
+coffee_shot = ExtResource( 5 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="ActivationArea" type="Area2D" parent="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActivationArea"]
+modulate = Color( 0.317647, 1, 0.278431, 1 )
+shape = SubResource( 5 )
+
+[node name="CoffeeCharge" type="Node2D" parent="KinematicBody2D"]
+
+[node name="Charges" type="Node2D" parent="KinematicBody2D/CoffeeCharge"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="CoffeeTopLeft" type="Sprite" parent="KinematicBody2D/CoffeeCharge/Charges"]
+position = Vector2( -107, -102 )
+texture = ExtResource( 4 )
+
+[node name="CoffeeTopRight" type="Sprite" parent="KinematicBody2D/CoffeeCharge/Charges"]
+position = Vector2( 107, -102 )
+texture = ExtResource( 4 )
+
+[node name="CoffeBottomLeft" type="Sprite" parent="KinematicBody2D/CoffeeCharge/Charges"]
+position = Vector2( -107, 102 )
+texture = ExtResource( 4 )
+
+[node name="CoffeBottomRight" type="Sprite" parent="KinematicBody2D/CoffeeCharge/Charges"]
+position = Vector2( 107, 102 )
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+frames = SubResource( 1 )
+offset = Vector2( 0, -10 )
+
+[node name="ShootPosition" type="Position2D" parent="KinematicBody2D/AnimatedSprite"]
+position = Vector2( 10, -100 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 2 )
+
+[node name="ShootTimer" type="Timer" parent="KinematicBody2D"]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../KinematicBody2D/CoffeeCharge")
+anims/RESET = SubResource( 3 )
+anims/charger = ExtResource( 6 )
+
+[connection signal="body_entered" from="KinematicBody2D/ActivationArea" to="." method="_on_ActivationArea_body_entered"]
+[connection signal="body_exited" from="KinematicBody2D/ActivationArea" to="." method="_on_ActivationArea_body_exited"]
+[connection signal="timeout" from="KinematicBody2D/ShootTimer" to="." method="_on_ShootTimer_timeout"]

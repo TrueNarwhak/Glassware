@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Blastzone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://rooms/stages/Stage 1.tscn" type="PackedScene" id=5]
+
+[node name="Controller" type="Node2D"]
+
+[node name="Wall" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="LeanCamera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 480, 271 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 464 )
+has_baseball = true
+
+[node name="Stage" parent="." instance=ExtResource( 5 )]
+
+[node name="BlastZones" type="Node2D" parent="."]
+
+[node name="Blastzone" parent="BlastZones" instance=ExtResource( 4 )]
+position = Vector2( -192, 248 )
+rotation = 3.14159
+scale = Vector2( 1.22189, -39.1446 )
+
+[node name="Blastzone2" parent="BlastZones" instance=ExtResource( 4 )]
+position = Vector2( 1128, 248 )
+rotation = 3.14159
+scale = Vector2( 1.22189, -39.1446 )
+
+[node name="Blastzone3" parent="BlastZones" instance=ExtResource( 4 )]
+position = Vector2( 464, -152 )
+rotation = 1.5708
+scale = Vector2( 1.22191, -68.6961 )
+
+[node name="Blastzone4" parent="BlastZones" instance=ExtResource( 4 )]
+position = Vector2( 464, 648 )
+rotation = 1.5708
+scale = Vector2( 1.22191, -68.6961 )
