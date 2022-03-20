@@ -11,7 +11,8 @@
 script = ExtResource( 6 )
 
 [node name="Wall" parent="." instance=ExtResource( 2 )]
-visible = false
+position = Vector2( -88, -55 )
+scale = Vector2( 1.16144, 1.16144 )
 
 [node name="LeanCamera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 271 )
