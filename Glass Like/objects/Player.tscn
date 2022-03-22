@@ -20,9 +20,14 @@ animations = [ {
 "name": "default",
 "speed": 0.1
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Shatter",
+"name": "Walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -30,15 +35,10 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Fall",
+"name": "Shatter",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 6.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]

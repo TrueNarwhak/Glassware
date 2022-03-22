@@ -42,6 +42,8 @@ export var has_anvil = false                   # anvil fast fall | WIP |
 export var has_bomb = false                    # explode
 export var has_ghost = false                   # summon spirts on defeating enemy
 
+var inventory = []
+
 export var mushroom_force = 800
 export var frog_jump = 400
 export(PackedScene) var beachball
@@ -52,7 +54,10 @@ export var anvil_gravity = 77
 # ------------------------------------ #
 
 func ready():
-	pass
+	if "bat" in inventory:
+		print("yes")
+	else:
+		print("no")
 
 func _physics_process(delta):
 	

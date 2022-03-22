@@ -10,39 +10,41 @@
 [node name="Controller" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="Wall" parent="." instance=ExtResource( 2 )]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Wall" parent="Node2D" instance=ExtResource( 2 )]
 position = Vector2( -88, -55 )
 scale = Vector2( 1.16144, 1.16144 )
 
-[node name="LeanCamera" parent="." instance=ExtResource( 3 )]
+[node name="LeanCamera" parent="Node2D" instance=ExtResource( 3 )]
 position = Vector2( 480, 271 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="Player" parent="Node2D" instance=ExtResource( 1 )]
 position = Vector2( 128, 464 )
 
-[node name="Stage" parent="." instance=ExtResource( 5 )]
+[node name="Stage" parent="Node2D" instance=ExtResource( 5 )]
 
-[node name="BlastZones" type="Node2D" parent="."]
+[node name="BlastZones" type="Node2D" parent="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Blastzone" parent="BlastZones" instance=ExtResource( 4 )]
+[node name="Blastzone" parent="Node2D/BlastZones" instance=ExtResource( 4 )]
 position = Vector2( -192, 248 )
 rotation = 3.14159
 scale = Vector2( 1.22189, -39.1446 )
 
-[node name="Blastzone2" parent="BlastZones" instance=ExtResource( 4 )]
+[node name="Blastzone2" parent="Node2D/BlastZones" instance=ExtResource( 4 )]
 position = Vector2( 1128, 248 )
 rotation = 3.14159
 scale = Vector2( 1.22189, -39.1446 )
 
-[node name="Blastzone3" parent="BlastZones" instance=ExtResource( 4 )]
+[node name="Blastzone3" parent="Node2D/BlastZones" instance=ExtResource( 4 )]
 position = Vector2( 464, -152 )
 rotation = 1.5708
 scale = Vector2( 1.22191, -68.6961 )
 
-[node name="Blastzone4" parent="BlastZones" instance=ExtResource( 4 )]
+[node name="Blastzone4" parent="Node2D/BlastZones" instance=ExtResource( 4 )]
 position = Vector2( 464, 648 )
 rotation = 1.5708
 scale = Vector2( 1.22191, -68.6961 )
