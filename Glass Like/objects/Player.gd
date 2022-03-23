@@ -30,18 +30,6 @@ onready var death_timer = $DeathTimer
 
 # ------------------------------------ #
 
-export var has_baseball = false                # reflect projectile | DONE |
-export var has_seal = false                    # throw beach ball on attack | WIP |
-export var has_frog = false                    # jump extra height | DONE |
-export var has_marlin = false                  # fast charge
-export var has_leprechaun = false              # lucky
-export var has_mushroom = false                # bounce on head | DONE | 
-export var has_bat = false                     # midair jump
-export var has_watering_can = false            # plant flowers | WIP |
-export var has_anvil = false                   # anvil fast fall | WIP |
-export var has_bomb = false                    # explode
-export var has_ghost = false                   # summon spirts on defeating enemy
-
 var inventory = []
 
 export var mushroom_force = 800
@@ -60,10 +48,9 @@ func ready():
 		print("no")
 
 func _physics_process(delta):
-	
 	# Get Inputs
 	var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var current_jump = JUMP_FORCE + frog_jump*int(has_frog)
+	var current_jump = JUMP_FORCE + frog_jump*int(inventory.has("frog"))
 	
 	# Physics
 	if x_input != 0:
@@ -130,7 +117,7 @@ func _physics_process(delta):
 		if beachball_count > 3:
 			beachball_count = 0
 		
-		if has_seal and beachball_count == 3:
+		if inventory.has("seal") and beachball_count == 3:
 			var this_beachball = beachball.instance()
 			this_beachball.global_position = ball_aim_pos.global_position
 			get_parent().add_child(this_beachball)
@@ -139,7 +126,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, Vector2.UP)
 	
 	# Items
-	if has_anvil and !is_on_floor():
+	if inventory.has("anvil") and !is_on_floor():
 		if Input.is_action_pressed("move_down"):
 			motion.y += anvil_gravity * delta * TARGET_FPS
 				
@@ -149,7 +136,7 @@ func _physics_process(delta):
 #				get_parent().add_child(this_anvil_stomp)
 
 func _on_MushroomStomp_body_entered(body):
-	if has_mushroom and body.get_parent().is_in_group("Enemies"):
+	if inventory.has("mushroom") and body.get_parent().is_in_group("Enemies"):
 		body.get_parent().survive -= 1
 		print("stomp!")
 		motion.y = -mushroom_force
@@ -167,7 +154,7 @@ func shatter():
 
 
 func _on_WateringCanTimer_timeout():
-	if has_watering_can and is_on_floor() and !motion.x == 0:
+	if inventory.has("wateringcan") and is_on_floor() and !motion.x == 0:
 		var this_flower = flower.instance()
 		this_flower.global_position = feet_pos.get_global_position()
 		get_parent().add_child(this_flower)
