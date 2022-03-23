@@ -11,7 +11,7 @@ height = 130.0
 radius = 15.0001
 height = 51.9999
 
-[node name="CoffeeShot" type="KinematicBody2D" groups=["EnemyProjectile"]]
+[node name="CoffeeShot" type="KinematicBody2D" groups=["EnemyProjectile", "Projectile"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )

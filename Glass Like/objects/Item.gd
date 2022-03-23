@@ -3,6 +3,8 @@ extends Area2D
 onready var sprite = $Visual/Item
 onready var anim_player = $AnimationPlayer
 
+onready var itemhud = get_parent().get_node("ItemHud")
+
 var item_index
 var item_selected
 
@@ -51,12 +53,20 @@ func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):
 		print("collected")
 		
-		# Attacks
+		# Attacks	
 		body.can_attack_boost = true
 		body.set_physics_process(false)
 		
 		# Inventory
 		body.inventory.append(item_selected)
+		
+#		var this_slot = Sprite.new()
+#		this_slot.texture = item_sprites[item_index]
+#		itemhud.add_child(this_slot)
+		
+		# item pickup
+		# create new item slot
+		# assign the item slot the texture
 		
 		# PUT INTO GLOBAL 
 #		item_sprites.remove(item_index)
@@ -66,3 +76,5 @@ func _on_Item_body_entered(body):
 		get_parent().all_enemies_gone_called = true
 		get_parent().stage_shift(next_stage)
 		queue_free()
+
+

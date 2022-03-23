@@ -28,6 +28,9 @@ func ready():
 	pass
 
 func _process(delta):
+	print(enemies.get_child_count())
+#	print(get_nodes_in_group("EnemyProjectile").is_inside_tree())
+	
 	if enemies.get_child_count() == 0:
 		defeated_all()
 	

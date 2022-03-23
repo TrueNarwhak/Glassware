@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/Items/ItemHud.png" type="Texture" id=1]
+[ext_resource path="res://objects/ui/ItemHud.gd" type="Script" id=4]
+
+[node name="ItemHud" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Box" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+
+[node name="ItemSprites" type="Node2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
