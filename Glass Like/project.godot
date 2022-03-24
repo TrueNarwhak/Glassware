@@ -51,6 +51,7 @@ config/icon="res://images/icon.png"
 [autoload]
 
 Options="*res://Options.gd"
+ItemAndStages="*res://ItemAndStages.gd"
 
 [display]
 

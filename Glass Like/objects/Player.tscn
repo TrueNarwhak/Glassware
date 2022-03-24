@@ -20,10 +20,10 @@ animations = [ {
 "name": "default",
 "speed": 0.1
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "Walk",
-"speed": 6.0
+"name": "Jump",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
@@ -35,10 +35,10 @@ animations = [ {
 "name": "Shatter",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Jump",
-"speed": 5.0
+"name": "Walk",
+"speed": 6.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -85,16 +85,6 @@ one_shot = true
 [node name="WateringCanTimer" type="Timer" parent="."]
 wait_time = 0.538
 autostart = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

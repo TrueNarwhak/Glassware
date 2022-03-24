@@ -42,10 +42,7 @@ export var anvil_gravity = 77
 # ------------------------------------ #
 
 func ready():
-	if "bat" in inventory:
-		print("yes")
-	else:
-		print("no")
+	pass
 
 func _physics_process(delta):
 	# Get Inputs
