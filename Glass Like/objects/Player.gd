@@ -46,7 +46,7 @@ func ready():
 
 func _physics_process(delta):
 	# Get Inputs
-	var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var x_input = Input.get_action_strength("move_right") - 1 * int(jump_death_called) - Input.get_action_strength("move_left")
 	var current_jump = JUMP_FORCE + frog_jump*int(inventory.has("frog"))
 	
 	# Physics
@@ -57,7 +57,7 @@ func _physics_process(delta):
 		sprite.playing = true
 		sprite.play("Walk")
 		
-		if is_on_floor():
+		if is_on_floor() and !jump_death_called:
 			sprite.flip_h = x_input < 0
 	else:
 		sprite.playing = false
