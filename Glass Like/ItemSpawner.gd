@@ -1,6 +1,6 @@
 extends Position2D
 
-export(PackedScene) var item
+var item = load("res://objects/Item.tscn")
 
 onready var anim = $AnimationPlayer
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ItemSpawner.gd" type="Script" id=1]
-[ext_resource path="res://objects/Item.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/attacks/Explosion.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -344,7 +343,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_gizmo_extents_": 91.7
 }
-item = ExtResource( 2 )
 
 [node name="Orbs" type="Node2D" parent="."]
 

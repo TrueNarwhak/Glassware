@@ -9,21 +9,6 @@ export var shift_speed = 26
 var all_enemies_gone_called = false
 var can_shift = false
 
-var current_possible_stages
-
-#THIS SHOULD BE IN ITEM
-onready var next_stage = load("res://rooms/stages/StageThreeKettles.tscn")
-onready var intensity_1_stages = [
-	load("res://rooms/stages/StageThreeKettles.tscn")
-]
-
-# var current_stages 
-
-# var inenstiy1stages
-# var inenstiy2stages
-# var inenstiy3stages
-# var inenstiy4stages
-
 func ready():
 	pass
 
@@ -52,11 +37,6 @@ func defeated_all():
 		
 		if get_node("ItemSpawner"):
 			item_spawner.anim.play("ItemSpawn")
-		
-		
-		# THIS SHOULD BE CALLED IN THE ITEM SCENE
-#		all_enemies_gone_called = true
-#		stage_shift(next_stage)
 
 func stage_shift(selected_stage):
 	var this_stage = selected_stage.instance()

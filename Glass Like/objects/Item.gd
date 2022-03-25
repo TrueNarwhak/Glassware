@@ -44,6 +44,8 @@ func _on_Item_body_entered(body):
 		ItemAndStages.items_current.remove(item_index)
 		
 		# Stages
+		ItemAndStages.next_stage = ItemAndStages.intensity_1_stages[randi() % ItemAndStages.intensity_1_stages.size()]
+		
 		get_parent().all_enemies_gone_called = true
 		get_parent().stage_shift(ItemAndStages.next_stage)
 		queue_free()
