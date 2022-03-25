@@ -16,10 +16,10 @@ intensity = 1
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Cup" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 312, 416 )
+position = Vector2( 300, 416 )
 
 [node name="Cup2" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 688, 416 )
+position = Vector2( 660, 416 )
 
 [node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 480, 200 )
