@@ -6,8 +6,14 @@ func _ready():
 
 
 func _on_Blastzone_body_entered(body):
-	if body.is_in_group("Player") or body.is_in_group("Enemies"):
+	var this_body = body.get_parent()
+	
+	if body.is_in_group("Player"):
 		body.shatter()
+	
+	if this_body.is_in_group("Enemies"):
+		if this_body.get_parent().get_parent().get_global_position().x == 0:
+			this_body.survive -= 1
 	
 	if body.is_in_group("Projectile") or body.is_in_group("Beachball"):
 		body.queue_free()
