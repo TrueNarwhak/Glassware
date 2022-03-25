@@ -27,12 +27,12 @@ position = Vector2( 480, 200 )
 [node name="Ground" type="Node2D" parent="."]
 
 [node name="Shelf" type="StaticBody2D" parent="Ground"]
-position = Vector2( 78, 502 )
+position = Vector2( 80, 502 )
 collision_layer = 9
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Shelf"]
-position = Vector2( 401, 8 )
+position = Vector2( 400, 8 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Ground/Shelf"]

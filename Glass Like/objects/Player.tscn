@@ -46,7 +46,7 @@ radius = 26.0
 height = 44.0
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 39, 21 )
+extents = Vector2( 52, 36 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 scale = Vector2( 0.5, 0.5 )
@@ -69,7 +69,7 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomStomp"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 0, 35 )
+position = Vector2( 0, 50 )
 shape = SubResource( 3 )
 
 [node name="FeetPos" type="Position2D" parent="."]

@@ -30,7 +30,7 @@ onready var death_timer = $DeathTimer
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["mushroom"]
 
 export var mushroom_force = 800
 export var frog_jump = 400
@@ -133,7 +133,7 @@ func _physics_process(delta):
 #				get_parent().add_child(this_anvil_stomp)
 
 func _on_MushroomStomp_body_entered(body):
-	if inventory.has("mushroom") and body.get_parent().is_in_group("Enemies"):
+	if inventory.has("mushroom") and body.get_parent().is_in_group("Enemies") and !is_on_floor():
 		body.get_parent().survive -= 1
 		print("stomp!")
 		motion.y = -mushroom_force

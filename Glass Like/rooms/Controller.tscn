@@ -19,29 +19,26 @@ scale = Vector2( 1.16144, 1.16144 )
 position = Vector2( 480, 271 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 464, -72 )
+position = Vector2( 480, -72 )
 
 [node name="Stage" parent="." instance=ExtResource( 5 )]
 
 [node name="ItemHud" parent="." instance=ExtResource( 7 )]
 
 [node name="BlastZones" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Blastzone" parent="BlastZones" instance=ExtResource( 4 )]
-position = Vector2( -192, 248 )
+position = Vector2( -192, 100 )
 rotation = 3.14159
-scale = Vector2( 1.22189, -39.1446 )
+scale = Vector2( 1.43924, -54.6218 )
 
 [node name="Blastzone2" parent="BlastZones" instance=ExtResource( 4 )]
-position = Vector2( 1128, 248 )
+position = Vector2( 1114, 100 )
 rotation = 3.14159
-scale = Vector2( 1.22189, -39.1446 )
+scale = Vector2( 1.43924, -54.6218 )
 
 [node name="Blastzone3" parent="BlastZones" instance=ExtResource( 4 )]
-position = Vector2( 464, -152 )
+position = Vector2( 464, -448 )
 rotation = 1.5708
 scale = Vector2( 1.22191, -68.6961 )
 
