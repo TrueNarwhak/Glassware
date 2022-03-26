@@ -1,6 +1,7 @@
 extends Area2D
 
 export var extra_boost_force = 200
+export(PackedScene) var tnt 
 
 func _ready():
 	$AnimationPlayer.play("Attacking")
@@ -22,6 +23,14 @@ func _on_SlashAttack_body_entered(body):
 		
 		if is_processing():
 			if this_body.is_in_group("Enemies"):
+				
+				# TNT
+				if get_parent().inventory.has("tnt"):
+					var this_tnt = tnt.instance()
+					this_tnt.global_position = this_body.body.get_global_position()
+					get_parent().get_parent().add_child(this_tnt)
+				
+				# Kill
 				this_body.survive -= 1
 				
 				get_parent().can_attack_boost = true
