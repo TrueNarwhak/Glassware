@@ -13,8 +13,18 @@ func _ready():
 	pass
 
 func _process(delta):
+	
+	# Death
 	if survive <= 0:
 		shatter()
+	
+	# Activation
+#	if get_parent().get_global_position().x == 0:
+#		set_process(true)
+#		set_physics_process(true)
+#	else:
+#		set_process(false)
+#		set_physics_process(false)
 
 func uhhhhh():
 	print("aaaa")

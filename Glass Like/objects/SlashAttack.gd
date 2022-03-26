@@ -20,12 +20,13 @@ func end():
 func _on_SlashAttack_body_entered(body):
 		var this_body = body.get_parent()
 		
-		if this_body.is_in_group("Enemies"):
-			this_body.survive -= 1
+		if is_processing():
+			if this_body.is_in_group("Enemies"):
+				this_body.survive -= 1
+				
+				get_parent().can_attack_boost = true
+	#			get_parent().motion = extra_boost_force * get_local_mouse_position().normalized()
 			
-			get_parent().can_attack_boost = true
-#			get_parent().motion = extra_boost_force * get_local_mouse_position().normalized()
-		
-		if body.is_in_group("EnemyProjectile") and get_parent().inventory.has("baseball"):
-			print("reflect!")
-			body.motion = -body.motion
+			if body.is_in_group("EnemyProjectile") and get_parent().inventory.has("baseball"):
+				print("reflect!")
+				body.motion = -body.motion
