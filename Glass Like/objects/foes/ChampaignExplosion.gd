@@ -15,5 +15,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_ChampaignExplosion_body_entered(body):
+	var this_body = body.get_parent()
+	
 	if body.is_in_group("Player"):
 		body.shatter()
+	
+	if this_body.is_in_group("Enemies"):
+		this_body.survive -= 1

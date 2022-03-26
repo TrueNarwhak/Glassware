@@ -80,12 +80,12 @@ func _on_Hitbox_area_entered(area):
 
 
 func _on_ActivationArea_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and body.is_physics_processing():
 		$KinematicBody2D/ExplodeTimer.start()
 		$KinematicBody2D/JumpTimer.stop()
 	
-	bottle_sprite.play("Explode")
-	label_sprite.play("Explode")
+		bottle_sprite.play("Explode")
+		label_sprite.play("Explode")
 
 
 func _on_ExplodeTimer_timeout():
