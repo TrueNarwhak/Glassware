@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://images/player/PlayerStand.png" type="Texture" id=1]
 [ext_resource path="res://images/player/PlayerWalk.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://objects/AnvilStomp.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/Beachball.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/shards/PlayerShards.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/Floppydisk.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,11 +20,6 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 0.1
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -39,6 +35,11 @@ animations = [ {
 "loop": true,
 "name": "Walk",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -56,6 +57,7 @@ shard = ExtResource( 12 )
 beachball = ExtResource( 11 )
 flower = ExtResource( 9 )
 anvil_stomp = ExtResource( 10 )
+floppy_disk = ExtResource( 13 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 11, -37 )

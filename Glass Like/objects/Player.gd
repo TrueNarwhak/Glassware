@@ -30,13 +30,14 @@ onready var death_timer = $DeathTimer
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["floppydisk"]
 
 export var mushroom_force = 800
 export var frog_jump = 400
 export(PackedScene) var beachball
 export(PackedScene) var flower
 export(PackedScene) var anvil_stomp
+export(PackedScene) var floppy_disk
 export var anvil_gravity = 77
 
 # ------------------------------------ #
@@ -46,7 +47,7 @@ func ready():
 
 func _physics_process(delta):
 	# Get Inputs
-	var x_input = Input.get_action_strength("move_right") - 1 * int(jump_death_called) - Input.get_action_strength("move_left")
+	var x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
 	var current_jump = JUMP_FORCE + frog_jump*int(inventory.has("frog"))
 	
 	# Physics
@@ -122,7 +123,8 @@ func _physics_process(delta):
 	# Apply physics
 	motion = move_and_slide(motion, Vector2.UP)
 	
-	# Items
+	# Items -------
+	# Anvil
 	if inventory.has("anvil") and !is_on_floor():
 		if Input.is_action_pressed("move_down"):
 			motion.y += anvil_gravity * delta * TARGET_FPS
@@ -131,6 +133,14 @@ func _physics_process(delta):
 #				var this_anvil_stomp = anvil_stomp.instance()
 #				this_anvil_stomp.global_position = get_global_position()
 #				get_parent().add_child(this_anvil_stomp)
+	
+	# Floppy disk
+	if inventory.has("floppydisk"):
+		if Input.is_action_just_pressed("move_down") and !get_parent().has_node("FloppyDisk"):
+			var this_disk = floppy_disk.instance()
+			
+			this_disk.position = global_position
+			get_parent().add_child(this_disk)
 
 func _on_MushroomStomp_body_entered(body):
 	if inventory.has("mushroom") and body.get_parent().is_in_group("Enemies") and !is_on_floor():
