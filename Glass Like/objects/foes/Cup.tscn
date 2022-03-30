@@ -26,6 +26,9 @@ extents = Vector2( 52, 36.5 )
 [node name="Cup" type="Node2D" groups=["Enemies"]]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
+jump_distance = 255
+accel = 45
+gravity = 12
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -44,7 +47,7 @@ position = Vector2( 0, 6.5 )
 shape = SubResource( 2 )
 
 [node name="JumpTimer" type="Timer" parent="KinematicBody2D"]
-wait_time = 2.5
+wait_time = 1.407
 autostart = true
 
 [connection signal="body_entered" from="KinematicBody2D/Hitbox" to="." method="_on_Hitbox_body_entered"]

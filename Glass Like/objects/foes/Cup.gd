@@ -1,7 +1,7 @@
 extends Enemy
 
-export var jump_height = 300
-export var jump_distance = 64
+export var jump_height = 200
+export var jump_distance = 200
 
 export var accel = 8
 export var gravity = 7

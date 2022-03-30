@@ -22,6 +22,7 @@ var motion = Vector2.ZERO
 var beachball_count = 0
 
 var jump_death_called = false
+var x_input
 
 onready var sprite = $AnimatedSprite
 onready var feet_pos = $FeetPos
@@ -30,14 +31,16 @@ onready var death_timer = $DeathTimer
 
 # ------------------------------------ #
 
-var inventory = ["floppydisk"]
+var inventory = ["wateringcan"]
 
 export var mushroom_force = 800
 export var frog_jump = 400
+export var flower_slow = 35
 export(PackedScene) var beachball
 export(PackedScene) var flower
 export(PackedScene) var anvil_stomp
 export(PackedScene) var floppy_disk
+onready var floppy_disk_exists = get_parent().has_node("Floppydisk")
 export var anvil_gravity = 77
 
 # ------------------------------------ #
@@ -47,7 +50,7 @@ func ready():
 
 func _physics_process(delta):
 	# Get Inputs
-	var x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
+	x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
 	var current_jump = JUMP_FORCE + frog_jump*int(inventory.has("frog"))
 	
 	# Physics
@@ -135,8 +138,8 @@ func _physics_process(delta):
 #				get_parent().add_child(this_anvil_stomp)
 	
 	# Floppy disk
-	if inventory.has("floppydisk"):
-		if Input.is_action_just_pressed("move_down") and !get_parent().has_node("FloppyDisk"):
+	if inventory.has("floppydisk") and !floppy_disk_exists:
+		if Input.is_action_just_pressed("move_down"):
 			var this_disk = floppy_disk.instance()
 			
 			this_disk.position = global_position
@@ -161,7 +164,7 @@ func shatter():
 
 
 func _on_WateringCanTimer_timeout():
-	if inventory.has("wateringcan") and is_on_floor() and !motion.x == 0:
+	if inventory.has("wateringcan") and is_on_floor() and !x_input == 0:
 		var this_flower = flower.instance()
 		this_flower.global_position = feet_pos.get_global_position()
 		get_parent().add_child(this_flower)

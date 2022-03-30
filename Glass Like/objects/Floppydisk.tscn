@@ -59,7 +59,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 35
+frame = 18
 playing = true
 
 [node name="Label" type="Label" parent="."]
