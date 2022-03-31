@@ -10,7 +10,7 @@ radius = 70.2567
 [sub_resource type="CircleShape2D" id=1]
 radius = 63.1981
 
-[node name="Beachball" type="RigidBody2D"]
+[node name="Beachball" type="RigidBody2D" groups=["ItemProjectiles"]]
 mass = 341.631
 physics_material_override = ExtResource( 2 )
 gravity_scale = 13.13

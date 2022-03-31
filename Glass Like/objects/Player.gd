@@ -31,7 +31,7 @@ onready var death_timer = $DeathTimer
 
 # ------------------------------------ #
 
-var inventory = ["wateringcan"]
+var inventory = ["pin"]
 
 export var mushroom_force = 800
 export var frog_jump = 400

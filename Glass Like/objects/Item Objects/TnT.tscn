@@ -8,7 +8,7 @@
 radius = 16.0
 height = 24.0
 
-[node name="TnT" type="RigidBody2D"]
+[node name="TnT" type="RigidBody2D" groups=["ItemProjectiles"]]
 gravity_scale = 7.79
 script = ExtResource( 2 )
 explosion = ExtResource( 3 )

@@ -2,8 +2,13 @@ extends Area2D
 
 export var extra_boost_force = 200
 export(PackedScene) var tnt 
+export(PackedScene) var pin
+
+# ----------------------------------------------- #
 
 func _ready():
+	randomize()
+	
 	$AnimationPlayer.play("Attacking")
 	look_at(get_global_mouse_position())
 	
@@ -29,6 +34,14 @@ func _on_SlashAttack_body_entered(body):
 					var this_tnt = tnt.instance()
 					this_tnt.global_position = this_body.body.get_global_position()
 					get_parent().get_parent().add_child(this_tnt)
+				
+				# Pin
+				if get_parent().inventory.has("pin"):
+					var this_pin = pin.instance()
+					
+#					this_pin.position.y = -100
+					this_pin.position.x = randi() % 960 + 100
+					get_parent().get_parent().add_child(this_pin)
 				
 				# Kill
 				this_body.survive -= 1
