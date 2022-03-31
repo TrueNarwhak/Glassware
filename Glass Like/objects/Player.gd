@@ -31,7 +31,7 @@ onready var death_timer = $DeathTimer
 
 # ------------------------------------ #
 
-var inventory = ["pin"]
+var inventory = []
 
 export var mushroom_force = 800
 export var frog_jump = 400
@@ -115,10 +115,11 @@ func _physics_process(delta):
 		
 		# Items
 		beachball_count += 1
-		if beachball_count > 3:
+		if beachball_count > 1:
 			beachball_count = 0
 		
-		if inventory.has("seal") and beachball_count == 3:
+		if inventory.has("seal") and beachball_count == 1:
+#		if inventory.has("seal"):
 			var this_beachball = beachball.instance()
 			this_beachball.global_position = ball_aim_pos.global_position
 			get_parent().add_child(this_beachball)
