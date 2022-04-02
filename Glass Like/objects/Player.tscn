@@ -85,7 +85,7 @@ wait_time = 0.748
 one_shot = true
 
 [node name="WateringCanTimer" type="Timer" parent="."]
-wait_time = 0.538
+wait_time = 0.416
 autostart = true
 
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]

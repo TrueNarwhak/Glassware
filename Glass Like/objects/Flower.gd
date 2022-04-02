@@ -12,6 +12,7 @@ func _process(delta):
 	anim.play("Idle")
 	
 	if !stage_cast.is_colliding():
+		anim.stop()
 		anim.play("Wilt")
 
 
