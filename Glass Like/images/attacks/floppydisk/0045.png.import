@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/0045.png-2ee9ff0d2ec746e1eda67d1b86785159.stex"
+path="res://.import/0045.png-4eda81d8cafc21016ac937dc54baf978.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/attacks/floppydisk/0045.png"
-dest_files=[ "res://.import/0045.png-2ee9ff0d2ec746e1eda67d1b86785159.stex" ]
+source_file="res://images/Attacks/floppydisk/0045.png"
+dest_files=[ "res://.import/0045.png-4eda81d8cafc21016ac937dc54baf978.stex" ]
 
 [params]
 

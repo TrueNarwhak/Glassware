@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Stem.png-1e79736e9b38419ac49f8c6e6c116186.stex"
+path="res://.import/Stem.png-fbbb47138e8335b31ae187b86ae6598e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/attacks/Flower/Stem.png"
-dest_files=[ "res://.import/Stem.png-1e79736e9b38419ac49f8c6e6c116186.stex" ]
+source_file="res://images/Attacks/Flower/Stem.png"
+dest_files=[ "res://.import/Stem.png-fbbb47138e8335b31ae187b86ae6598e.stex" ]
 
 [params]
 

@@ -2,7 +2,7 @@ extends Area2D
 
 
 func _ready():
-	$AnimationPlayer.play("Expand")
+	$AnimationPlayer.play("Appear")
 
 func _process(delta):
 	pass

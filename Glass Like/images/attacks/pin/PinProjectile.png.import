@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PinProjectile.png-f88c7340e8e70acf813f55b1db984a23.stex"
+path="res://.import/PinProjectile.png-a3d8be8209dec7b512418d7af660bd8b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/attacks/pin/PinProjectile.png"
-dest_files=[ "res://.import/PinProjectile.png-f88c7340e8e70acf813f55b1db984a23.stex" ]
+source_file="res://images/Attacks/pin/PinProjectile.png"
+dest_files=[ "res://.import/PinProjectile.png-a3d8be8209dec7b512418d7af660bd8b.stex" ]
 
 [params]
 

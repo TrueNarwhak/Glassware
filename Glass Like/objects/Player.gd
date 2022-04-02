@@ -17,7 +17,6 @@ export(PackedScene) var shard
 
 var is_attacking = false
 var can_attack_boost = true
-var landing = true
 var motion = Vector2.ZERO
 var beachball_count = 0
 
@@ -41,7 +40,7 @@ export(PackedScene) var flower
 export(PackedScene) var anvil_stomp
 export(PackedScene) var floppy_disk
 onready var floppy_disk_exists = get_parent().has_node("Floppydisk")
-export var anvil_gravity = 77
+export var anvil_gravity = 350
 
 # ------------------------------------ #
 
@@ -69,18 +68,22 @@ func _physics_process(delta):
 			sprite.play("default")
 	
 	# Apply Gravity
-	motion.y += GRAVITY * delta * TARGET_FPS
+	motion.y += GRAVITY * delta * TARGET_FPS\
 	
 	if is_on_floor():
+		
+		# If not moving
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, FRICTION * delta)
-			
+		
+		# Jumping
 		if Input.is_action_just_pressed("jump"):
 			motion.y = -current_jump
 		
-		if landing:
-			landing = false
+		# Landing
 		
+		
+		# Attack boosting
 		can_attack_boost = true
 	else:
 		
@@ -90,13 +93,13 @@ func _physics_process(delta):
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 		
+		# Animation
 		if motion.y < 0:
 			sprite.play("Jump")
 		else:
 			sprite.play("Fall")
 		
-		if !landing:
-			landing = true
+		# Landing
 	
 	if jump_death_called:
 		sprite.play("Shatter")
@@ -129,14 +132,9 @@ func _physics_process(delta):
 	
 	# Items -------
 	# Anvil
-	if inventory.has("anvil") and !is_on_floor():
+	if inventory.has("anvil") and !is_on_floor() and !jump_death_called:
 		if Input.is_action_pressed("move_down"):
 			motion.y += anvil_gravity * delta * TARGET_FPS
-				
-#			if landing:
-#				var this_anvil_stomp = anvil_stomp.instance()
-#				this_anvil_stomp.global_position = get_global_position()
-#				get_parent().add_child(this_anvil_stomp)
 	
 	# Floppy disk
 	if inventory.has("floppydisk") and !floppy_disk_exists:
@@ -146,22 +144,25 @@ func _physics_process(delta):
 			this_disk.position = global_position
 			get_parent().add_child(this_disk)
 
+# ---------------------------------------------------------------- #
+
 func _on_MushroomStomp_body_entered(body):
+	
+	# Mushroom
 	if inventory.has("mushroom") and body.get_parent().is_in_group("Enemies") and !is_on_floor():
 		body.get_parent().survive -= 1
 		print("stomp!")
 		motion.y = -mushroom_force
-
-func shatter():
-	print("Shxrch!")
 	
-	if !jump_death_called:
-		motion.y = -death_jump
+	# Anvil
+	if inventory.has("anvil") and Input.is_action_pressed("move_down") and body.is_in_group("StageGround"):
+		var this_stomp = anvil_stomp.instance()
+		this_stomp.global_position.x = get_global_position().x
+		this_stomp.global_position.y = get_global_position().y + 25
+		get_parent().add_child(this_stomp)
 		
-		death_timer.start()
-		
-		jump_death_called = true
-	
+		if body.get_parent().is_in_group("Enemies"):
+			body.get_parent().survive -= 1
 
 
 func _on_WateringCanTimer_timeout():
@@ -169,6 +170,8 @@ func _on_WateringCanTimer_timeout():
 		var this_flower = flower.instance()
 		this_flower.global_position = feet_pos.get_global_position()
 		get_parent().add_child(this_flower)
+
+# ---------------------------------------------------------------- #
 
 
 func _on_DeathTimer_timeout():
@@ -180,3 +183,15 @@ func _on_DeathTimer_timeout():
 		var this_shard = shard.instance()
 		this_shard.position = get_global_position()
 		get_tree().get_root().add_child(this_shard)
+
+
+func shatter():
+	print("Shxrch!")
+	
+	if !jump_death_called:
+		motion.y = -death_jump
+		
+		death_timer.start()
+		
+		jump_death_called = true
+	

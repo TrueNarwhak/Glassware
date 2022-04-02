@@ -29,7 +29,7 @@ position = Vector2( 483, 165 )
 
 [node name="Ground" type="Node2D" parent="."]
 
-[node name="Shelf" type="StaticBody2D" parent="Ground"]
+[node name="Shelf" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 231, 502 )
 collision_layer = 9
 collision_mask = 9
@@ -91,7 +91,7 @@ texture = ExtResource( 3 )
 position = Vector2( 446, 10 )
 texture = ExtResource( 3 )
 
-[node name="Shelf2" type="StaticBody2D" parent="Ground"]
+[node name="Shelf2" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 118, 406 )
 collision_layer = 9
 collision_mask = 9
@@ -121,7 +121,7 @@ texture = ExtResource( 3 )
 position = Vector2( 39.5, 2 )
 texture = ExtResource( 3 )
 
-[node name="Shelf3" type="StaticBody2D" parent="Ground"]
+[node name="Shelf3" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 838, 406 )
 collision_layer = 9
 collision_mask = 9

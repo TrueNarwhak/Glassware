@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FlowerBlue.png-93df5965da022ec9aa07205780036e14.stex"
+path="res://.import/FlowerBlue.png-e3bd6cd304e5ad602fa1188169b53bdc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/attacks/Flower/FlowerBlue.png"
-dest_files=[ "res://.import/FlowerBlue.png-93df5965da022ec9aa07205780036e14.stex" ]
+source_file="res://images/Attacks/Flower/FlowerBlue.png"
+dest_files=[ "res://.import/FlowerBlue.png-e3bd6cd304e5ad602fa1188169b53bdc.stex" ]
 
 [params]
 
