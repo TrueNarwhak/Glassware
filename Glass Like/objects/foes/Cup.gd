@@ -21,6 +21,7 @@ func _ready():
 
 func _physics_process(delta):
 	
+	# Physicis
 	if !body.is_on_floor(): 
 		motion.x -= accel * delta * target_fps
 		motion.x = clamp(motion.x, -current_jump_distance, current_jump_distance)
@@ -35,6 +36,7 @@ func _physics_process(delta):
 	
 	motion = body.move_and_slide(motion, Vector2.UP) 
 	
+	# Face Player
 	if player.get_global_position().x >= body.global_position.x:
 		sprite.flip_h = true
 		current_jump_distance = -jump_distance

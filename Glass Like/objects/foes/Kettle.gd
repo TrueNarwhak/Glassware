@@ -20,6 +20,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	
+	# Face player
 	sprite.rotation_degrees = lerp(sprite.rotation_degrees, rad2deg(get_angle_to(player.position)) + 90, aim_speed)
 #	sprite.rotation_degrees = rad2deg(get_angle_to(get_node("../Player").position)) + 90
 	
