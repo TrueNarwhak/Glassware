@@ -27,10 +27,11 @@ onready var sprite = $AnimatedSprite
 onready var feet_pos = $FeetPos
 onready var ball_aim_pos = $BallAimPos
 onready var death_timer = $DeathTimer
+onready var bat_wings = $BatWings
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["bat"]
 
 export var mushroom_force = 800
 export var frog_jump = 400
@@ -42,6 +43,9 @@ export(PackedScene) var anvil_stomp
 export(PackedScene) var floppy_disk
 onready var floppy_disk_exists = get_parent().has_node("Floppydisk")
 export var anvil_gravity = 350
+export var bat_flap = 536
+var current_bat_flap = bat_flap
+export var bat_decay = 5
 
 # ------------------------------------ #
 
@@ -72,7 +76,7 @@ func _physics_process(delta):
 			sprite.play("default")
 	
 	# Apply Gravity
-	motion.y += GRAVITY * delta * TARGET_FPS\
+	motion.y += GRAVITY * delta * TARGET_FPS
 	
 	if is_on_floor():
 		
@@ -86,6 +90,9 @@ func _physics_process(delta):
 		
 		# Attack boosting
 		can_attack_boost = true
+		
+		# Items
+		current_bat_flap = bat_flap
 	else:
 		
 		if Input.is_action_just_released("jump") and motion.y < -current_jump/2:
@@ -134,6 +141,16 @@ func _physics_process(delta):
 	if inventory.has("anvil") and !is_on_floor() and !jump_death_called:
 		if Input.is_action_pressed("move_down"):
 			motion.y += anvil_gravity * delta * TARGET_FPS
+	
+	# Bat
+	if inventory.has("bat"):
+		if Input.is_action_pressed("jump") and current_bat_flap != 0:
+			motion.y = -current_bat_flap
+			current_bat_flap -= bat_decay
+			current_bat_flap = clamp(current_bat_flap, 0, 100000000000)
+			print(current_bat_flap)
+	
+	bat_wings.visible = bool(int(Input.is_action_pressed("jump")) * int(current_bat_flap != 0))
 	
 	# Floppy disk
 	if inventory.has("floppydisk") and !floppy_disk_exists:
