@@ -30,10 +30,11 @@ onready var death_timer = $DeathTimer
 
 # ------------------------------------ #
 
-var inventory = ["wateringcan"]
+var inventory = []
 
 export var mushroom_force = 800
 export var frog_jump = 400
+export var frog_hinder = 186
 export var flower_slow = 35
 export(PackedScene) var beachball
 export(PackedScene) var flower
@@ -48,14 +49,17 @@ func ready():
 	pass
 
 func _physics_process(delta):
+	
 	# Get Inputs
 	x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
 	var current_jump = JUMP_FORCE + frog_jump*int(inventory.has("frog"))
 	
+	var frog_current_hinder = (frog_hinder * int(inventory.has("frog"))) * int(!is_on_floor())
+	
 	# Physics
 	if x_input != 0:
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
-		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
+		motion.x = clamp(motion.x, -MAX_SPEED + frog_current_hinder, MAX_SPEED - frog_current_hinder)
 		
 		sprite.playing = true
 		sprite.play("Walk")
@@ -80,9 +84,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("jump"):
 			motion.y = -current_jump
 		
-		# Landing
-		
-		
 		# Attack boosting
 		can_attack_boost = true
 	else:
@@ -98,8 +99,6 @@ func _physics_process(delta):
 			sprite.play("Jump")
 		else:
 			sprite.play("Fall")
-		
-		# Landing
 	
 	if jump_death_called:
 		sprite.play("Shatter")
