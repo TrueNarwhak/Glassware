@@ -6,7 +6,7 @@
 [ext_resource path="res://objects/Item Objects/PinProjectile.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 148, 28.5 )
+extents = Vector2( 116, 28.5 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Attacking"
@@ -91,7 +91,7 @@ offset = Vector2( 45, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color( 1, 0, 0.772549, 1 )
-position = Vector2( 44, -29 )
+position = Vector2( 76, -29 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

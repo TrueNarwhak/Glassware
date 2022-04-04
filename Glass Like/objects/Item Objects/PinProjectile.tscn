@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://images/Attacks/pin/PinProjectile.png" type="Texture" id=1]
 [ext_resource path="res://objects/Item Objects/PinProjectile.gd" type="Script" id=2]
+[ext_resource path="res://images/ui/Line.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
 height = 314.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 246.002
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 17, 10 )
@@ -30,6 +34,13 @@ enabled = true
 cast_to = Vector2( 0, 319.514 )
 collision_mask = 9
 
+[node name="AimArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AimArea"]
+modulate = Color( 0.317647, 1, 0.278431, 1 )
+position = Vector2( 0, -154 )
+shape = SubResource( 4 )
+
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
@@ -46,5 +57,13 @@ modulate = Color( 1, 0, 0.772549, 1 )
 position = Vector2( 0, -154 )
 shape = SubResource( 3 )
 
+[node name="Line" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.556863 )
+position = Vector2( -3.8147e-06, -154 )
+scale = Vector2( 0.454545, 0.454545 )
+texture = ExtResource( 3 )
+
+[connection signal="body_entered" from="AimArea" to="." method="_on_AimArea_body_entered"]
+[connection signal="body_exited" from="AimArea" to="." method="_on_AimArea_body_exited"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="area_entered" from="PinheadHitbox" to="." method="_on_PinheadHitbox_area_entered"]
