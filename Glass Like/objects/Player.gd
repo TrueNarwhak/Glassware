@@ -35,7 +35,7 @@ var inventory = []
 
 export var mushroom_force = 800
 export var frog_jump = 400
-export var frog_hinder = 186
+export var frog_hinder = 104
 export var flower_slow = 35
 export(PackedScene) var beachball
 export(PackedScene) var flower
