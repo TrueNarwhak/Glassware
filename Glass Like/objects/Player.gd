@@ -31,7 +31,7 @@ onready var bat_wings = $BatWings
 
 # ------------------------------------ #
 
-var inventory = ["bat"]
+var inventory = []
 
 export var mushroom_force = 800
 export var frog_jump = 400
@@ -148,11 +148,12 @@ func _physics_process(delta):
 			motion.y = -current_bat_flap
 			current_bat_flap -= bat_decay
 			current_bat_flap = clamp(current_bat_flap, 0, 100000000000)
-			print(current_bat_flap)
 	
-	bat_wings.visible = bool(int(Input.is_action_pressed("jump")) * int(current_bat_flap != 0))
+	bat_wings.visible = bool(int(Input.is_action_pressed("jump")) * int(current_bat_flap != 0) * int(inventory.has("bat")))
 	
 	# Floppy disk
+	floppy_disk_exists = get_parent().has_node("Floppydisk")
+	
 	if inventory.has("floppydisk") and !floppy_disk_exists:
 		if Input.is_action_just_pressed("move_down"):
 			var this_disk = floppy_disk.instance()
