@@ -2,11 +2,14 @@ extends Area2D
 
 onready var sprite = $Visual/Item
 onready var anim_player = $AnimationPlayer
+onready var collision_shape = $CollisionShape2D
 
 onready var itemhud = get_parent().get_parent().get_node("ItemHud")
 
 var item_index
 var item_selected
+
+signal collected
 
 # -------------------------------------------------------------------- #
 
@@ -17,17 +20,21 @@ func _ready():
 	sprite.texture = ItemAndStages.item_sprites[item_index]
 	item_selected = ItemAndStages.items_current[item_index]
 	
+	anim_player.play("Idle") 
+	
+	self.connect("collected", self, "_on_Item_collected")
 #	print(items_current)
 #	print(item_index)
 #	print(item_selected)
 
 func _process(delta):
-	anim_player.play("Idle") 
+	pass
 
 
 func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):
 		print("collected")
+		emit_signal("collected")
 		
 		# Attacks
 		body.can_attack_boost = true
@@ -51,3 +58,11 @@ func _on_Item_body_entered(body):
 		queue_free()
 
 
+func _on_Item_collected(node):
+	print("guess not me!!")
+	
+	collision_shape.disabled = true
+	
+	anim_player.stop()
+	anim_player.play("Destroy")
+	queue_free()

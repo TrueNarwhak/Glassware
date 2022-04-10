@@ -11,15 +11,15 @@ func _ready():
 
 func _process(delta):
 	print(mouse_inside)
-	if Input.is_action_just_pressed("ui_accept"):
-		print("LOADED")
-		
-		player.global_position = get_global_position()
-		player.set_physics_process(false)
-		player.set_process(false)
-		
-		sprite.hide()
-		format_timer.start()
+#	if Input.is_action_just_pressed("clickable"):
+#		print("LOADED")
+#
+#		player.global_position = get_global_position()
+#		player.set_physics_process(false)
+#		player.set_process(false)
+#
+#		sprite.hide()
+#		format_timer.start()
 
 func _on_Floppydisk_mouse_entered():
 	mouse_inside = true

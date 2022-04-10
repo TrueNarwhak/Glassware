@@ -337,7 +337,7 @@ tracks/12/keys = {
 "values": [ false ]
 }
 
-[node name="ItemSpawner" type="Position2D"]
+[node name="ItemSpawner" type="Position2D" groups=["ItemSpawner"]]
 visible = false
 script = ExtResource( 1 )
 __meta__ = {

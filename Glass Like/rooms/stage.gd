@@ -3,7 +3,7 @@ class_name Stage
 
 export(int) var intensity
 onready var enemies = $Enemies
-onready var item_spawner = get_node_or_null("ItemSpawner") 
+onready var item_spawner = get_node("ItemSpawner") 
 
 export var shift_speed = 26
 var all_enemies_gone_called = false
