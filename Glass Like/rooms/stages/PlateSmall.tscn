@@ -10,7 +10,7 @@ radius = 91.351
 [sub_resource type="CircleShape2D" id=2]
 radius = 100.245
 
-[node name="PlateSmall" type="Node2D"]
+[node name="PlateSmall" type="Node2D" groups=["Enemies"]]
 scale = Vector2( 0.35, 0.35 )
 script = ExtResource( 1 )
 

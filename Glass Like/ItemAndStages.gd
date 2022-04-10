@@ -23,6 +23,14 @@ onready var intensity_1_stages = [
 	load("res://rooms/stages/StageRamp.tscn")
 ]
 
+onready var intensity_2_stages = [
+	
+]
+
+onready var intensity_3_stages = [
+	
+]
+
 onready var next_stage = intensity_1_stages[randi() % intensity_1_stages.size()]
 
 func _ready():
