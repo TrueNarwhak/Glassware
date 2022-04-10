@@ -18,7 +18,9 @@ var items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", 
 onready var intensity_1_stages = [
 	load("res://rooms/stages/StageThreeKettles.tscn"),
 	load("res://rooms/stages/StagePlatesLayer.tscn"),
-	load("res://rooms/stages/StageChampaignIsland.tscn")
+	load("res://rooms/stages/StageChampaignIsland.tscn"),
+	load("res://rooms/stages/StagePlatCover.tscn"),
+	load("res://rooms/stages/StageRamp.tscn")
 ]
 
 onready var next_stage = intensity_1_stages[randi() % intensity_1_stages.size()]
