@@ -1,10 +1,10 @@
 extends Area2D
 
 onready var sprite = $Visual/Item
-onready var anim_player = $AnimationPlayer
+onready var anim = $AnimationPlayer
 onready var collision_shape = $CollisionShape2D
 
-onready var itemhud = get_parent().get_parent().get_node("ItemHud")
+onready var itemhud = get_parent().get_parent().get_parent().get_node("ItemHud")
 
 var item_index
 var item_selected
@@ -15,26 +15,33 @@ signal collected
 
 func _ready():
 	randomize()
+	connect("collected", self, "_on_Item_collected")
+	
+	# Pick and remove items
 	item_index = randi() % ItemAndStages.items_current.size()
 
 	sprite.texture = ItemAndStages.item_sprites[item_index]
 	item_selected = ItemAndStages.items_current[item_index]
 	
-	anim_player.play("Idle") 
+	# Start anim
+	anim.play("Idle") 
 	
-	self.connect("collected", self, "_on_Item_collected")
 #	print(items_current)
 #	print(item_index)
 #	print(item_selected)
 
 func _process(delta):
-	pass
+#	print(ItemAndStages.items_current)
+	
+	# Check behavior based on current animation
+	if anim.current_animation == "Destroy":
+		collision_shape.disabled = true
 
 
 func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):
 		print("collected")
-		emit_signal("collected")
+#		emit_signal("collected")
 		
 		# Attacks
 		body.can_attack_boost = true
@@ -53,16 +60,16 @@ func _on_Item_body_entered(body):
 		# Stages
 		ItemAndStages.next_stage = ItemAndStages.intensity_1_stages[randi() % ItemAndStages.intensity_1_stages.size()]
 		
-		get_parent().all_enemies_gone_called = true
-		get_parent().stage_shift(ItemAndStages.next_stage)
+		get_parent().get_parent().all_enemies_gone_called = true
+		get_parent().get_parent().stage_shift(ItemAndStages.next_stage)
 		queue_free()
 
 
-func _on_Item_collected(node):
+func _on_Item_collected():
 	print("guess not me!!")
-	
-	collision_shape.disabled = true
-	
-	anim_player.stop()
-	anim_player.play("Destroy")
-	queue_free()
+#
+#	collision_shape.disabled = true
+#
+#	anim.stop()
+#	anim.play("Destroy")
+#	queue_free()
