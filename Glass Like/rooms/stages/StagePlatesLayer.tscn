@@ -20,8 +20,13 @@ position = Vector2( 164, 96 )
 [node name="Plate2" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 800, 378 )
 
-[node name="ItemSpawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 479, 386 )
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="ItemSpawner" parent="Spawners" instance=ExtResource( 5 )]
+position = Vector2( 479, 219 )
+
+[node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 5 )]
+position = Vector2( 479, 410 )
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2( 0, 38 )

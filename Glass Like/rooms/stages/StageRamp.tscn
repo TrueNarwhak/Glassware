@@ -24,6 +24,15 @@ position = Vector2( 821, 124 )
 [node name="PlateSmall" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 744, 222 )
 
+[node name="Spawners" type="Node2D" parent="."]
+position = Vector2( -32, 0 )
+
+[node name="ItemSpawner" parent="Spawners" instance=ExtResource( 5 )]
+position = Vector2( 376, 300 )
+
+[node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 5 )]
+position = Vector2( 376, 152 )
+
 [node name="Ground" type="Node2D" parent="."]
 
 [node name="Shelf" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
@@ -139,6 +148,3 @@ texture = ExtResource( 4 )
 [node name="Sprite10" type="Sprite" parent="Ground/Shelf2"]
 position = Vector2( 330, 10 )
 texture = ExtResource( 4 )
-
-[node name="ItemSpawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 376, 300 )

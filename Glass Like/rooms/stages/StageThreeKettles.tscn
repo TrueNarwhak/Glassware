@@ -23,8 +23,13 @@ position = Vector2( 832, 112 )
 [node name="Kettle3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 496, 200 )
 
-[node name="ItemSpawner" parent="." instance=ExtResource( 2 )]
-position = Vector2( 485, 392 )
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="ItemSpawner" parent="Spawners" instance=ExtResource( 2 )]
+position = Vector2( 398, 324 )
+
+[node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 2 )]
+position = Vector2( 558, 324 )
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2( 2, 0 )
