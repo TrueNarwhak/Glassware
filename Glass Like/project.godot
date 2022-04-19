@@ -50,8 +50,8 @@ config/icon="res://images/icon.png"
 
 [autoload]
 
-Options="*res://Options.gd"
-ItemAndStages="*res://ItemAndStages.gd"
+Options="*res://Global Scripts/Options.gd"
+ItemAndStages="*res://Global Scripts/ItemAndStages.gd"
 
 [display]
 
