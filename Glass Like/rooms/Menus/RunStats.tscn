@@ -145,15 +145,15 @@ position = Vector2( 0, 343 )
 scale = Vector2( 0.600639, 0.600639 )
 texture = ExtResource( 5 )
 
-[node name="SlotLarge1" type="Sprite" parent="Control/FadeIn"]
+[node name="SlotLarge0" type="Sprite" parent="Control/FadeIn"]
 position = Vector2( -160, 343 )
 texture = ExtResource( 3 )
 
-[node name="SlotLarge2" type="Sprite" parent="Control/FadeIn"]
+[node name="SlotLarge1" type="Sprite" parent="Control/FadeIn"]
 position = Vector2( 0, 343 )
 texture = ExtResource( 2 )
 
-[node name="SlotLarge3" type="Sprite" parent="Control/FadeIn"]
+[node name="SlotLarge2" type="Sprite" parent="Control/FadeIn"]
 position = Vector2( 160, 343 )
 texture = ExtResource( 4 )
 
