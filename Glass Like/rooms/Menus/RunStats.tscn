@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://images/Items/v2/Seal.png" type="Texture" id=2]
+[ext_resource path="res://images/Items/v2/Frog.png" type="Texture" id=3]
+[ext_resource path="res://images/Items/v2/Ghost.png" type="Texture" id=4]
+[ext_resource path="res://images/Items/ItemHud3.png" type="Texture" id=5]
+[ext_resource path="res://rooms/Menus/RunStats.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "ComeIn"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Come:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.34151, 0.34151 ),
+"update": 0,
+"values": [ Vector2( -120, 640 ), Vector2( -120, 52 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FadeIn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4, 2.1 ),
+"transitions": PoolRealArray( 1, 0.329877, 0.329877 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FadeIn:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.2, 2.1 ),
+"transitions": PoolRealArray( 0.34151, 0.34151 ),
+"update": 0,
+"values": [ Vector2( 0, 104 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Come:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -120, 52 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FadeIn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FadeIn:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[node name="RunStats" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 496.0
+margin_right = 536.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Come" type="Node2D" parent="Control"]
+position = Vector2( -120, 52 )
+
+[node name="Broken" type="Label" parent="Control/Come"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 240.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 1 )
+text = "Broken..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeIn" type="Node2D" parent="Control"]
+
+[node name="Broken2" type="Label" parent="Control/FadeIn"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -249.0
+margin_top = 128.0
+margin_right = 249.0
+margin_bottom = 219.0
+custom_fonts/font = SubResource( 2 )
+text = "-- press R to rebuild --"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hud" type="Sprite" parent="Control/FadeIn"]
+position = Vector2( 0, 343 )
+scale = Vector2( 0.600639, 0.600639 )
+texture = ExtResource( 5 )
+
+[node name="SlotLarge1" type="Sprite" parent="Control/FadeIn"]
+position = Vector2( -160, 343 )
+texture = ExtResource( 3 )
+
+[node name="SlotLarge2" type="Sprite" parent="Control/FadeIn"]
+position = Vector2( 0, 343 )
+texture = ExtResource( 2 )
+
+[node name="SlotLarge3" type="Sprite" parent="Control/FadeIn"]
+position = Vector2( 160, 343 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+anims/ComeIn = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[connection signal="animation_finished" from="Control/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

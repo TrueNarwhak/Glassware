@@ -15,6 +15,8 @@ export var death_jump = 600
 export(PackedScene) var attack
 export(PackedScene) var shard 
 
+export(PackedScene) var stats
+
 var is_attacking = false
 var can_attack_boost = true
 var motion = Vector2.ZERO
@@ -31,7 +33,7 @@ onready var bat_wings = $BatWings
 
 # ------------------------------------ #
 
-var inventory = ["wateringcan"]
+var inventory = []
 
 export var mushroom_force = 800
 export var frog_jump = 400
@@ -190,7 +192,6 @@ func _on_WateringCanTimer_timeout():
 
 # ---------------------------------------------------------------- #
 
-
 func _on_DeathTimer_timeout():
 	set_process(false)
 	set_physics_process(false)
@@ -200,6 +201,13 @@ func _on_DeathTimer_timeout():
 		var this_shard = shard.instance()
 		this_shard.position = get_global_position()
 		get_tree().get_root().add_child(this_shard)
+	
+	$StatTimer.start()
+
+func _on_StatTimer_timeout():
+	var these_stats = stats.instance()
+	these_stats.global_position = Vector2(0, 0)
+	get_parent().add_child(these_stats)
 
 
 func shatter():
@@ -212,3 +220,5 @@ func shatter():
 		
 		jump_death_called = true
 	
+
+

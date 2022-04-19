@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://images/player/PlayerStand.png" type="Texture" id=1]
 [ext_resource path="res://images/player/PlayerWalk.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://images/Attacks/Wings/Wing2_1.png" type="Texture" id=15]
 [ext_resource path="res://images/Attacks/Wings/Wing1_1.png" type="Texture" id=16]
 [ext_resource path="res://images/Attacks/Wings/Wing3.png" type="Texture" id=17]
+[ext_resource path="res://rooms/Menus/RunStats.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -30,11 +31,6 @@ animations = [ {
 "name": "Walk",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Shatter",
@@ -43,6 +39,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
 "speed": 5.0
 } ]
 
@@ -66,6 +67,7 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 5 )
 attack = ExtResource( 8 )
 shard = ExtResource( 12 )
+stats = ExtResource( 18 )
 beachball = ExtResource( 11 )
 flower = ExtResource( 9 )
 anvil_stomp = ExtResource( 10 )
@@ -95,13 +97,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 
@@ -115,10 +117,15 @@ position = Vector2( 0, -156 )
 wait_time = 0.748
 one_shot = true
 
+[node name="StatTimer" type="Timer" parent="."]
+wait_time = 1.8
+one_shot = true
+
 [node name="WateringCanTimer" type="Timer" parent="."]
 wait_time = 0.416
 autostart = true
 
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="timeout" from="StatTimer" to="." method="_on_StatTimer_timeout"]
 [connection signal="timeout" from="WateringCanTimer" to="." method="_on_WateringCanTimer_timeout"]

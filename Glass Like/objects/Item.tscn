@@ -176,6 +176,7 @@ tracks/5/keys = {
 }
 
 [node name="Item" type="Area2D" groups=["Item"]]
+position = Vector2( 135, 85 )
 scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 3 )
 
