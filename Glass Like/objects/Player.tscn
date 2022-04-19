@@ -31,6 +31,11 @@ animations = [ {
 "name": "Walk",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Shatter",
@@ -39,11 +44,6 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Jump",
 "speed": 5.0
 } ]
 
@@ -97,13 +97,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 
@@ -118,7 +118,7 @@ wait_time = 0.748
 one_shot = true
 
 [node name="StatTimer" type="Timer" parent="."]
-wait_time = 1.8
+wait_time = 1.4
 one_shot = true
 
 [node name="WateringCanTimer" type="Timer" parent="."]

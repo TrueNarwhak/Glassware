@@ -54,6 +54,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 104 ), Vector2( 0, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("FadeIn:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Come:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -93,6 +117,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("FadeIn:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Come:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [node name="RunStats" type="Node2D"]
 script = ExtResource( 6 )
@@ -108,6 +156,7 @@ __meta__ = {
 }
 
 [node name="Come" type="Node2D" parent="Control"]
+visible = false
 position = Vector2( -120, 52 )
 
 [node name="Broken" type="Label" parent="Control/Come"]
@@ -124,6 +173,7 @@ __meta__ = {
 }
 
 [node name="FadeIn" type="Node2D" parent="Control"]
+visible = false
 
 [node name="Broken2" type="Label" parent="Control/FadeIn"]
 anchor_left = 0.5
