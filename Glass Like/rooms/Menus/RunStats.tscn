@@ -78,6 +78,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Tint:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 2.1 ),
+"transitions": PoolRealArray( 0.287175, 0.287175 ),
+"update": 0,
+"values": [ Color( 1, 0.705882, 0.815686, 0 ), Color( 1, 0.705882, 0.815686, 0.152941 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -141,9 +153,29 @@ tracks/4/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Tint:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.705882, 0.815686, 0 ) ]
+}
 
 [node name="RunStats" type="Node2D"]
 script = ExtResource( 6 )
+
+[node name="Tint" type="ColorRect" parent="."]
+margin_right = 1032.0
+margin_bottom = 608.0
+color = Color( 1, 0.705882, 0.815686, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 0.5

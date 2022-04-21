@@ -181,7 +181,6 @@ scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Visual" type="Node2D" parent="."]
