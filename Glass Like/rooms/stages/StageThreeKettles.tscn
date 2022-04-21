@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://rooms/stage.gd" type="Script" id=1]
 [ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=3]
-[ext_resource path="res://images/stage/Asset 81.png" type="Texture" id=4]
 [ext_resource path="res://objects/foes/Kettle.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -53,37 +52,14 @@ position = Vector2( 354, 10 )
 texture = ExtResource( 3 )
 flip_h = true
 
-[node name="Sprite2" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 59, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite4" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 98, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite5" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 137, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite6" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 175, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite7" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 214, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite8" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 253, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite20" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 289, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite21" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 327, 10 )
-texture = ExtResource( 4 )
+[node name="ColorRect" type="ColorRect" parent="Ground/Shelf"]
+margin_left = 39.0
+margin_right = 343.0
+margin_bottom = 12.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shelf2" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 520, 502 )
@@ -104,34 +80,11 @@ position = Vector2( 354, 10 )
 texture = ExtResource( 3 )
 flip_h = true
 
-[node name="Sprite2" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 59, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite4" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 98, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite5" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 137, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite6" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 175, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite7" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 214, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite8" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 253, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite20" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 289, 10 )
-texture = ExtResource( 4 )
-
-[node name="Sprite21" type="Sprite" parent="Ground/Shelf2"]
-position = Vector2( 327, 10 )
-texture = ExtResource( 4 )
+[node name="ColorRect" type="ColorRect" parent="Ground/Shelf2"]
+margin_left = 39.0
+margin_right = 343.0
+margin_bottom = 12.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://rooms/stage.gd" type="Script" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
-[ext_resource path="res://images/stage/Asset 81.png" type="Texture" id=3]
 [ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://rooms/Stage Elements/MovePlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/foes/Champaign.tscn" type="PackedScene" id=6]
@@ -62,81 +61,14 @@ position = Vector2( 782, 10 )
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Sprite2" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 59, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite4" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 98, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite5" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 137, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite6" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 175, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite7" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 214, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite8" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 253, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite9" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 291, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite10" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 330, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite11" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 368, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite12" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 407, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite13" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 446, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite14" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 485, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite15" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 524, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite16" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 562, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite17" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 601, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite18" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 640, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite19" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 678, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite20" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 717, 10 )
-texture = ExtResource( 3 )
-
-[node name="Sprite21" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( 755, 10 )
-texture = ExtResource( 3 )
+[node name="ColorRect" type="ColorRect" parent="Ground/Shelf"]
+margin_left = 38.0
+margin_right = 770.0
+margin_bottom = 12.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Path2D" type="Path2D" parent="Ground"]
 position = Vector2( 0, -48 )
@@ -165,15 +97,15 @@ rotation = -1.57079
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Sprite3" type="Sprite" parent="Ground/VShelf"]
-position = Vector2( 0, -47 )
-rotation = -1.57079
-texture = ExtResource( 3 )
-
-[node name="Sprite4" type="Sprite" parent="Ground/VShelf"]
-position = Vector2( 0, -69 )
-rotation = -1.57079
-texture = ExtResource( 3 )
+[node name="ColorRect" type="ColorRect" parent="Ground/VShelf"]
+margin_left = -9.0
+margin_top = -86.0
+margin_right = 2.0
+margin_bottom = -23.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VShelf2" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 273, 464 )
@@ -194,69 +126,69 @@ rotation = -1.57079
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Sprite3" type="Sprite" parent="Ground/VShelf2"]
-position = Vector2( 0, -47 )
-rotation = -1.57079
-texture = ExtResource( 3 )
+[node name="ColorRect" type="ColorRect" parent="Ground/VShelf2"]
+margin_left = -9.0
+margin_top = -86.0
+margin_right = 2.0
+margin_bottom = -23.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Sprite4" type="Sprite" parent="Ground/VShelf2"]
-position = Vector2( 0, -69 )
-rotation = -1.57079
-texture = ExtResource( 3 )
-
-[node name="VShelf3" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
+[node name="VShelf5" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 676, 464 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf5"]
 position = Vector2( 0, -55 )
 shape = SubResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Ground/VShelf3"]
+[node name="Sprite" type="Sprite" parent="Ground/VShelf5"]
 position = Vector2( 0, -8 )
 rotation = -1.57079
 texture = ExtResource( 2 )
 
-[node name="Sprite2" type="Sprite" parent="Ground/VShelf3"]
+[node name="Sprite2" type="Sprite" parent="Ground/VShelf5"]
 position = Vector2( 0, -104 )
 rotation = -1.57079
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Sprite3" type="Sprite" parent="Ground/VShelf3"]
-position = Vector2( 0, -47 )
-rotation = -1.57079
-texture = ExtResource( 3 )
+[node name="ColorRect" type="ColorRect" parent="Ground/VShelf5"]
+margin_left = -9.0
+margin_top = -86.0
+margin_right = 2.0
+margin_bottom = -23.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Sprite4" type="Sprite" parent="Ground/VShelf3"]
-position = Vector2( 0, -69 )
-rotation = -1.57079
-texture = ExtResource( 3 )
-
-[node name="VShelf4" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
+[node name="VShelf6" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 797, 464 )
 scale = Vector2( -1, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf6"]
 position = Vector2( 0, -55 )
 shape = SubResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Ground/VShelf4"]
+[node name="Sprite" type="Sprite" parent="Ground/VShelf6"]
 position = Vector2( 0, -8 )
 rotation = -1.57079
 texture = ExtResource( 2 )
 
-[node name="Sprite2" type="Sprite" parent="Ground/VShelf4"]
+[node name="Sprite2" type="Sprite" parent="Ground/VShelf6"]
 position = Vector2( 0, -104 )
 rotation = -1.57079
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Sprite3" type="Sprite" parent="Ground/VShelf4"]
-position = Vector2( 0, -47 )
-rotation = -1.57079
-texture = ExtResource( 3 )
-
-[node name="Sprite4" type="Sprite" parent="Ground/VShelf4"]
-position = Vector2( 0, -69 )
-rotation = -1.57079
-texture = ExtResource( 3 )
+[node name="ColorRect" type="ColorRect" parent="Ground/VShelf6"]
+margin_left = -9.0
+margin_top = -86.0
+margin_right = 2.0
+margin_bottom = -23.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
