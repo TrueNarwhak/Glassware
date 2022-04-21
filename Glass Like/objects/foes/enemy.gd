@@ -38,7 +38,9 @@ func shatter():
 	
 	# Shake
 	if camera:
-		camera.shake()
+		#camera.shake()
+		camera.rotation_degrees = [camera.rotate_shake, -camera.rotate_shake][randi() % 2]
+		camera.zoom = Vector2(camera.zoom_pop, camera.zoom_pop)
 	
 	print("death of enemy")
 	queue_free()

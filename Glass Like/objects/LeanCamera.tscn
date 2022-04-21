@@ -3,5 +3,10 @@
 [ext_resource path="res://objects/LeanCamera.gd" type="Script" id=1]
 
 [node name="LeanCamera" type="Camera2D"]
+rotating = true
 current = true
 script = ExtResource( 1 )
+rotate_shake = -2.67
+rotate_shake_reset = 0.084
+zoom_pop = 1.035
+zoom_reset = 0.059

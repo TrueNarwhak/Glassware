@@ -21,5 +21,5 @@ func _process(delta):
 		get_tree().reload_current_scene()
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func set_respawn_ability():
 	can_respawn = true

@@ -90,6 +90,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Color( 1, 0.705882, 0.815686, 0 ), Color( 1, 0.705882, 0.815686, 0.152941 ) ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "set_respawn_ability"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -242,5 +256,3 @@ texture = ExtResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 anims/ComeIn = SubResource( 3 )
 anims/RESET = SubResource( 4 )
-
-[connection signal="animation_finished" from="Control/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

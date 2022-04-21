@@ -1,11 +1,20 @@
 # CAMERA BY [redacted] AND GODOT RECIPIES
 extends Camera2D
 
+# rumble shake
 export var decay = 0.8
 export var max_offset = Vector2(100, 75) 
 export var max_roll = 0.1 
 export var trauma = 0.0 
 export var trauma_power = 100
+
+# rotate shake
+export var rotate_shake = -4.6
+export var rotate_shake_reset = 0.2
+
+# zoom pop
+export var zoom_pop = 1.02
+export var zoom_reset = 0.05
 
 onready var player = get_parent().get_node("Player")
 
@@ -24,8 +33,14 @@ func _process(delta):
 		lean_camera_towards_mouse_(delta)
 	
 	# Shake 
-	if trauma and Options.screenshake:
-		trauma = max(trauma - decay * delta, 0)
+#	if trauma and Options.screenshake:
+#		trauma = max(trauma - decay * delta, 0)
+	
+	# Reset Rotation
+	rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
+	
+	# Reset Zoom
+	zoom = lerp(zoom, Vector2(1.0, 1.0), zoom_reset)
 
 
 func lean_camera_towards_mouse_(delta):
