@@ -1,5 +1,5 @@
 extends RigidBody2D
-class_name Shards
+class_name Shards, "res://images/internal/node icons/Shard.png"
 
 var health = 420
 var fade_point = 100

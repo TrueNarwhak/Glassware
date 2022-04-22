@@ -1,5 +1,5 @@
 extends Node2D
-class_name Enemy
+class_name Enemy, "res://images/internal/node icons/Cup2.png"
 
 export var survive = 1
 export var shards = 6

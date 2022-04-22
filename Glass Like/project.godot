@@ -35,11 +35,11 @@ _global_script_classes=[ {
 "path": "res://rooms/stage.gd"
 } ]
 _global_script_class_icons={
-"Enemy": "",
+"Enemy": "res://images/internal/node icons/Cup2.png",
 "Jar": "",
 "Plate": "",
-"Shards": "",
-"Stage": ""
+"Shards": "res://images/internal/node icons/Shard.png",
+"Stage": "res://images/internal/node icons/Plat.png"
 }
 
 [application]

@@ -1,5 +1,5 @@
 extends Node2D
-class_name Stage
+class_name Stage, "res://images/internal/node icons/Plat.png"
 
 export(int) var intensity
 onready var enemies = $Enemies
