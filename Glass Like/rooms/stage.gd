@@ -6,7 +6,7 @@ onready var enemies = $Enemies
 onready var spawner = $Spawners
 #onready var item_spawner = get_node("ItemSpawner") 
 
-export var shift_speed = 26
+export var shift_speed = 32
 var all_enemies_gone_called = false
 var can_shift = false 
 
@@ -14,7 +14,7 @@ func ready():
 	pass
 
 func _process(delta):
-	
+#	print(ItemAndStages.stages_cleared)
 	# If enemies are all gone
 	if enemies.get_child_count() == 0:
 		defeated_all()
@@ -34,23 +34,32 @@ func _process(delta):
 		queue_free()
 	if position.x == 0:
 		get_node("../Player").set_physics_process(true)
-
+	
+	# Set Item / Stage 
+	
 
 
 func defeated_all():
 
 #	if !all_enemies_gone_called:
-
-	# Spawning Items
-	for  item_spawner in spawner.get_children(): # IF IT CATCHES A NULL INSTANCE THAT MEANS THERE ARENT SPAWNERS SET UP IN STAGE
+	
+	# Spawning Item / Stage 
+	if !ItemAndStages.stages_cleared % 3 == 0:
+		# Spawning Arrow
+		if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
+			get_node("NextStageArrow").anim.play("Spawn")
 		
-		# Spawner
-		if item_spawner is Position2D:
-			item_spawner.anim.play("ItemSpawn")
-		
-		# Items 
-		if item_spawner.is_in_group("Item") and can_shift:
-			item_spawner.anim.play("Destroy")
+	else:
+		# Spawning Items
+		for item_spawner in spawner.get_children(): # IF IT CATCHES A NULL INSTANCE THAT MEANS THERE ARENT SPAWNERS SET UP IN STAGE
+			
+			# Spawner
+			if item_spawner is Position2D:
+				item_spawner.anim.play("ItemSpawn")
+			
+			# Items 
+			if item_spawner.is_in_group("Item") and can_shift:
+				item_spawner.anim.play("Destroy")
 
 func stage_shift(selected_stage):
 	can_shift = true
@@ -59,5 +68,6 @@ func stage_shift(selected_stage):
 	this_stage.global_position.x = get_global_position().x + 1040
 	this_stage.global_position.y = get_global_position().y
 	get_parent().add_child(this_stage)
-	
-	
+
+func _exit_tree():
+	ItemAndStages.stages_cleared += 1

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://rooms/stage.gd" type="Script" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
+[ext_resource path="res://objects/NextStageArrow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/foes/Plate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=5]
 
@@ -85,3 +86,6 @@ color = Color( 0.690196, 0.639216, 0.658824, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NextStageArrow" parent="." instance=ExtResource( 3 )]
+position = Vector2( 480, 320 )

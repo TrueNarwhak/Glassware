@@ -1,6 +1,6 @@
 extends Node
 
-# items
+# Items
 var item_sprites = [
 	preload("res://images/Items/v2/Anvil.png"), preload("res://images/Items/v2/baseball.png"),
 	preload("res://images/Items/v2/Bat.png"), preload("res://images/Items/v2/FloppyDisk.png"),
@@ -33,5 +33,11 @@ onready var intensity_3_stages = [
 
 onready var next_stage = intensity_1_stages[randi() % intensity_1_stages.size()]
 
+# Logic
+var stages_cleared = 0
+
 func _ready():
 	randomize()
+
+func reset_all():
+	stages_cleared = -1

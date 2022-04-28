@@ -60,4 +60,4 @@ __meta__ = {
 }
 
 [node name="NextStageArrow" parent="." instance=ExtResource( 2 )]
-visible = false
+position = Vector2( 480, 201 )

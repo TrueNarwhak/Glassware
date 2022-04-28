@@ -13,7 +13,7 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 0.5
+"speed": 1.0
 } ]
 
 [node name="Wall" type="Node2D"]
@@ -23,7 +23,7 @@ material = SubResource( 1 )
 position = Vector2( 390, 246 )
 scale = Vector2( 3.74583, 3.52482 )
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
