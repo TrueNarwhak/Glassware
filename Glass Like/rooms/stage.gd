@@ -61,6 +61,8 @@ func defeated_all():
 				# Items 
 				if item_spawner.is_in_group("Item") and can_shift:
 					item_spawner.anim.play("Destroy")
+#					item_spawner.discard()
+					
 			
 		else:
 			# Spawning Arrow

@@ -21,6 +21,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func _process(delta):
+	
 	if Input.is_action_just_pressed("jump"):
 		remove_key(up)
 	if Input.is_action_just_pressed("move_down"):
@@ -34,6 +35,7 @@ func _process(delta):
 
 
 func remove_key(key):
+
 	# Break
 	for i in shards:
 		var this_shard = shard.instance()

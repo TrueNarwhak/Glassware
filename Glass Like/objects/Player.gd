@@ -31,6 +31,8 @@ onready var ball_aim_pos = $BallAimPos
 onready var death_timer = $DeathTimer
 onready var bat_wings = $BatWings
 
+onready var camera = get_parent().get_node("LeanCamera")
+
 # ------------------------------------ #
 
 var inventory = []
@@ -214,12 +216,16 @@ func _on_StatTimer_timeout():
 func shatter():
 	print("Shxrch!")
 	
+	# Camera
+	if !jump_death_called:
+		camera.zoom = Vector2(1.1, 1.1)
+	
+	# Die
 	if !jump_death_called:
 		motion.y = -death_jump
 		
 		death_timer.start()
 		
 		jump_death_called = true
-	
 
 

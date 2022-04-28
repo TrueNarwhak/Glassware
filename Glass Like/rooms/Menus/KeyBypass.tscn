@@ -69,29 +69,28 @@ script = ExtResource( 13 )
 [node name="Down" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 611.5, 323.5 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Up" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 611.5, 192 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Right" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 749, 323.5 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Left" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 476, 323.5 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
 [node name="Mouse" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 188, 304 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="LeanCamera" parent="." instance=ExtResource( 11 )]
