@@ -1,0 +1,41 @@
+general ==================================
+	- tea doesnt look like tea
+	- tea are lazer snipers and too hard
+	- doesnt teach reset slash
+	- turn off colison with tnt and player, prevent getting stuck
+	- fall through plats
+	- die on shifting stages
+	- tnt goes toward enemy
+	- varible jump height causes slash boost to cancel
+	- disable pin hitbox when hit ground
+	- pin boosts
+	- movement is difficult (vertical)
+	- deflected does not do damage to kettle
+	- folower effect isnt communicated well
+	- dont tie stuff to framerate
+	- bat is just better than jump, make it only replenish after stage rather than touching ground
+	- shaking or flash for champaign to telegraph exlode
+	- make frog more original 
+	- varible jump height cancles moment from slash
+	- jack looks like spinning top 
+	- arrow hitbox feels really small due to player hitbox
+	- more stages that encurage X-axis 
+	- beach bounce dont shoot towards mouse
+	- champaign cap slower and or physics object
+	- item spawn anim solid circles are weird
+	- flowers small??
+	- horozontal item placement makes it to pick up
+	- boost when hit pin instead
+	- player death animation doesnt consistantly knock 
+	- foes are too static 
+
+ideas ===================================
+	- turret facing away that can only be hit behind (wert)
+
+FPS bugs ==============================
+	- TNT spin
+	- platform 
+	- shifting
+	- shake and pop
+	- champaign falling
+	- pin falling 

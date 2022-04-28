@@ -39,7 +39,7 @@ func remove_key(key):
 	# Break
 	for i in shards:
 		var this_shard = shard.instance()
-		this_shard.position = key.get_global_position()
+		this_shard.position = key.global_position
 		get_tree().get_root().add_child(this_shard)
 		
 	

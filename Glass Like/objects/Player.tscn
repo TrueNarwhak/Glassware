@@ -87,6 +87,7 @@ shape = SubResource( 2 )
 [node name="MushroomStomp" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomStomp"]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, 50 )
 shape = SubResource( 3 )
@@ -98,13 +99,11 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 3
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 3
 playing = true
 flip_h = true
 
