@@ -45,21 +45,29 @@ func defeated_all():
 
 #	if !all_enemies_gone_called:
 	
-	# Spawning Item / Stage 
-	if ItemAndStages.stages_cleared % arrows_before_item == 0:
-		# Spawning Items
-		for item_spawner in spawner.get_children(): # IF IT CATCHES A NULL INSTANCE THAT MEANS THERE ARENT SPAWNERS SET UP IN STAGE
-			
-			# Spawner
-			if item_spawner is Position2D:
-				item_spawner.anim.play("ItemSpawn")
-			
-			# Items 
-			if item_spawner.is_in_group("Item") and can_shift:
-				item_spawner.anim.play("Destroy")
+	# Spawning Item / Stage
+	if !player.inventory.size() == player.inventory_max: 
 		
+		
+		# Chose between item or arrow aslong as under max items
+		if ItemAndStages.stages_cleared % arrows_before_item == 0:
+			# Spawning Items
+			for item_spawner in spawner.get_children(): # IF IT CATCHES A NULL INSTANCE THAT MEANS THERE ARENT SPAWNERS SET UP IN STAGE
+				
+				# Spawner
+				if item_spawner is Position2D:
+					item_spawner.anim.play("ItemSpawn")
+				
+				# Items 
+				if item_spawner.is_in_group("Item") and can_shift:
+					item_spawner.anim.play("Destroy")
+			
+		else:
+			# Spawning Arrow
+			if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
+				get_node("NextStageArrow").anim.play("Spawn")
+	
 	else:
-		# Spawning Arrow
 		if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
 			get_node("NextStageArrow").anim.play("Spawn")
 

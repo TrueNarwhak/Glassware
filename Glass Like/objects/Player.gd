@@ -34,6 +34,7 @@ onready var bat_wings = $BatWings
 # ------------------------------------ #
 
 var inventory = []
+var inventory_max = 3
 
 export var mushroom_force = 800
 export var frog_jump = 400

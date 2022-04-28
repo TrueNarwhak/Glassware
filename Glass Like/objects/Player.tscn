@@ -65,6 +65,7 @@ animations = [ {
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 5 )
+MAX_SPEED = 414
 attack = ExtResource( 8 )
 shard = ExtResource( 12 )
 stats = ExtResource( 18 )
@@ -97,13 +98,11 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 flip_h = true
 
@@ -111,7 +110,7 @@ flip_h = true
 position = Vector2( 0, 35 )
 
 [node name="BallAimPos" type="Position2D" parent="."]
-position = Vector2( 0, -156 )
+position = Vector2( 0, -182 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.748
