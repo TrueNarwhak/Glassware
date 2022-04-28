@@ -11,6 +11,8 @@ onready var mouse = $Keys/Mouse
 
 onready var goto_timer = $GotoTimer
 
+onready var camera = get_node("LeanCamera")
+
 export(int) var shards = 10
 
 var keys_left = 5
@@ -19,7 +21,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func _process(delta):
-	
 	if Input.is_action_just_pressed("jump"):
 		remove_key(up)
 	if Input.is_action_just_pressed("move_down"):
@@ -43,6 +44,10 @@ func remove_key(key):
 	# Start Key Timer
 	if key_parent.get_child_count() == 1:
 		goto_timer.start()
+	
+	# Camera
+	camera.rotation_degrees = [camera.rotate_shake*2, -camera.rotate_shake*2][randi() % 2]
+	camera.zoom = Vector2(camera.zoom_pop, camera.zoom_pop)
 	
 	# Free Key
 	key.queue_free()

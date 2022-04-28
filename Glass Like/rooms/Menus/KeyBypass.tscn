@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://images/ui/KeyBypass/A.png" type="Texture" id=1]
 [ext_resource path="res://images/ui/KeyBypass/DownArrow.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=12]
 [ext_resource path="res://rooms/Menus/KeyBypass.gd" type="Script" id=13]
+[ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -54,6 +55,10 @@ animations = [ {
 "speed": 3.0
 } ]
 
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 14 )
+
 [node name="KeyBypass" type="Node2D"]
 script = ExtResource( 13 )
 
@@ -91,6 +96,20 @@ playing = true
 
 [node name="LeanCamera" parent="." instance=ExtResource( 11 )]
 position = Vector2( 479, 270 )
+
+[node name="Broken" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 252.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 6 )
+text = "(early draft: 0.0.1)"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GotoTimer" type="Timer" parent="."]
 wait_time = 0.695
