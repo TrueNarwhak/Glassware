@@ -5,16 +5,18 @@ export(int) var intensity
 onready var enemies = $Enemies
 onready var spawner = $Spawners
 #onready var item_spawner = get_node("ItemSpawner") 
+onready var player = get_parent().get_node("Player")
 
 export var shift_speed = 32
 var all_enemies_gone_called = false
 var can_shift = false 
+var arrows_before_item = 3
 
 func ready():
 	pass
 
 func _process(delta):
-#	print(ItemAndStages.stages_cleared)
+	
 	# If enemies are all gone
 	if enemies.get_child_count() == 0:
 		defeated_all()
@@ -44,12 +46,7 @@ func defeated_all():
 #	if !all_enemies_gone_called:
 	
 	# Spawning Item / Stage 
-	if !ItemAndStages.stages_cleared % 3 == 0:
-		# Spawning Arrow
-		if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
-			get_node("NextStageArrow").anim.play("Spawn")
-		
-	else:
+	if ItemAndStages.stages_cleared % arrows_before_item == 0:
 		# Spawning Items
 		for item_spawner in spawner.get_children(): # IF IT CATCHES A NULL INSTANCE THAT MEANS THERE ARENT SPAWNERS SET UP IN STAGE
 			
@@ -60,6 +57,11 @@ func defeated_all():
 			# Items 
 			if item_spawner.is_in_group("Item") and can_shift:
 				item_spawner.anim.play("Destroy")
+		
+	else:
+		# Spawning Arrow
+		if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
+			get_node("NextStageArrow").anim.play("Spawn")
 
 func stage_shift(selected_stage):
 	can_shift = true
