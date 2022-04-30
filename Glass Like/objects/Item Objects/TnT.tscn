@@ -9,7 +9,9 @@ radius = 16.0
 height = 24.0
 
 [node name="TnT" type="RigidBody2D" groups=["ItemProjectiles"]]
-gravity_scale = 7.79
+collision_layer = 8
+collision_mask = 8
+gravity_scale = 10.02
 script = ExtResource( 2 )
 explosion = ExtResource( 3 )
 
@@ -23,8 +25,8 @@ texture = ExtResource( 1 )
 position = Vector2( -1, 2 )
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="BlowTimer" type="Timer" parent="."]
 wait_time = 0.8
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="BlowTimer" to="." method="_on_Timer_timeout"]
