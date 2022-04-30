@@ -27,7 +27,7 @@ general ==================================
 	- horozontal item placement makes it to pick up
 	- boost when hit pin instead
 	- player death animation doesnt consistantly knock 
-	- foes are too static 
+	- foes animations/art are too static 
 
 ideas ===================================
 	- turret facing away that can only be hit behind (wert)

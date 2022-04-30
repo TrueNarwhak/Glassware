@@ -7,7 +7,8 @@ onready var spawner = $Spawners
 #onready var item_spawner = get_node("ItemSpawner") 
 onready var player = get_parent().get_node("Player")
 
-export var shift_speed = 32
+#export var shift_speed = 32
+export var shift_speed = 1960
 var all_enemies_gone_called = false
 var can_shift = false 
 var arrows_before_item = 3
@@ -22,7 +23,7 @@ func _process(delta):
 		defeated_all()
 	
 	# Constantly shift
-	position.x -= shift_speed
+	position.x -= shift_speed * delta
 #	position.x = lerp(position.x, -4500*int(all_enemies_gone_called), 0.09)
 	
 	# Clamp so the stage can actually be effected by shift speed
