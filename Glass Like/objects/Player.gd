@@ -97,7 +97,7 @@ func _physics_process(delta):
 		can_attack_boost = true
 		
 		# Items
-		current_bat_flap = bat_flap
+#		current_bat_flap = bat_flap
 	else:
 		
 		if Input.is_action_just_released("jump") and motion.y < -current_jump/2:
@@ -151,7 +151,8 @@ func _physics_process(delta):
 	if inventory.has("bat"):
 		if Input.is_action_pressed("jump") and current_bat_flap != 0:
 			motion.y = -current_bat_flap
-			current_bat_flap -= bat_decay
+			
+			current_bat_flap -= bat_decay * delta * TARGET_FPS
 			current_bat_flap = clamp(current_bat_flap, 0, 100000000000)
 	
 	bat_wings.visible = bool(int(Input.is_action_pressed("jump")) * int(current_bat_flap != 0) * int(inventory.has("bat")))

@@ -15,6 +15,10 @@ func _on_NextStageArrow_body_entered(body):
 		print("collected")
 		anim.play("Leave")
 		
+		# Player Items
+		if body.inventory.has("bat"):
+			body.current_bat_flap = body.bat_flap
+		
 		# Attacks
 		body.can_attack_boost = true
 		body.set_physics_process(false)
