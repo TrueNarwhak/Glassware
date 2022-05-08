@@ -7,19 +7,46 @@ onready var shoot_position = $KinematicBody2D/AnimatedSprite/ShootPosition
 
 export(PackedScene) var coffee_shot
 
-var motion = Vector2(0.0, 1.0)
+var motion = Vector2(0.0, 0.0)
+var knock_back_motion = Vector2(0.0, 0.0)
 var can_move = true
 
-export var aim_speed = 0.1
+export var aim_speed = 0.2
 export var speed = 20
+export var knock_back_force = 179
+export var knock_back_drag = 3
+export var accel = 0.02
 
+var can_knock_back = false
 var current_speed = speed
+var current_knock_back_force = knock_back_force
+
 # -------------------------------------------------- #
 
 func _ready():
 	pass
 
 func _physics_process(delta):
+	
+	# Moving
+	if can_knock_back:
+		motion = -position.direction_to(player.position) * current_knock_back_force
+		current_knock_back_force -= knock_back_drag
+		
+		current_knock_back_force = clamp(current_knock_back_force, 0, 100000)
+		
+		if current_knock_back_force == 0:
+			can_knock_back = false
+		
+		sprite.play("Shoot")
+	else:
+		motion = position.direction_to(player.position) * current_speed
+		
+		sprite.play("default")
+		
+	current_speed = lerp(current_speed, speed * int(can_move), accel)
+	
+	body.move_and_slide(motion, Vector2.ZERO)
 	
 	# Face player
 	sprite.rotation_degrees = lerp(sprite.rotation_degrees, rad2deg(get_angle_to(player.position)) + 90, aim_speed)
@@ -29,18 +56,21 @@ func _physics_process(delta):
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false
-	
-	# Moving
-	current_speed = lerp(current_speed, speed * int(can_move), 0.1)
-	position = position.move_toward(player.position, delta * current_speed * int(can_move))
+
 
 func shoot():
+	
+	# Spawn coffee
 	var this_coffee_shot = coffee_shot.instance()
 	
-#	this_coffee_shot.position = shoot_position.get_global_position()
 	this_coffee_shot.global_transform = shoot_position.get_global_transform()
 	this_coffee_shot.motion = player.position - this_coffee_shot.position
 	get_parent().add_child(this_coffee_shot)
+	
+	# Knock back
+	can_knock_back = true
+	current_knock_back_force = knock_back_force
+
 
 func _on_ShootTimer_timeout():
 	if !can_move:
@@ -51,8 +81,10 @@ func _on_ActivationArea_body_entered(body):
 	if body.is_in_group("Player"):
 		can_move = false
 		
-
+ 
 
 func _on_ActivationArea_body_exited(body):
 	if body.is_in_group("Player"):
 		can_move = true
+
+

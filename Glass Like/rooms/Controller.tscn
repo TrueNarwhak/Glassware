@@ -21,8 +21,6 @@ position = Vector2( 480, 271 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 480, -72 )
 
-[node name="Stage1" parent="." instance=ExtResource( 5 )]
-
 [node name="ItemHud" parent="." instance=ExtResource( 7 )]
 
 [node name="BlastZones" type="Node2D" parent="."]
@@ -46,3 +44,5 @@ scale = Vector2( 1.22191, -68.6961 )
 position = Vector2( 464, 648 )
 rotation = 1.5708
 scale = Vector2( 1.22191, -68.6961 )
+
+[node name="Stage1" parent="." instance=ExtResource( 5 )]

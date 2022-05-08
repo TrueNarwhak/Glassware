@@ -8,7 +8,7 @@
 [ext_resource path="res://objects/resorces/ItemSpawn.tres" type="Animation" id=6]
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 640.45
+radius = 740.003
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -117,6 +117,8 @@ tracks/6/keys = {
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 3 )
 coffee_shot = ExtResource( 5 )
+aim_speed = 0.655
+speed = 40
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 

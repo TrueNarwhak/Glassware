@@ -91,7 +91,6 @@ func _on_ActivationArea_body_entered(body):
 		bottle_sprite.play("Explode")
 		label_sprite.play("Explode")
 
-
 func _on_ExplodeTimer_timeout():
 	print("CHABOOF")
 	var this_explosion = explode_attack.instance()
