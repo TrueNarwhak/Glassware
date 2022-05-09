@@ -100,7 +100,7 @@ func _physics_process(delta):
 #		current_bat_flap = bat_flap
 	else:
 		
-		if Input.is_action_just_released("jump") and motion.y < -current_jump/2:
+		if Input.is_action_just_released("jump") and motion.y < -current_jump/2 and !is_attacking:
 			motion.y = -current_jump/2
 		
 		if x_input == 0:
