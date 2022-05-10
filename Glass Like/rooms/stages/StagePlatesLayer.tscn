@@ -59,7 +59,7 @@ position = Vector2( 782, 10 )
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Shelf2" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
+[node name="Shelf2" type="StaticBody2D" parent="Ground" groups=["StageFallThrough", "StageGround"]]
 position = Vector2( 78, 139 )
 collision_layer = 9
 collision_mask = 9

@@ -123,15 +123,20 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
+
+[node name="DropCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 60 )
+collision_mask = 8
 
 [node name="FeetPos" type="Position2D" parent="."]
 position = Vector2( 0, 35 )

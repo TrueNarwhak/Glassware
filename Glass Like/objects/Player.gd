@@ -29,6 +29,7 @@ onready var sprite = $AnimatedSprite
 onready var feet_pos = $FeetPos
 onready var ball_aim_pos = $BallAimPos
 onready var death_timer = $DeathTimer
+onready var drop_cast = $DropCast
 
 onready var bat_wings = $BatWings
 onready var baseball_bat = $AnimatedSprite/BaseballBat
@@ -116,6 +117,11 @@ func _physics_process(delta):
 	
 	if jump_death_called:
 		sprite.play("Shatter")
+	
+	# Dropping Through Platforms
+	if drop_cast.is_colliding() and Input.is_action_just_pressed("move_down"):
+		if drop_cast.get_collider().is_in_group("StageFallThrough") and drop_cast.get_collider().is_in_group("StageGround"):
+			position.y += 1
 	
 	# Attacking
 	if Input.is_action_just_pressed("attack") and !is_attacking and !jump_death_called:

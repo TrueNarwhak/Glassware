@@ -11,7 +11,7 @@ light_mode = 2
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 83, 6 )
 
-[node name="MovingPlat" type="PathFollow2D" groups=["StageGround"]]
+[node name="MovingPlat" type="PathFollow2D" groups=["StageFallThrough", "StageGround"]]
 rotate = false
 loop = false
 script = ExtResource( 3 )

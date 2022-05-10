@@ -43,7 +43,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1.7 ),
+"times": PoolRealArray( 0, 0.4, 1.6 ),
 "transitions": PoolRealArray( 0.196146, 0.196146, 0.196146 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -28, 0 ), Vector2( 1467.14, 0 ) ]
