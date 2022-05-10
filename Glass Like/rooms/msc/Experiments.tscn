@@ -14,7 +14,7 @@ extents = Vector2( 401, 8 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 111, 149.352 )
+position = Vector2( -104, 840 )
 scale = Vector2( 0.452, 0.452 )
 texture = ExtResource( 6 )
 

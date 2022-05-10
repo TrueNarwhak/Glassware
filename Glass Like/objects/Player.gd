@@ -29,7 +29,9 @@ onready var sprite = $AnimatedSprite
 onready var feet_pos = $FeetPos
 onready var ball_aim_pos = $BallAimPos
 onready var death_timer = $DeathTimer
+
 onready var bat_wings = $BatWings
+onready var baseball_bat = $AnimatedSprite/BaseballBat
 
 onready var camera = get_parent().get_node("LeanCamera")
 
@@ -127,7 +129,7 @@ func _physics_process(delta):
 			motion = attack_force * get_local_mouse_position().normalized()
 			can_attack_boost = false
 		
-		# Items
+		# Seal
 		beachball_count += 1
 		if beachball_count > 1:
 			beachball_count = 0
@@ -137,6 +139,13 @@ func _physics_process(delta):
 			var this_beachball = beachball.instance()
 			this_beachball.global_position = ball_aim_pos.global_position
 			get_parent().add_child(this_beachball)
+		
+		# Baseball
+		if inventory.has("baseball"):
+			baseball_bat.frame += 1
+			
+			if baseball_bat.frame == 2:
+				baseball_bat.frame = 0
 	
 	# Apply physics
 	motion = move_and_slide(motion, Vector2.UP)
@@ -156,6 +165,16 @@ func _physics_process(delta):
 			current_bat_flap = clamp(current_bat_flap, 0, 100000000000)
 	
 	bat_wings.visible = bool(int(Input.is_action_pressed("jump")) * int(current_bat_flap != 0) * int(inventory.has("bat")))
+	
+	# Baseball
+	baseball_bat.visible = bool(int(inventory.has("baseball")) * int(!is_attacking))
+	baseball_bat.flip_h = sprite.flip_h
+	
+	if !baseball_bat.flip_h:
+		baseball_bat.position.x = -55
+	else:
+		baseball_bat.position.x = 55
+		
 	
 	# Floppy disk
 	floppy_disk_exists = get_parent().has_node("Floppydisk")

@@ -8,7 +8,7 @@
 [ext_resource path="res://objects/resorces/ItemSpawn.tres" type="Animation" id=6]
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 512.66
+radius = 604.013
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

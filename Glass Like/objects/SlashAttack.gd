@@ -51,4 +51,7 @@ func _on_SlashAttack_body_entered(body):
 			
 			if body.is_in_group("EnemyProjectile") and get_parent().inventory.has("baseball"):
 				print("reflect!")
-				body.motion = -body.motion
+				
+				body.motion = -body.motion*2
+				body.is_reflected = true
+				body.sprite.flip_h = true
