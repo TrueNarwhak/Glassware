@@ -91,8 +91,8 @@ tracks/2/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 33.7501
-height = 37.4997
+radius = 70.0004
+height = 24.2849
 
 [node name="NextStageArrow" type="Area2D"]
 visible = false
