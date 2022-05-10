@@ -19,6 +19,10 @@ func _on_NextStageArrow_body_entered(body):
 		if body.inventory.has("bat"):
 			body.current_bat_flap = body.bat_flap
 		
+		# Player invincibility
+		body.invincible = true
+		body.invincibility_timer.start()
+		
 		# Attacks
 		body.can_attack_boost = true
 		body.set_physics_process(false)

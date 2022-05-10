@@ -21,14 +21,16 @@ var is_attacking = false
 var can_attack_boost = true
 var motion = Vector2.ZERO
 var beachball_count = 0
-
 var jump_death_called = false
+var invincible = false
+
 var x_input
 
 onready var sprite = $AnimatedSprite
 onready var feet_pos = $FeetPos
 onready var ball_aim_pos = $BallAimPos
 onready var death_timer = $DeathTimer
+onready var invincibility_timer = $InvincibilityTimer
 onready var drop_cast = $DropCast
 
 onready var bat_wings = $BatWings
@@ -239,19 +241,26 @@ func _on_StatTimer_timeout():
 	get_parent().add_child(these_stats)
 
 
+func _on_invincibilityTimer_timeout():
+	invincible = false
+
+
 func shatter():
 	print("Shxrch!")
 	
-	# Camera
-	if !jump_death_called:
-		camera.zoom = Vector2(1.1, 1.1)
-	
-	# Die
-	if !jump_death_called:
-		motion.y = -death_jump
+	if !invincible:
+		# Camera
+		if !jump_death_called:
+			camera.zoom = Vector2(1.1, 1.1)
 		
-		death_timer.start()
-		
-		jump_death_called = true
+		# Die
+		if !jump_death_called:
+			motion.y = -death_jump
+			
+			death_timer.start()
+			
+			jump_death_called = true
+
+
 
 

@@ -22,8 +22,8 @@
 [ext_resource path="res://images/player/Spin/Spin2.png" type="Texture" id=20]
 [ext_resource path="res://images/player/Spin/Spin1.png" type="Texture" id=21]
 [ext_resource path="res://images/player/Spin/Spin.png" type="Texture" id=22]
-[ext_resource path="res://images/Attacks/Baseball/Baseball1.png" type="Texture" id=23]
 [ext_resource path="res://images/Attacks/Baseball/Baseball0.png" type="Texture" id=24]
+[ext_resource path="res://images/Attacks/Baseball/Baseball1.png" type="Texture" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -60,7 +60,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "default",
 "speed": 1.0
@@ -156,7 +156,11 @@ one_shot = true
 wait_time = 0.416
 autostart = true
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.8
+
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="StatTimer" to="." method="_on_StatTimer_timeout"]
 [connection signal="timeout" from="WateringCanTimer" to="." method="_on_WateringCanTimer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibilityTimer_timeout"]

@@ -21,6 +21,9 @@ onready var body = $KinematicBody2D
 onready var bottle_sprite = $KinematicBody2D/Sprites/Bottle
 onready var label_sprite = $KinematicBody2D/Sprites/Label
 onready var cap = $KinematicBody2D/Cap
+onready var jump_timer = $KinematicBody2D/JumpTimer
+onready var expode_timer = $KinematicBody2D/ExplodeTimer
+
 # --------------------------------------------------------------- #
 
 func _ready():
@@ -60,10 +63,10 @@ func _physics_process(delta):
 		label_sprite.play("Jump")
 	
 	# Explode on timeout anim
-	if body.is_on_floor() and $KinematicBody2D/JumpTimer.time_left > 0:
+	if body.is_on_floor() and jump_timer.time_left > 0:
 		bottle_sprite.play("default")
 		label_sprite.play("default")
-	elif !$KinematicBody2D/JumpTimer.time_left > 0:
+	elif !jump_timer.time_left > 0:
 		bottle_sprite.play("Explode")
 		label_sprite.play("Explode")
 		
@@ -85,8 +88,8 @@ func _on_Hitbox_area_entered(area):
 
 func _on_ActivationArea_body_entered(body):
 	if body.is_in_group("Player") and body.is_physics_processing():
-		$KinematicBody2D/ExplodeTimer.start()
-		$KinematicBody2D/JumpTimer.stop()
+		expode_timer.start()
+		jump_timer.stop()
 	
 		bottle_sprite.play("Explode")
 		label_sprite.play("Explode")
