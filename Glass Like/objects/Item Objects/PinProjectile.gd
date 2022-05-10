@@ -50,7 +50,7 @@ func _on_PinheadHitbox_area_entered(area):
 		
 		if !player.is_on_floor():
 			player.motion = (player.attack_force * 1.35) * get_local_mouse_position().normalized()
-			player.can_attack_boost = false
+			player.can_attack_boost = true
 		
 		# Anim
 		head_sprite.scale = Vector2(head_pop,head_pop)

@@ -40,7 +40,7 @@ onready var camera = get_parent().get_node("LeanCamera")
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["pin"]
 var inventory_max = 3
 
 export var mushroom_force = 800
