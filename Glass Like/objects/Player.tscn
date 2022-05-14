@@ -37,10 +37,10 @@ animations = [ {
 "name": "Spin",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Jump",
-"speed": 5.0
+"name": "Walk",
+"speed": 6.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
@@ -52,10 +52,10 @@ animations = [ {
 "name": "Shatter",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "Walk",
-"speed": 6.0
+"name": "Jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
@@ -123,11 +123,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 flip_h = true
 

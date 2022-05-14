@@ -1,0 +1,26 @@
+- full screen only works in controller scene
+- arrow is not obvious to player
+- aming is hard for new players
+- stading attacks are static, lerch forward a bit?
+- 3 kettles stage remove
+    - waiting
+- anvil transition fell off gltich
+- items shoudnt be horizontal!!!
+- tnt works good
+    - dycotomy between control and randomness adds to this
+- color pallet between artifacts signals defense or attack
+- frogs produce unfun effects from the fact that the hang time, main action, is reduced (
+- invinciblity prevents walk off
+- PEOPLE DONT LIKE STAGE DEATHS 
+- can be hard to tell if you or the enemy died 
+- slash could potentially destroy bullets?
+    - small window, but it can encurage agression
+- increase invincibilty
+- only start as soon as you touch ground
+- bullets can collide
+- are kettles really forcing move forward?
+    - maybe alot more exadurated move forward
+- plates are kind of... weird
+- "ill play one more round" absolute win 
+- items sometimes colide
+- camera pop on collect item
