@@ -13,7 +13,7 @@ height = 51.9999
 
 [node name="CoffeeShot" type="KinematicBody2D" groups=["EnemyProjectile", "Projectile"]]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource( 2 )
 speed_increase = 73
 
