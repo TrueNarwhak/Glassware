@@ -55,3 +55,9 @@ func _on_SlashAttack_body_entered(body):
 				body.motion = -body.motion*2
 				body.is_reflected = true
 				body.sprite.flip_h = true
+
+
+func _on_SlashAttack_area_entered(area):
+	if area.is_in_group("Flower") and area.can_sprout:
+		area.make_sprout()
+		area.queue_free()
