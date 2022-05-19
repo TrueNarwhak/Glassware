@@ -28,10 +28,10 @@ position = Vector2( 744, 222 )
 position = Vector2( -32, 0 )
 
 [node name="ItemSpawner" parent="Spawners" instance=ExtResource( 5 )]
-position = Vector2( 376, 300 )
+position = Vector2( 243.7, 267.7 )
 
 [node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 5 )]
-position = Vector2( 376, 152 )
+position = Vector2( 443.7, 267.7 )
 
 [node name="Ground" type="Node2D" parent="."]
 
