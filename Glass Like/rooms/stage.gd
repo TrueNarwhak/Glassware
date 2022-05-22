@@ -1,14 +1,18 @@
 extends Node2D
 class_name Stage, "res://images/internal/node icons/Plat.png"
 
+const TARGET_FPS = 60
+
 export(int) var intensity
 onready var enemies = $Enemies
 onready var spawner = $Spawners
 #onready var item_spawner = get_node("ItemSpawner") 
 onready var player = get_parent().get_node("Player")
+onready var camera = get_parent().get_node("LeanCamera")
 
-#export var shift_speed = 32
-export var shift_speed = 1960
+export var shift_speed = 30
+export var zoom_out_on_collect_item = Vector2(1.1, 1.1)
+export var zoom_out_speed = 0.4
 var all_enemies_gone_called = false
 var can_shift = false 
 var arrows_before_item = 3
@@ -22,8 +26,9 @@ func _process(delta):
 	if enemies.get_child_count() == 0:
 		defeated_all()
 	
+	
 	# Constantly shift
-	position.x -= shift_speed * delta
+	position.x -= (shift_speed + (ItemAndStages.stages_cleared + 1)) * TARGET_FPS * delta
 #	position.x = lerp(position.x, -4500*int(all_enemies_gone_called), 0.09)
 	
 	# Clamp so the stage can actually be effected by shift speed
@@ -37,6 +42,10 @@ func _process(delta):
 		queue_free()
 	if position.x == 0:
 		get_node("../Player").set_physics_process(true)
+	
+	# Camera 
+	if all_enemies_gone_called:
+		camera.zoom = lerp(camera.zoom, zoom_out_on_collect_item, zoom_out_speed)
 	
 	# Set Item / Stage 
 	

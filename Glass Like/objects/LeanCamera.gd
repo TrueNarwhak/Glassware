@@ -15,6 +15,7 @@ export var rotate_shake_reset = 0.2
 # zoom pop
 export var zoom_pop = 1.02
 export var zoom_reset = 0.05
+export var player_death_pop = 1.3
 
 onready var player = get_parent().get_node("Player")
 

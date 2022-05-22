@@ -251,7 +251,7 @@ func shatter():
 	if !invincible:
 		# Camera
 		if !jump_death_called:
-			camera.zoom = Vector2(1.1, 1.1)
+			camera.zoom = Vector2(camera.player_death_pop, camera.player_death_pop)
 		
 		# Die
 		if !jump_death_called:
