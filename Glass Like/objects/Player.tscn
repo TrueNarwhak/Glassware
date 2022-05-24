@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://images/player/PlayerStand.png" type="Texture" id=1]
 [ext_resource path="res://images/player/PlayerWalk.png" type="Texture" id=2]
@@ -25,6 +25,11 @@
 [ext_resource path="res://images/Attacks/Baseball/Baseball0.png" type="Texture" id=24]
 [ext_resource path="res://images/Attacks/Baseball/Baseball1.png" type="Texture" id=25]
 
+[sub_resource type="Shader" id=8]
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 8 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
@@ -42,6 +47,11 @@ animations = [ {
 "name": "Shatter",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 6.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Jump",
@@ -51,11 +61,6 @@ animations = [ {
 "loop": true,
 "name": "Fall",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 6.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
@@ -96,6 +101,7 @@ bat_flap = 736
 bat_decay = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 7 )
 position = Vector2( 11, -37 )
 frames = SubResource( 1 )
 offset = Vector2( 0, -1.032 )
@@ -123,13 +129,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 

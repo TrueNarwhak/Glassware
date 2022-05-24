@@ -3,7 +3,7 @@
 [ext_resource path="res://rooms/stage.gd" type="Script" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
 [ext_resource path="res://objects/NextStageArrow.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/foes/Kettle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/foes/Champaign.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://thankyousab.png" type="Texture" id=6]
 
@@ -21,8 +21,8 @@ texture = ExtResource( 6 )
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2( 0, -1 )
 
-[node name="Kettle" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 920, 209 )
+[node name="Champaign" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 800, 401 )
 
 [node name="Spawners" type="Node2D" parent="."]
 position = Vector2( 0, -1 )

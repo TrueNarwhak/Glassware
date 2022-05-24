@@ -23,6 +23,7 @@ onready var label_sprite = $KinematicBody2D/Sprites/Label
 onready var cap = $KinematicBody2D/Cap
 onready var jump_timer = $KinematicBody2D/JumpTimer
 onready var expode_timer = $KinematicBody2D/ExplodeTimer
+onready var anim = $AnimationPlayer
 
 # --------------------------------------------------------------- #
 
@@ -93,6 +94,7 @@ func _on_ActivationArea_body_entered(body):
 	
 		bottle_sprite.play("Explode")
 		label_sprite.play("Explode")
+		anim.play("ExplodeShake")
 
 func _on_ExplodeTimer_timeout():
 	print("CHABOOF")
