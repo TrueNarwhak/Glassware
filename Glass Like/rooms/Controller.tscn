@@ -15,10 +15,10 @@ script = ExtResource( 6 )
 position = Vector2( -89, -35 )
 scale = Vector2( 1.16144, 1.16144 )
 
+[node name="Stage1" parent="." instance=ExtResource( 5 )]
+
 [node name="LeanCamera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 271 )
-
-[node name="Stage1" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 480, -72 )

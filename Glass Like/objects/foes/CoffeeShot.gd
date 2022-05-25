@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
-export var speed = 690
-export var speed_increase = 60
+export var speed = 28
+#export var speed_increase = 60
+export var speed_multiplier = 1.2
+export var max_speed = 200
 
 var TARGET_FPS = 60
 var is_reflected = false
@@ -16,7 +18,9 @@ func _ready():
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(motion.normalized() * delta * speed)
-	speed += speed_increase * delta * TARGET_FPS
+#	speed += speed_increase * delta * TARGET_FPS
+	if speed < max_speed:
+		speed *= speed_multiplier * delta * TARGET_FPS
 
 func _on_Hitbox_body_entered(body):
 	var this_body = body.get_parent()
