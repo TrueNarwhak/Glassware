@@ -1,4 +1,4 @@
-extends Enemy
+extends Area2D
 
 
 func _ready():
@@ -9,7 +9,11 @@ func _on_Blastzone_body_entered(body):
 	var this_body = body.get_parent()
 	
 	if body.is_in_group("Player"):
-		body.shatter()
+		if !body.invincible:
+			body.shatter()
+		else:
+			#play sfx??
+			body.position = Vector2(480, -120)
 	
 	if this_body.is_in_group("Enemies"):
 		if this_body.get_parent().get_parent().get_global_position().x == 0:
