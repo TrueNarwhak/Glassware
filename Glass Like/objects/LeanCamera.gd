@@ -33,10 +33,6 @@ func _process(delta):
 	if Options.camera_tilt:
 		lean_camera_towards_mouse_(delta)
 	
-	# Shake 
-#	if trauma and Options.screenshake:
-#		trauma = max(trauma - decay * delta, 0)
-	
 	# Reset Rotation
 	rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
 	
@@ -51,7 +47,7 @@ func lean_camera_towards_mouse_(delta):
 	offset = lerp(offset, lean, delta * smooth_lean)
 
 func match_player_position_():
-	position = get_node("../Player").position
+	position = player.position
 
 func shake():
 	if Options.screenshake:

@@ -75,14 +75,17 @@ func _physics_process(delta):
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, -MAX_SPEED + frog_current_hinder, MAX_SPEED - frog_current_hinder)
 		
-		sprite.playing = true
-		sprite.play("Walk")
+		if !is_attacking: 
+			sprite.playing = true
+			sprite.play("Walk")
+		else:
+			sprite.playing = false
 		
 		if is_on_floor() and !jump_death_called:
 			sprite.flip_h = x_input < 0
 	else:
 		sprite.playing = false
-		if is_on_floor():
+		if is_on_floor() and !is_attacking:
 			sprite.play("default")
 	
 	# Apply Gravity
@@ -112,10 +115,11 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 		
 		# Animation
-		if motion.y < 0:
-			sprite.play("Jump")
-		else:
-			sprite.play("Fall")
+		if !is_attacking:
+			if motion.y < 0:
+				sprite.play("Jump")
+			else:
+				sprite.play("Fall")
 	
 	if jump_death_called:
 		sprite.play("Shatter")
@@ -134,8 +138,18 @@ func _physics_process(delta):
 		
 		# Boosting
 		if can_attack_boost and !is_on_floor():
+			
+			# Apply physics
 			motion = attack_force * get_local_mouse_position().normalized()
 			can_attack_boost = false
+		else:
+			
+			# Apply physics
+			motion.x = attack_force * get_local_mouse_position().normalized().x / 1.5
+			can_attack_boost = false
+			
+			# Animation
+			sprite.play("GroundAttack")
 		
 		# Seal
 		beachball_count += 1
