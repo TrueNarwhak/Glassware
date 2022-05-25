@@ -34,7 +34,7 @@ func shatter():
 	for i in shards:
 		var this_shard = shard.instance()
 		this_shard.position = $KinematicBody2D.get_global_position()
-		get_tree().get_root().add_child(this_shard)
+		get_parent().get_parent().get_parent().add_child(this_shard)
 	
 	# Shake
 	if camera:

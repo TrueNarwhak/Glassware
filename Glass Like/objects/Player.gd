@@ -245,7 +245,7 @@ func _on_DeathTimer_timeout():
 	for i in 6:
 		var this_shard = shard.instance()
 		this_shard.position = get_global_position()
-		get_tree().get_root().add_child(this_shard)
+		get_parent().add_child(this_shard)
 	
 	$StatTimer.start()
 

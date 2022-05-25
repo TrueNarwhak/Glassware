@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://rooms/Menus/Quote.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 54
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "QuoteZoom"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 4.14106, 0.07966 ),
+"update": 0,
+"values": [ Vector2( 1.75, 1.75 ), Vector2( 3, 3 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "switch_scene"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ) ]
+}
+
+[node name="Quote" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 480, 270 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="Broken" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_top = 216.0
+margin_right = 958.0
+margin_bottom = 311.0
+custom_fonts/font = SubResource( 1 )
+text = "Come Again!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/QuoteZoom = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -24,6 +24,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("restart") and can_respawn:
 		get_tree().reload_current_scene()
 		ItemAndStages.reset_all()
+#		get_tree().change_scene("res://rooms/Menus/Quote.tscn")
+
 
 func set_respawn_ability():
 	can_respawn = true
