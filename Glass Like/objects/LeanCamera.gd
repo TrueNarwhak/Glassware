@@ -17,6 +17,10 @@ export var zoom_pop = 1.02
 export var zoom_reset = 0.05
 export var player_death_pop = 1.3
 
+# Zoom in on player
+export var zoom_into = Vector2(0.8, 0.8)
+export var zoom_in_speed = 0.05
+
 onready var player = get_parent().get_node("Player")
 
 const smooth_lean = 10.0
@@ -29,16 +33,35 @@ func _ready():
 
 func _process(delta):
 	
-	# Tilt
-	if Options.camera_tilt:
-		lean_camera_towards_mouse_(delta)
-	
-	# Reset Rotation
-	rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
-	
-	# Reset Zoom
-	zoom = lerp(zoom, Vector2(1.0, 1.0), zoom_reset)
+	if player.jump_death_called and player.visible:
+		
+		# Zoomed in on death Mode ------------------------------------
+		
+		# Match Player Position
+		position = lerp(position, player.position, 0.9)
+		
+		# Zoom into player
+		rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
+		zoom = lerp(zoom, zoom_into, zoom_in_speed)
+	else:
+		
+		# Tilt Camera Mode  ------------------------------------
+		
+		position = lerp(position, Vector2(480.0, 271.0), rotate_shake_reset)
+		
+		# Tilt
+		if Options.camera_tilt:
+			lean_camera_towards_mouse_(delta)
 
+		# Reset Rotation
+		rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
+
+		# Reset Zoom
+		zoom = lerp(zoom, Vector2(1.0, 1.0), zoom_reset)
+		
+		
+	# *****************************
+	# Note to self uhhh fix this maybe??? but also i can imagine it would be too much whiplast considering frequent player deaths. less zoom mayhaps
 
 func lean_camera_towards_mouse_(delta):
 	var mouse_position = get_global_mouse_position()
