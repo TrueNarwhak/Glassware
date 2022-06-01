@@ -22,6 +22,7 @@ func _ready():
 
 func _process(delta):
 	
+	# Keys
 	if Input.is_action_just_pressed("jump"):
 		remove_key(up)
 	if Input.is_action_just_pressed("move_down"):
@@ -32,6 +33,11 @@ func _process(delta):
 		remove_key(right)
 	if Input.is_action_just_pressed("attack"):
 		remove_key(mouse)
+	
+	# Full Screen
+	if Input.is_action_just_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+		Options.fullscreen = OS.window_fullscreen
 
 
 func remove_key(key):
