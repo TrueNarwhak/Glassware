@@ -33,21 +33,34 @@ func _ready():
 
 func _process(delta):
 	
-	if player.jump_death_called and player.visible:
+#	if player.jump_death_called and player.visible:
+#
+#		# Zoomed in on death Mode ------------------------------------
+#
+#		# Match Player Position
+#		position = lerp(position, player.position, 0.9)
+#
+#		# Zoom into player
+#		rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
+#		zoom = lerp(zoom, zoom_into, zoom_in_speed)
+#	else:
+#
+#		# Tilt Camera Mode  ------------------------------------
+#
+#		position = lerp(position, Vector2(480.0, 271.0), rotate_shake_reset)
+#
+#		# Tilt
+#		if Options.camera_tilt:
+#			lean_camera_towards_mouse_(delta)
+#
+#		# Reset Rotation
+#		rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
+#
+#		# Reset Zoom
+#		zoom = lerp(zoom, Vector2(1.0, 1.0), zoom_reset)
 		
-		# Zoomed in on death Mode ------------------------------------
 		
-		# Match Player Position
-		position = lerp(position, player.position, 0.9)
-		
-		# Zoom into player
-		rotation_degrees = lerp(rotation_degrees, 0.0, rotate_shake_reset)
-		zoom = lerp(zoom, zoom_into, zoom_in_speed)
-	else:
-		
-		# Tilt Camera Mode  ------------------------------------
-		
-		position = lerp(position, Vector2(480.0, 271.0), rotate_shake_reset)
+#		position = lerp(position, Vector2(480.0, 271.0), rotate_shake_reset)
 		
 		# Tilt
 		if Options.camera_tilt:
@@ -58,7 +71,6 @@ func _process(delta):
 
 		# Reset Zoom
 		zoom = lerp(zoom, Vector2(1.0, 1.0), zoom_reset)
-		
 		
 	# *****************************
 	# Note to self uhhh fix this maybe??? but also i can imagine it would be too much whiplast considering frequent player deaths. less zoom mayhaps

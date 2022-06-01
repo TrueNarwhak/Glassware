@@ -32,6 +32,7 @@ onready var ball_aim_pos = $BallAimPos
 onready var death_timer = $DeathTimer
 onready var invincibility_timer = $InvincibilityTimer
 onready var drop_cast = $DropCast
+onready var death_effect = $DeathEffect
 
 onready var bat_wings = $BatWings
 onready var baseball_bat = $AnimatedSprite/BaseballBat
@@ -259,13 +260,21 @@ func _on_invincibilityTimer_timeout():
 	invincible = false
 
 
+func _on_DeathEffect_animation_finished():
+	death_effect.visible = false
+
 func shatter():
 	print("Shxrch!")
 	
 	if !invincible:
 		# Camera
-#		if !jump_death_called:
-#			camera.zoom = Vector2(camera.player_death_pop, camera.player_death_pop)
+		if !jump_death_called:
+			camera.zoom = Vector2(camera.player_death_pop, camera.player_death_pop)
+			camera.rotation_degrees = [camera.rotate_shake, -camera.rotate_shake][randi() % 2]
+
+		# Play Effect 
+		death_effect.visible = true
+		death_effect.play()
 		
 		# Die
 		if !jump_death_called:
@@ -274,7 +283,3 @@ func shatter():
 			death_timer.start()
 			
 			jump_death_called = true
-
-
-
-

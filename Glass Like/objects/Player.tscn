@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://images/player/PlayerStand.png" type="Texture" id=1]
 [ext_resource path="res://images/player/PlayerWalk.png" type="Texture" id=2]
@@ -22,12 +22,24 @@
 [ext_resource path="res://images/player/Spin/Spin2.png" type="Texture" id=20]
 [ext_resource path="res://images/player/Spin/Spin1.png" type="Texture" id=21]
 [ext_resource path="res://images/player/Spin/Spin.png" type="Texture" id=22]
+[ext_resource path="res://images/Effects/Death Light/Death Effect Light 3.png" type="Texture" id=23]
 [ext_resource path="res://images/Attacks/Baseball/Baseball0.png" type="Texture" id=24]
 [ext_resource path="res://images/Attacks/Baseball/Baseball1.png" type="Texture" id=25]
 [ext_resource path="res://images/player/ground attack/Ground Attack3.png" type="Texture" id=26]
 [ext_resource path="res://images/player/helicopterkick/helicopterkick3.png" type="Texture" id=27]
 [ext_resource path="res://images/player/helicopterkick/helicopterkick2.png" type="Texture" id=28]
 [ext_resource path="res://images/player/helicopterkick/helicopterkick.png" type="Texture" id=29]
+[ext_resource path="res://images/Effects/Death Light/Death Effect Light.png" type="Texture" id=30]
+[ext_resource path="res://images/Effects/Death Light/Death Effect Light 2.png" type="Texture" id=31]
+[ext_resource path="res://images/Effects/Death Light/Death Effect Light 4.png" type="Texture" id=32]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 31 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 32 ) ],
+"loop": false,
+"name": "deatheffect",
+"speed": 11.0
+} ]
 
 [sub_resource type="Shader" id=8]
 
@@ -41,29 +53,9 @@ animations = [ {
 "name": "default",
 "speed": 0.1
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "Spin",
-"speed": 40.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ) ],
-"loop": true,
-"name": "GroundAttack",
-"speed": 65.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Shatter",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
@@ -71,10 +63,30 @@ animations = [ {
 "name": "Walk",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Helicopter Kick",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Shatter",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "GroundAttack",
+"speed": 65.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Spin",
+"speed": 40.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
@@ -114,6 +126,13 @@ floppy_disk = ExtResource( 13 )
 bat_flap = 736
 bat_decay = 2
 
+[node name="DeathEffect" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 0.972549, 0.972549, 0.972549, 1 )
+scale = Vector2( 0.828342, 0.828342 )
+frames = SubResource( 9 )
+animation = "deatheffect"
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 7 )
 position = Vector2( 11, -37 )
@@ -144,13 +163,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 3
 playing = true
 flip_h = true
 
@@ -180,6 +199,7 @@ autostart = true
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 0.8
 
+[connection signal="animation_finished" from="DeathEffect" to="." method="_on_DeathEffect_animation_finished"]
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="StatTimer" to="." method="_on_StatTimer_timeout"]
