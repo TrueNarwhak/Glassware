@@ -66,7 +66,7 @@ func ready():
 func _physics_process(delta):
 	
 	# Get Inputs
-	x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
+	if !jump_death_called: x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
 	var current_jump = JUMP_FORCE + frog_jump*int(inventory.has("frog"))
 	
 	var frog_current_hinder = (frog_hinder * int(inventory.has("frog"))) * int(!is_on_floor())
@@ -150,7 +150,7 @@ func _physics_process(delta):
 			can_attack_boost = false
 			
 			# Animation
-			sprite.play("GroundAttack")
+			if is_on_floor(): sprite.play("GroundAttack")
 		
 		# Seal
 		beachball_count += 1
