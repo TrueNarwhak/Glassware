@@ -160,7 +160,7 @@ func _physics_process(delta):
 		if inventory.has("seal") and beachball_count == 1:
 #		if inventory.has("seal"):
 			var this_beachball = beachball.instance()
-			this_beachball.global_position = ball_aim_pos.global_position
+			this_beachball.position = ball_aim_pos.global_position
 			get_parent().add_child(this_beachball)
 		
 		# Baseball
@@ -222,8 +222,8 @@ func _on_MushroomStomp_body_entered(body):
 	# Anvil
 	if inventory.has("anvil") and Input.is_action_pressed("move_down") and body.is_in_group("StageGround"):
 		var this_stomp = anvil_stomp.instance()
-		this_stomp.global_position.x = get_global_position().x
-		this_stomp.global_position.y = get_global_position().y + 25
+		this_stomp.position.x = get_global_position().x
+		this_stomp.position.y = get_global_position().y + 25
 		get_parent().add_child(this_stomp)
 		
 		if body.get_parent().is_in_group("Enemies"):
@@ -233,7 +233,7 @@ func _on_MushroomStomp_body_entered(body):
 func _on_WateringCanTimer_timeout():
 	if inventory.has("wateringcan") and is_on_floor() and !x_input == 0:
 		var this_flower = flower.instance()
-		this_flower.global_position = feet_pos.get_global_position()
+		this_flower.position = feet_pos.get_global_position()
 		get_parent().add_child(this_flower)
 
 # ---------------------------------------------------------------- #
@@ -252,7 +252,7 @@ func _on_DeathTimer_timeout():
 
 func _on_StatTimer_timeout():
 	var these_stats = stats.instance()
-	these_stats.global_position = Vector2(0, 0)
+	these_stats.position = Vector2(0, 0)
 	get_parent().add_child(these_stats)
 
 

@@ -22,8 +22,8 @@ func _process(delta):
 func make_sprout():
 	var this_sprout = sprout.instance()
 	
-	this_sprout.global_position.x = get_global_position().x
-	this_sprout.global_position.y = get_global_position().y -60
+	this_sprout.position.x = get_global_position().x
+	this_sprout.position.y = get_global_position().y -60
 	get_parent().add_child(this_sprout)
 
 func _on_Flower_body_entered(body):

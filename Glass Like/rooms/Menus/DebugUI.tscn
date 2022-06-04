@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://rooms/Menus/DebugUI.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 238.5, 87.5 )
+
+[node name="DebugUI" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Elements" type="Node2D" parent="."]
+
+[node name="Input" type="TextEdit" parent="Elements"]
+margin_left = 90.0
+margin_top = 37.0
+margin_right = 346.0
+margin_bottom = 75.0
+draw_tabs = true
+draw_spaces = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandInput" type="TextEdit" parent="Elements"]
+margin_left = 25.0
+margin_top = 37.0
+margin_right = 80.0
+margin_bottom = 75.0
+draw_tabs = true
+draw_spaces = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Output" type="TextEdit" parent="Elements"]
+margin_left = 24.0
+margin_top = 96.0
+margin_right = 462.0
+margin_bottom = 155.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterButton" type="Button" parent="Elements"]
+margin_left = 355.0
+margin_top = 47.0
+margin_right = 460.0
+margin_bottom = 75.0
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseIn" type="Area2D" parent="."]
+position = Vector2( 18, 18 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseIn"]
+position = Vector2( 228.5, 77.5 )
+shape = SubResource( 1 )
