@@ -6,6 +6,7 @@
 [ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://rooms/Stage Elements/MovePlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/foes/Champaign.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/Stage Elements/BookStage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/foes/Kettle.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -15,9 +16,6 @@ extents = Vector2( 401, 8 )
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 128, 384, 0, 0, 0, 0, 832, 384, 0, 0, 0, 0, 88, 384 )
 }
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10, 65 )
 
 [node name="StagePlatCover" type="Node2D"]
 script = ExtResource( 1 )
@@ -80,119 +78,21 @@ position = Vector2( 476.553, 384 )
 rotation = 7.78768e-06
 offset = 348.324
 
-[node name="VShelf" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
-position = Vector2( 152, 464 )
+[node name="BookStage" parent="Ground" instance=ExtResource( 7 )]
+position = Vector2( 153, 400 )
+scale = Vector2( 0.428686, 0.428686 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf"]
-position = Vector2( 0, -55 )
-shape = SubResource( 3 )
+[node name="BookStage2" parent="Ground" instance=ExtResource( 7 )]
+position = Vector2( 273, 400 )
+scale = Vector2( 0.428686, 0.428686 )
 
-[node name="Sprite" type="Sprite" parent="Ground/VShelf"]
-position = Vector2( 0, -8 )
-rotation = -1.57079
-texture = ExtResource( 2 )
+[node name="BookStage3" parent="Ground" instance=ExtResource( 7 )]
+position = Vector2( 676, 400 )
+scale = Vector2( 0.428686, 0.428686 )
 
-[node name="Sprite2" type="Sprite" parent="Ground/VShelf"]
-position = Vector2( 0, -104 )
-rotation = -1.57079
-texture = ExtResource( 2 )
-flip_h = true
-
-[node name="ColorRect" type="ColorRect" parent="Ground/VShelf"]
-margin_left = -9.0
-margin_top = -86.0
-margin_right = 2.0
-margin_bottom = -23.0
-color = Color( 0.690196, 0.639216, 0.658824, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VShelf2" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
-position = Vector2( 273, 464 )
-scale = Vector2( -1, 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf2"]
-position = Vector2( 0, -55 )
-shape = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="Ground/VShelf2"]
-position = Vector2( 0, -8 )
-rotation = -1.57079
-texture = ExtResource( 2 )
-
-[node name="Sprite2" type="Sprite" parent="Ground/VShelf2"]
-position = Vector2( 0, -104 )
-rotation = -1.57079
-texture = ExtResource( 2 )
-flip_h = true
-
-[node name="ColorRect" type="ColorRect" parent="Ground/VShelf2"]
-margin_left = -9.0
-margin_top = -86.0
-margin_right = 2.0
-margin_bottom = -23.0
-color = Color( 0.690196, 0.639216, 0.658824, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VShelf5" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
-position = Vector2( 676, 464 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf5"]
-position = Vector2( 0, -55 )
-shape = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="Ground/VShelf5"]
-position = Vector2( 0, -8 )
-rotation = -1.57079
-texture = ExtResource( 2 )
-
-[node name="Sprite2" type="Sprite" parent="Ground/VShelf5"]
-position = Vector2( 0, -104 )
-rotation = -1.57079
-texture = ExtResource( 2 )
-flip_h = true
-
-[node name="ColorRect" type="ColorRect" parent="Ground/VShelf5"]
-margin_left = -9.0
-margin_top = -86.0
-margin_right = 2.0
-margin_bottom = -23.0
-color = Color( 0.690196, 0.639216, 0.658824, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VShelf6" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
-position = Vector2( 797, 464 )
-scale = Vector2( -1, 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/VShelf6"]
-position = Vector2( 0, -55 )
-shape = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="Ground/VShelf6"]
-position = Vector2( 0, -8 )
-rotation = -1.57079
-texture = ExtResource( 2 )
-
-[node name="Sprite2" type="Sprite" parent="Ground/VShelf6"]
-position = Vector2( 0, -104 )
-rotation = -1.57079
-texture = ExtResource( 2 )
-flip_h = true
-
-[node name="ColorRect" type="ColorRect" parent="Ground/VShelf6"]
-margin_left = -9.0
-margin_top = -86.0
-margin_right = 2.0
-margin_bottom = -23.0
-color = Color( 0.690196, 0.639216, 0.658824, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="BookStage4" parent="Ground" instance=ExtResource( 7 )]
+position = Vector2( 796, 400 )
+scale = Vector2( 0.428686, 0.428686 )
 
 [node name="NextStageArrow" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 192 )

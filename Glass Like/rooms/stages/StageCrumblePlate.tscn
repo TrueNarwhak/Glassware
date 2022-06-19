@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://rooms/stage.gd" type="Script" id=1]
+[ext_resource path="res://rooms/Stage Elements/CrumbleShelfLarge.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/foes/Plate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/NextStageArrow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/Stage Elements/BookStage.tscn" type="PackedScene" id=7]
+
+[node name="StageCrumblePlate" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Plate" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 107, 272 )
+
+[node name="Plate2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 848, 272 )
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="ItemSpawner" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 335.7, 200 )
+
+[node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 623.7, 200 )
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="CrumbleShelfLarge" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 480, 480 )
+
+[node name="CrumbleShelfLarge3" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 128, 480 )
+
+[node name="CrumbleShelfLarge2" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 832, 480 )
+
+[node name="Books" type="Node2D" parent="Ground"]
+position = Vector2( -40, 0 )
+
+[node name="BookStage" parent="Ground/Books" instance=ExtResource( 7 )]
+position = Vector2( 4, 381 )
+scale = Vector2( 0.459161, 0.459161 )
+
+[node name="BookStage3" parent="Ground/Books" instance=ExtResource( 7 )]
+position = Vector2( 143, 444 )
+rotation = -1.57079
+scale = Vector2( 0.459161, 0.459161 )
+
+[node name="BookStage2" parent="Ground/Books" instance=ExtResource( 7 )]
+position = Vector2( 101, 382 )
+rotation = -1.17667
+scale = Vector2( 0.459161, 0.459161 )
+
+[node name="Books2" type="Node2D" parent="Ground"]
+position = Vector2( 992, 0 )
+scale = Vector2( -1, 1 )
+
+[node name="BookStage" parent="Ground/Books2" instance=ExtResource( 7 )]
+position = Vector2( 4, 381 )
+scale = Vector2( 0.459161, 0.459161 )
+
+[node name="BookStage3" parent="Ground/Books2" instance=ExtResource( 7 )]
+position = Vector2( 143, 444 )
+rotation = -1.57079
+scale = Vector2( 0.459161, 0.459161 )
+
+[node name="BookStage2" parent="Ground/Books2" instance=ExtResource( 7 )]
+position = Vector2( 101, 382 )
+rotation = -1.17667
+scale = Vector2( 0.459161, 0.459161 )
+
+[node name="NextStageArrow" parent="." instance=ExtResource( 6 )]
+position = Vector2( 480, 201 )

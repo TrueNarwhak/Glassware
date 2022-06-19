@@ -1,35 +1,133 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://rooms/stage.gd" type="Script" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
 [ext_resource path="res://objects/NextStageArrow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/foes/Plate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/stage/decore/Grid Board Back.png" type="Texture" id=6]
+[ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 65
+outline_size = 2
+font_data = ExtResource( 7 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 401, 8 )
 
 [node name="Stage" type="Node2D"]
+show_behind_parent = true
 script = ExtResource( 1 )
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Plate" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 164, 96 )
-
-[node name="Plate2" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 800, 378 )
-
-[node name="Spawners" type="Node2D" parent="."]
-
-[node name="ItemSpawner" parent="Spawners" instance=ExtResource( 5 )]
-position = Vector2( 479, 219 )
-
-[node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 5 )]
-position = Vector2( 479, 410 )
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2( 0, 38 )
+
+[node name="BoardBack" type="Sprite" parent="Ground"]
+position = Vector2( 240, 290 )
+scale = Vector2( 0.532247, 0.532247 )
+texture = ExtResource( 6 )
+
+[node name="Broken" type="Label" parent="Ground/BoardBack"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -286.531
+margin_top = -75.153
+margin_right = -46.5305
+margin_bottom = 39.847
+rect_rotation = 5.64056
+custom_fonts/font = SubResource( 2 )
+text = "B"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Broken2" type="Label" parent="Ground/BoardBack"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -481.929
+margin_top = -180.367
+margin_right = -241.929
+margin_bottom = -65.3673
+rect_rotation = -15.0
+custom_fonts/font = SubResource( 2 )
+text = "A"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Broken3" type="Label" parent="Ground/BoardBack"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -481.929
+margin_top = 90.1838
+margin_right = -241.929
+margin_bottom = 205.184
+rect_rotation = -6.06064
+custom_fonts/font = SubResource( 2 )
+text = "C"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoardBack2" type="Sprite" parent="Ground"]
+position = Vector2( 712, 290 )
+scale = Vector2( 0.532247, 0.532247 )
+texture = ExtResource( 6 )
+
+[node name="Broken" type="Label" parent="Ground/BoardBack2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -535.531
+margin_top = 25.882
+margin_right = -295.531
+margin_bottom = 140.882
+rect_rotation = -7.69216
+custom_fonts/font = SubResource( 2 )
+text = "F"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Broken2" type="Label" parent="Ground/BoardBack2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -258.993
+margin_top = -229.811
+margin_right = -18.9933
+margin_bottom = -114.811
+rect_rotation = 16.0942
+custom_fonts/font = SubResource( 2 )
+text = "Q"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Broken3" type="Label" parent="Ground/BoardBack2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -322.917
+margin_top = 134.274
+margin_right = -82.9165
+margin_bottom = 249.274
+rect_rotation = -6.06064
+custom_fonts/font = SubResource( 2 )
+text = "P"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shelf" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
 position = Vector2( 78, 426 )
@@ -86,6 +184,22 @@ color = Color( 0.690196, 0.639216, 0.658824, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Plate" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 164, 96 )
+
+[node name="Plate2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 800, 384 )
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="ItemSpawner" parent="Spawners" instance=ExtResource( 5 )]
+position = Vector2( 344, 323.7 )
+
+[node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 5 )]
+position = Vector2( 616, 323.7 )
 
 [node name="NextStageArrow" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 320 )

@@ -12,6 +12,7 @@
 script = ExtResource( 6 )
 
 [node name="Wall" parent="." instance=ExtResource( 2 )]
+show_behind_parent = true
 position = Vector2( -89, -35 )
 scale = Vector2( 1.16144, 1.16144 )
 

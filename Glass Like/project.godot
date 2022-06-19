@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "CrumbleShelf",
+"language": "GDScript",
+"path": "res://rooms/Stage Elements/CrumbleShelfLarge.gd"
+}, {
 "base": "Node2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://rooms/stage.gd"
 } ]
 _global_script_class_icons={
+"CrumbleShelf": "",
 "Enemy": "res://images/internal/node icons/Cup2.png",
 "Jar": "",
 "Plate": "",

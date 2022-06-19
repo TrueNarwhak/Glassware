@@ -8,6 +8,8 @@ func _ready():
 	OS.window_fullscreen = Options.fullscreen
 
 func _process(delta):
+	
+	
 	if Input.is_action_just_pressed("pause"):
 		get_tree().reload_current_scene()
 	

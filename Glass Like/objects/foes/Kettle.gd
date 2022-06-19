@@ -86,5 +86,3 @@ func _on_ActivationArea_body_entered(body):
 func _on_ActivationArea_body_exited(body):
 	if body.is_in_group("Player"):
 		can_move = true
-
-

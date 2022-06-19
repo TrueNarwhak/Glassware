@@ -89,6 +89,7 @@ func stage_shift(selected_stage):
 	var this_stage = selected_stage.instance()
 	this_stage.position.x = get_global_position().x + 1040
 	this_stage.position.y = get_global_position().y
+	get_parent().move_child(this_stage, 1)
 	get_parent().add_child(this_stage)
 
 func _exit_tree():

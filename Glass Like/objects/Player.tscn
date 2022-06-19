@@ -58,6 +58,21 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Shatter",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Spin",
+"speed": 40.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "Helicopter Kick",
+"speed": 30.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Walk",
@@ -68,25 +83,10 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "Helicopter Kick",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Shatter",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
 "name": "GroundAttack",
 "speed": 65.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "Spin",
-"speed": 40.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
@@ -163,13 +163,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 
@@ -197,7 +197,7 @@ wait_time = 0.284
 autostart = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
-wait_time = 0.8
+wait_time = 1.318
 
 [connection signal="animation_finished" from="DeathEffect" to="." method="_on_DeathEffect_animation_finished"]
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://rooms/stage.gd" type="Script" id=1]
+[ext_resource path="res://objects/NextStageArrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://rooms/Stage Elements/Lamp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/foes/Cup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/foes/Champaign.tscn" type="PackedScene" id=6]
+
+[node name="StageTwoLamps" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Cup" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 230, 277 )
+
+[node name="Cup2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 727, 274 )
+
+[node name="Champaign" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 856, 280 )
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="ItemSpawner" parent="Spawners" instance=ExtResource( 3 )]
+position = Vector2( 346.7, 200 )
+
+[node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 3 )]
+position = Vector2( 612.4, 200 )
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Lamp" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 232, 392 )
+
+[node name="Lamp2" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 728, 392 )
+
+[node name="NextStageArrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 480, 298 )

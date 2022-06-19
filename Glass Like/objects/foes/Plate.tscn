@@ -13,6 +13,7 @@ radius = 142.24
 [node name="Plate" type="Node2D" groups=["Enemies"]]
 scale = Vector2( 0.45, 0.45 )
 script = ExtResource( 3 )
+accel = 12
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -39,5 +40,11 @@ position = Vector2( -17.7778, 0 )
 
 [node name="RightPos" type="Position2D" parent="KinematicBody2D"]
 position = Vector2( 17.7778, 0 )
+
+[node name="TopPos" type="Position2D" parent="KinematicBody2D"]
+position = Vector2( 0, -11.1111 )
+
+[node name="BottomPos" type="Position2D" parent="KinematicBody2D"]
+position = Vector2( 0, 11.1111 )
 
 [connection signal="body_entered" from="KinematicBody2D/Hitbox" to="." method="_on_Hitbox_body_entered"]
