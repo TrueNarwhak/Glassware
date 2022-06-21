@@ -1,0 +1,33 @@
+- crumble platform is difficult
+- arrow is confusing
+- lamps funnel down 
+- teapot goes off screen
+- go through ground on book
+- zoom not as visible 
+- stages fall onto enemies
+- slide on slant
+- too close to pickup
+- speed up works well:)
+- make clear when have dash
+- flower encurages defensive play
+- two stage glitch 
+- player too good 
+- kettle timing is annoying
+- bat doesnt deterierate 
+- mushroom didnt work, needs to be big
+- death effect works create
+- shouldnt move while holding the bullet in
+- "i want x and y" <- need to make this a difficult choice
+- make bat darken
+- stages should be more open
+- lenience on explosions 
+- floppydisk freeze
+- people go up, but not down
+	- encurage falling
+
+- points of anger occur at lack of control
+	-> more control = more fun
+
+- baseball causes more end lag
+
+- insect minion item (rad)
