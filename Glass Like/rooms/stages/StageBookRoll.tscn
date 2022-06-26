@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=1]
 [ext_resource path="res://rooms/stage.gd" type="Script" id=2]
@@ -8,12 +8,23 @@
 [ext_resource path="res://objects/foes/Plate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://rooms/stages/PlateSmall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/foes/Kettle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://images/stage/decore/Book.png" type="Texture" id=9]
+[ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 238.5, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 166.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 174.221, 34.6172 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 33
+outline_size = 1
+extra_spacing_char = 2
+font_data = ExtResource( 10 )
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 2 )
@@ -119,11 +130,37 @@ position = Vector2( 687, 297 )
 scale = Vector2( 0.789044, 0.789044 )
 spine = "Almanac"
 
-[node name="BookStage8" parent="Ground/Books" instance=ExtResource( 5 )]
+[node name="BookStageJumpThrough" type="StaticBody2D" parent="Ground/Books" groups=["StageGround"]]
 position = Vector2( 539.909, 326.689 )
-rotation = 0.855642
-scale = Vector2( 0.789044, 0.789044 )
-spine = "Catalouge"
+rotation = 0.855211
+scale = Vector2( 0.789, 0.789 )
+
+[node name="Sprite" type="Sprite" parent="Ground/Books/BookStageJumpThrough"]
+modulate = Color( 0.941176, 0.941176, 0.941176, 1 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Books/BookStageJumpThrough"]
+position = Vector2( 0.017334, 0.38092 )
+rotation = 1.57116
+scale = Vector2( -1, -1 )
+shape = SubResource( 3 )
+one_way_collision = true
+
+[node name="Spine" type="Label" parent="Ground/Books/BookStageJumpThrough"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -31.0
+margin_top = 91.0
+margin_right = 152.0
+margin_bottom = 150.0
+rect_rotation = -89.9999
+custom_fonts/font = SubResource( 4 )
+text = "Catalouge"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NextStageArrow" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 201 )
