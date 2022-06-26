@@ -25,7 +25,7 @@ material = SubResource( 1 )
 position = Vector2( 390, 246 )
 scale = Vector2( 3.74583, 3.52482 )
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="ColorRect" type="ColorRect" parent="."]

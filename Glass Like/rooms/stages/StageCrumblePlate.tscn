@@ -30,12 +30,15 @@ position = Vector2( 623.7, 200 )
 
 [node name="CrumbleShelfLarge" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 480, 480 )
+crumble_speed = 0.25
 
 [node name="CrumbleShelfLarge3" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 128, 480 )
+crumble_speed = 0.25
 
 [node name="CrumbleShelfLarge2" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 832, 480 )
+crumble_speed = 0.25
 
 [node name="Books" type="Node2D" parent="Ground"]
 position = Vector2( -40, 0 )

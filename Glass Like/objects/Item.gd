@@ -4,6 +4,10 @@ onready var sprite = $Visual/Item
 onready var anim = $AnimationPlayer
 onready var collision_shape = $CollisionShape2D
 
+onready var anim_tooltip = $TooltipArea/TooltipAnim
+onready var tooltip_holder = $TooltipArea/TooltipHolder
+onready var tooltip = $TooltipArea/TooltipHolder/Tooltip
+
 onready var itemhud = get_parent().get_parent().get_parent().get_node("ItemHud")
 export(PackedScene) var discarded_item
 
@@ -72,6 +76,16 @@ func _on_Item_body_entered(body):
 		get_parent().get_parent().all_enemies_gone_called = true
 		get_parent().get_parent().stage_shift(ItemAndStages.next_stage)
 		queue_free()
+		
+
+func _on_TooltipArea_body_entered(body):
+	if body.is_in_group("Player"):
+		anim_tooltip.play("TooltipPop")
+		
+		print("mario gaming")
+
+func _on_TooltipArea_area_exited(area):
+	tooltip_holder.hide()
 
 func discard():
 	# Spit

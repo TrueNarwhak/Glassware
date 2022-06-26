@@ -25,7 +25,7 @@ onready var intensity_1_stages = [
 	load("res://rooms/stages/StageGridBoard.tscn"),
 	load("res://rooms/stages/StageBookRoll.tscn"),
 	load("res://rooms/stages/StageDoubleMovePlat.tscn"),
-	load("res://rooms/stages/StageTwoLamps.tscn"),
+#	load("res://rooms/stages/StageTwoLamps.tscn"),
 	load("res://rooms/stages/StageJumpOffLamp.tscn"),
 	load("res://rooms/stages/StageBookRoll.tscn"),
 	load("res://rooms/stages/StageCrumblePlate.tscn"),

@@ -21,9 +21,13 @@
 - make bat darken
 - stages should be more open
 - lenience on explosions 
+- stuck in lamp
 - floppydisk freeze
+- stuck on crumble plat
 - people go up, but not down
 	- encurage falling
+- invincible when stage done
+- anvil should kill
 
 - points of anger occur at lack of control
 	-> more control = more fun
