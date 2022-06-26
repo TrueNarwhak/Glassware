@@ -6,7 +6,7 @@ onready var collision_shape = $CollisionShape2D
 
 onready var anim_tooltip = $TooltipArea/TooltipAnim
 onready var tooltip_holder = $TooltipArea/TooltipHolder
-onready var tooltip = $TooltipArea/TooltipHolder/Tooltip
+onready var tooltip = $TooltipArea/TooltipHolder/Label
 
 onready var itemhud = get_parent().get_parent().get_parent().get_node("ItemHud")
 export(PackedScene) var discarded_item
@@ -27,6 +27,7 @@ func _ready():
 
 	sprite.texture = ItemAndStages.item_sprites[item_index]
 	item_selected = ItemAndStages.items_current[item_index]
+	tooltip.text = ItemAndStages.item_tooltips[item_index]
 	
 	# Start anim
 	anim.play("Idle") 
@@ -46,6 +47,7 @@ func _process(delta):
 func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):
 		print("collected")
+		print(ItemAndStages.item_tooltips)
 #		emit_signal("collected")
 		
 		# Player Items
@@ -69,6 +71,7 @@ func _on_Item_body_entered(body):
 		
 		ItemAndStages.item_sprites.remove(item_index)
 		ItemAndStages.items_current.remove(item_index)
+		ItemAndStages.item_tooltips.remove(item_index)
 		
 		# Stages
 		ItemAndStages.next_stage = ItemAndStages.intensity_1_stages[randi() % ItemAndStages.intensity_1_stages.size()]
@@ -81,8 +84,6 @@ func _on_Item_body_entered(body):
 func _on_TooltipArea_body_entered(body):
 	if body.is_in_group("Player"):
 		anim_tooltip.play("TooltipPop")
-		
-		print("mario gaming")
 
 func _on_TooltipArea_area_exited(area):
 	tooltip_holder.hide()

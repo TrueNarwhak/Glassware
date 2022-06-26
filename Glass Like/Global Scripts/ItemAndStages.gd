@@ -14,6 +14,22 @@ var item_sprites = [
 var items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "jack",
 	"marlin", "mushroom", "pin", "seal", "tnt", "wateringcan"]
 
+var item_tooltips = [
+	"Press down midair to slam down,\nbreaking foes, ..but you may lose control", 
+	"Swing a heavy baseball\nbat that reflects proectiles",
+	"Replace your jump with flight\n...but it lasts only a little each stage",
+	"default text :OOOOO\n noway",
+	"Jump twice as fast, and twice as\nhigh. ...But, you move slow in the air",
+	"Breaking foes summons ghosts that will\nattack others. ..Though, they grow restless",
+	"default text :OOOO\n no way",
+	"default text :OOOO\n no way",
+	"Yahoo! Jump on foes heads\nto break them to bits",
+	"A pin, that can break foes OR you, will fall\non vanquish of a foe. Hitting it gives a boost",
+	"Throw beach balls every other attack!\nBoing, boing, boing, they'll bounce you too!",
+	"Breaking foes throws an\nexplosive. Pow!",
+	"default text :OOOO\n no way"
+]
+
 # Stages
 var last_stage = ""
 
@@ -63,4 +79,20 @@ func reset_all():
 		preload("res://images/Items/v2/Mushroom.png"), preload("res://images/Items/v2/Pin.png"), 
 		preload("res://images/Items/v2/Seal.png"), preload("res://images/Items/v2/TnT.png"), 
 		preload("res://images/Items/v2/WateringCan.png")
+	]
+	
+	item_tooltips = [
+		"Press down midair to slam down,\nbreaking foes, ..but you may lose control", 
+		"Swing a heavy baseball\nbat that reflects proectiles",
+		"Replace your jump with flight\n...but it lasts only a little each stage",
+		"default text :OOOOO\n noway",
+		"Jump twice as fast, and twice as\nhigh. ...But, you move slow in the air",
+		"Breaking foes summons ghosts that will\nattack others. ..Though, they grow restless",
+		"default text :OOOO\n no way",
+		"default text :OOOO\n no way",
+		"Yahoo! Jump on foes heads\nto break them to bits",
+		"A pin, that can break foes OR you, will fall\non vanquish of a foe. Hitting it gives a boost",
+		"Throw beach balls every other attack!\nBoing, boing, boing, they'll bounce you too!",
+		"Breaking foes throws an\nexplosive. Pow!",
+		"default text :OOOO\n no way"
 	]

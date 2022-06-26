@@ -68,11 +68,6 @@ animations = [ {
 "name": "Spin",
 "speed": 40.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "Helicopter Kick",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Walk",
@@ -82,6 +77,11 @@ animations = [ {
 "loop": true,
 "name": "Fall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "Helicopter Kick",
+"speed": 30.0
 }, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,

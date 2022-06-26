@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://images/lights/light.png" type="Texture" id=1]
 [ext_resource path="res://images/Items/v1/seal.png" type="Texture" id=2]
@@ -8,9 +8,6 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 77.2787
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 145, 244.167 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 40
@@ -144,7 +141,7 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ false, true ]
 }
 
@@ -284,10 +281,8 @@ texture = ExtResource( 2 )
 
 [node name="TooltipArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TooltipArea"]
-modulate = Color( 0.12549, 1, 0, 1 )
-position = Vector2( 0, 265.833 )
-shape = SubResource( 5 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TooltipArea"]
+polygon = PoolVector2Array( -106.667, 0, -200, 506.667, 200, 506.667, 106.667, 0 )
 
 [node name="TooltipHolder" type="Node2D" parent="TooltipArea"]
 visible = false
@@ -297,13 +292,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
+margin_left = -615.0
 margin_top = -175.0
-margin_right = 400.0
-margin_bottom = -82.0
+margin_right = 635.0
+margin_bottom = -34.0
 custom_fonts/font = SubResource( 9 )
-text = "default text :OOOOO
-aaaaaaaaaaaaaaa"
+text = "Breaking foes throws an 
+explosive. Pow!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

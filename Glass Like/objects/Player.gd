@@ -208,6 +208,7 @@ func _physics_process(delta):
 			
 			this_disk.position = global_position
 			get_parent().add_child(this_disk)
+			
 
 # ---------------------------------------------------------------- #
 
