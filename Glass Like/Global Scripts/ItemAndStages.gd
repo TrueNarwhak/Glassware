@@ -24,7 +24,7 @@ var item_tooltips = [
 	"default text :OOOO\n no way",
 	"default text :OOOO\n no way",
 	"Yahoo! Jump on foes heads\nto break them to bits",
-	"A pin, that can break foes OR you, will fall\non vanquish of a foe. Hitting it gives a boost",
+	"A pin, that can break foes OR you, will fall\non vanquishing a foe. Hitting it gives you a boost",
 	"Throw beach balls every other attack!\nBoing, boing, boing, they'll bounce you too!",
 	"Breaking foes throws an\nexplosive. Pow!",
 	"default text :OOOO\n no way"
@@ -91,7 +91,7 @@ func reset_all():
 		"default text :OOOO\n no way",
 		"default text :OOOO\n no way",
 		"Yahoo! Jump on foes heads\nto break them to bits",
-		"A pin, that can break foes OR you, will fall\non vanquish of a foe. Hitting it gives a boost",
+		"A pin, that can break foes OR you, will fall\non vanquishing a foe. Hitting it gives you a boost",
 		"Throw beach balls every other attack!\nBoing, boing, boing, they'll bounce you too!",
 		"Breaking foes throws an\nexplosive. Pow!",
 		"default text :OOOO\n no way"

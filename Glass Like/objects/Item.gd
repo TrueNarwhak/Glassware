@@ -47,7 +47,6 @@ func _process(delta):
 func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):
 		print("collected")
-		print(ItemAndStages.item_tooltips)
 #		emit_signal("collected")
 		
 		# Player Items

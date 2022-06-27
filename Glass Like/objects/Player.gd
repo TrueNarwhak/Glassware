@@ -41,7 +41,7 @@ onready var camera = get_parent().get_node("LeanCamera")
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["bat"]
 var inventory_max = 3
 
 export var mushroom_force = 800
@@ -54,9 +54,10 @@ export(PackedScene) var anvil_stomp
 export(PackedScene) var floppy_disk
 onready var floppy_disk_exists = get_parent().has_node("Floppydisk")
 export var anvil_gravity = 350
-export var bat_flap = 536
+export var bat_flap = 736
 var current_bat_flap = bat_flap
 export var bat_decay = 5
+export var min_bat_flap = 5
 
 # ------------------------------------ #
 
@@ -185,9 +186,13 @@ func _physics_process(delta):
 			motion.y = -current_bat_flap
 			
 			current_bat_flap -= bat_decay * delta * TARGET_FPS
-			current_bat_flap = clamp(current_bat_flap, 0, 100000000000)
+			current_bat_flap = clamp(current_bat_flap, min_bat_flap, 99999)
 	
 	bat_wings.visible = bool(int(Input.is_action_pressed("jump")) * int(current_bat_flap != 0) * int(inventory.has("bat")))
+	
+	bat_wings.modulate.r = darken_bat_wings()
+	bat_wings.modulate.g = darken_bat_wings()
+	bat_wings.modulate.b = darken_bat_wings()
 	
 	# Baseball
 	baseball_bat.visible = bool(int(inventory.has("baseball")) * int(!is_attacking))
@@ -209,6 +214,19 @@ func _physics_process(delta):
 			this_disk.position = global_position
 			get_parent().add_child(this_disk)
 			
+
+# ---------------------------------------------------------------- #
+
+
+# ---------------------------------------------------------------- #
+
+func darken_bat_wings():
+	var mod_prop = 1.0
+	
+	mod_prop = current_bat_flap / bat_flap * 1
+	mod_prop = clamp(mod_prop, 0.3, 1.0)
+	
+	return mod_prop
 
 # ---------------------------------------------------------------- #
 

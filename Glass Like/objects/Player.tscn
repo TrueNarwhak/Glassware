@@ -73,11 +73,6 @@ animations = [ {
 "name": "Walk",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Helicopter Kick",
@@ -87,6 +82,11 @@ animations = [ {
 "loop": true,
 "name": "GroundAttack",
 "speed": 65.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
@@ -123,8 +123,8 @@ beachball = ExtResource( 11 )
 flower = ExtResource( 9 )
 anvil_stomp = ExtResource( 10 )
 floppy_disk = ExtResource( 13 )
-bat_flap = 736
-bat_decay = 2
+bat_decay = 8
+min_bat_flap = 34
 
 [node name="DeathEffect" type="AnimatedSprite" parent="."]
 visible = false
@@ -163,11 +163,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 flip_h = true
 
