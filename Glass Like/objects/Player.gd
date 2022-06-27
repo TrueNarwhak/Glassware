@@ -41,7 +41,7 @@ onready var camera = get_parent().get_node("LeanCamera")
 
 # ------------------------------------ #
 
-var inventory = ["bat"]
+var inventory = []
 var inventory_max = 3
 
 export var mushroom_force = 800
@@ -153,34 +153,45 @@ func _physics_process(delta):
 			# Animation
 			if is_on_floor(): sprite.play("GroundAttack")
 		
-		# Seal
-		beachball_count += 1
-		if beachball_count > 1:
-			beachball_count = 0
+		# Items
+		seal_item_attack()
 		
-		if inventory.has("seal") and beachball_count == 1:
-#		if inventory.has("seal"):
-			var this_beachball = beachball.instance()
-			this_beachball.position = ball_aim_pos.global_position
-			get_parent().add_child(this_beachball)
-		
-		# Baseball
-		if inventory.has("baseball"):
-			baseball_bat.frame += 1
-			
-			if baseball_bat.frame == 2:
-				baseball_bat.frame = 0
+		baseball_item_attack()
 	
 	# Apply physics
 	motion = move_and_slide(motion, Vector2.UP)
 	
-	# Items -------
+	# Items 
 	# Anvil
+	anvil_item(delta)
+	
+	bat_item(delta)
+	
+	baseball_item()
+	
+	floppy_disk_item()
+	
+
+# ---------------------------------------------------------------- #
+
+func seal_item_attack():
+	beachball_count += 1
+	if beachball_count > 1:
+		beachball_count = 0
+	
+	if inventory.has("seal") and beachball_count == 1:
+#		if inventory.has("seal"):
+		var this_beachball = beachball.instance()
+		this_beachball.position = ball_aim_pos.global_position
+		get_parent().add_child(this_beachball)
+
+func anvil_item(delta):
 	if inventory.has("anvil") and !is_on_floor() and !jump_death_called:
 		if Input.is_action_pressed("move_down"):
 			motion.y += anvil_gravity * delta * TARGET_FPS
-	
-	# Bat
+
+
+func bat_item(delta):
 	if inventory.has("bat"):
 		if Input.is_action_pressed("jump") and current_bat_flap != 0:
 			motion.y = -current_bat_flap
@@ -193,8 +204,17 @@ func _physics_process(delta):
 	bat_wings.modulate.r = darken_bat_wings()
 	bat_wings.modulate.g = darken_bat_wings()
 	bat_wings.modulate.b = darken_bat_wings()
-	
-	# Baseball
+
+
+
+func baseball_item_attack():
+	if inventory.has("baseball"):
+		baseball_bat.frame += 1
+		
+		if baseball_bat.frame == 2:
+			baseball_bat.frame = 0
+
+func baseball_item():
 	baseball_bat.visible = bool(int(inventory.has("baseball")) * int(!is_attacking))
 	baseball_bat.flip_h = sprite.flip_h
 	
@@ -202,9 +222,10 @@ func _physics_process(delta):
 		baseball_bat.position.x = -55
 	else:
 		baseball_bat.position.x = 55
-		
-	
-	# Floppy disk
+
+
+
+func floppy_disk_item():
 	floppy_disk_exists = get_parent().has_node("Floppydisk")
 	
 	if inventory.has("floppydisk") and !floppy_disk_exists:
@@ -213,9 +234,6 @@ func _physics_process(delta):
 			
 			this_disk.position = global_position
 			get_parent().add_child(this_disk)
-			
-
-# ---------------------------------------------------------------- #
 
 
 # ---------------------------------------------------------------- #
