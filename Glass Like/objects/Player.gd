@@ -29,8 +29,9 @@ var x_input
 onready var sprite = $AnimatedSprite
 onready var feet_pos = $FeetPos
 onready var ball_aim_pos = $BallAimPos
-onready var death_timer = $DeathTimer
-onready var invincibility_timer = $InvincibilityTimer
+onready var death_timer = $Timers/DeathTimer
+onready var invincibility_timer = $Timers/InvincibilityTimer
+onready var stat_timer = $Timers/StatTimer
 onready var drop_cast = $DropCast
 onready var death_effect = $DeathEffect
 
@@ -171,6 +172,8 @@ func _physics_process(delta):
 	
 	floppy_disk_item()
 	
+	marlin_item()
+	
 
 # ---------------------------------------------------------------- #
 
@@ -184,6 +187,7 @@ func seal_item_attack():
 		var this_beachball = beachball.instance()
 		this_beachball.position = ball_aim_pos.global_position
 		get_parent().add_child(this_beachball)
+
 
 func anvil_item(delta):
 	if inventory.has("anvil") and !is_on_floor() and !jump_death_called:
@@ -236,6 +240,10 @@ func floppy_disk_item():
 			get_parent().add_child(this_disk)
 
 
+
+func marlin_item():
+	pass
+
 # ---------------------------------------------------------------- #
 
 func darken_bat_wings():
@@ -285,7 +293,7 @@ func _on_DeathTimer_timeout():
 		this_shard.position = get_global_position()
 		get_parent().add_child(this_shard)
 	
-	$StatTimer.start()
+	stat_timer.start()
 
 func _on_StatTimer_timeout():
 	var these_stats = stats.instance()
