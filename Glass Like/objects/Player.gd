@@ -47,7 +47,7 @@ onready var camera = get_parent().get_node("LeanCamera")
 
 # ------------------------------------ #
 
-var inventory = ["bull"]
+var inventory = []
 var inventory_max = 3
 
 export var mushroom_force = 800
@@ -271,6 +271,9 @@ func floppy_disk_item():
 
 
 func bull_item(delta):
+	# LMAO I FIXED THE BULL ITEM BY MAKING THE TIMER SHORT AND REMOVING JUST_PRESSED CHECK
+	# ok "charge timer" is like time til start ram now
+	
 	if inventory.has("bull"):
 		
 		# Change area direction
@@ -283,7 +286,7 @@ func bull_item(delta):
 #		print(bull_ramming)
 		
 		# Begin Charge 
-		if Input.is_action_just_pressed("move_left") and Input.is_action_just_pressed("move_right"):
+		if Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
 			bull_charge_timer.start()
 			
 			if !jump_death_called:
@@ -295,9 +298,9 @@ func bull_item(delta):
 			bull_ramming = true
 			
 			# Cancel Charge if not pressing	
-			if !Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_right"):
-				bull_charge_timer.stop()
-				bull_ramming = false
+#			if Input.is_action_just_released("move_left") and !Input.is_action_just_released("move_right"):
+#				bull_charge_timer.stop()
+#				bull_ramming = false
 			
 			# Change anim frame
 			sprite.frame = 0

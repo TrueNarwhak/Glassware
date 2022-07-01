@@ -57,15 +57,25 @@ animations = [ {
 "name": "default",
 "speed": 0.1
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": true,
-"name": "Walk",
-"speed": 6.0
+"name": "BullRam",
+"speed": 0.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Helicopter Kick",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Shatter",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 6.0
 }, {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
@@ -77,11 +87,6 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Shatter",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
 "name": "GroundAttack",
@@ -91,11 +96,6 @@ animations = [ {
 "loop": true,
 "name": "Jump",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "BullRam",
-"speed": 0.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
@@ -107,7 +107,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 92, 53 )
+extents = Vector2( 92, 74 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 26.0
@@ -169,7 +169,7 @@ position = Vector2( 119, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite/BullPosHolder/BullHitbox"]
 modulate = Color( 0, 1, 0.392157, 1 )
-position = Vector2( -52, -6 )
+position = Vector2( -52, 15 )
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -228,7 +228,7 @@ autostart = true
 wait_time = 1.318
 
 [node name="BullChargeTimer" type="Timer" parent="Timers"]
-wait_time = 0.083
+wait_time = 0.078
 one_shot = true
 
 [node name="BullRecoverTimer" type="Timer" parent="Timers"]
