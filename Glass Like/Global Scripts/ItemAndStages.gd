@@ -19,7 +19,7 @@ var item_tooltips = [
 	"Swing a heavy baseball\nbat that reflects proectiles",
 	"Replace your jump with flight\n...but it lasts only a little each stage",
 	"default text :OOOOO\n noway",
-	"Jump twice as fast, and twice as\nhigh. ...But, you move slow in the air",
+	"Protect your extra high jump with\na lilipad! ...But you're pretty slow in the air",
 	"Breaking foes summons ghosts that will\nattack others. ..Though, they grow restless",
 	"default text :OOOO\n no way",
 	"default text :OOOO\n no way",

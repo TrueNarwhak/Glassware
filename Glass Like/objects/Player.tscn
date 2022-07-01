@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://images/player/PlayerStand.png" type="Texture" id=1]
 [ext_resource path="res://images/player/PlayerWalk.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://images/Effects/Death Light/Death Effect Light.png" type="Texture" id=30]
 [ext_resource path="res://images/Effects/Death Light/Death Effect Light 2.png" type="Texture" id=31]
 [ext_resource path="res://images/Effects/Death Light/Death Effect Light 4.png" type="Texture" id=32]
+[ext_resource path="res://objects/Item Objects/Lilipad.tscn" type="PackedScene" id=33]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -58,20 +59,15 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
-"loop": true,
-"name": "GroundAttack",
-"speed": 65.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "Shatter",
-"speed": 5.0
+"name": "GroundAttack",
+"speed": 65.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": true,
@@ -86,6 +82,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Shatter",
 "speed": 5.0
 } ]
 
@@ -123,6 +124,7 @@ beachball = ExtResource( 11 )
 flower = ExtResource( 9 )
 anvil_stomp = ExtResource( 10 )
 floppy_disk = ExtResource( 13 )
+lilipad = ExtResource( 33 )
 bat_decay = 8
 min_bat_flap = 34
 
@@ -162,13 +164,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 
@@ -199,6 +201,10 @@ autostart = true
 
 [node name="InvincibilityTimer" type="Timer" parent="Timers"]
 wait_time = 1.318
+
+[node name="DoubleTapTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
 
 [connection signal="animation_finished" from="DeathEffect" to="." method="_on_DeathEffect_animation_finished"]
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]

@@ -1,4 +1,4 @@
-# CONTROLLER BY HEARTBEAST
+# BASE CONTROLLER BY HEARTBEAST, ALL OF THE EXTRA STUFF BY ME LOL
 extends KinematicBody2D
 
 export var TARGET_FPS = 60
@@ -32,6 +32,7 @@ onready var ball_aim_pos = $BallAimPos
 onready var death_timer = $Timers/DeathTimer
 onready var invincibility_timer = $Timers/InvincibilityTimer
 onready var stat_timer = $Timers/StatTimer
+onready var double_tap_timer = $Timers/DoubleTapTimer
 onready var drop_cast = $DropCast
 onready var death_effect = $DeathEffect
 
@@ -46,13 +47,14 @@ var inventory = []
 var inventory_max = 3
 
 export var mushroom_force = 800
-export var frog_jump = 400
-export var frog_hinder = 104
+export var frog_jump = 473
+export var frog_hinder = 174
 export var flower_slow = 35
 export(PackedScene) var beachball
 export(PackedScene) var flower
 export(PackedScene) var anvil_stomp
 export(PackedScene) var floppy_disk
+export(PackedScene) var lilipad
 onready var floppy_disk_exists = get_parent().has_node("Floppydisk")
 export var anvil_gravity = 350
 export var bat_flap = 736
@@ -103,6 +105,8 @@ func _physics_process(delta):
 		# Jumping
 		if Input.is_action_just_pressed("jump"):
 			motion.y = -current_jump
+			
+			frog_item(delta)
 		
 		# Attack boosting
 		can_attack_boost = true
@@ -189,6 +193,14 @@ func seal_item_attack():
 		get_parent().add_child(this_beachball)
 
 
+func frog_item(delta):
+	if inventory.has("frog"):
+		var this_lilipad = lilipad.instance()
+		
+		this_lilipad.position = Vector2(-500, -500)
+		get_parent().add_child(this_lilipad)
+
+
 func anvil_item(delta):
 	if inventory.has("anvil") and !is_on_floor() and !jump_death_called:
 		if Input.is_action_pressed("move_down"):
@@ -242,7 +254,13 @@ func floppy_disk_item():
 
 
 func marlin_item():
-	pass
+	
+	if inventory.has("marlin"):
+		
+		# Start timer
+		if Input.is_action_just_pressed("move_right"):
+			double_tap_timer.start()
+			
 
 # ---------------------------------------------------------------- #
 
