@@ -14,6 +14,3 @@ func _ready():
 
 func _process(delta):
 	pass
-
-func amievenreal():
-	print("maybe i am")

@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export var TARGET_FPS = 60
 export var ACCELERATION = 100
-export var MAX_SPEED = 335
+export var MAX_SPEED = 414
 export var FRICTION = 7
 export var AIR_RESISTANCE = 1
 export var GRAVITY = 21
@@ -28,13 +28,17 @@ var x_input
 
 onready var sprite = $AnimatedSprite
 onready var feet_pos = $FeetPos
+onready var drop_cast = $DropCast
+onready var death_effect = $DeathEffect
+
 onready var ball_aim_pos = $BallAimPos
+onready var bull_pos_holder = $AnimatedSprite/BullPosHolder
+
 onready var death_timer = $Timers/DeathTimer
 onready var invincibility_timer = $Timers/InvincibilityTimer
 onready var stat_timer = $Timers/StatTimer
-onready var double_tap_timer = $Timers/DoubleTapTimer
-onready var drop_cast = $DropCast
-onready var death_effect = $DeathEffect
+onready var bull_charge_timer = $Timers/BullChargeTimer
+onready var bull_recover_timer = $Timers/BullRecoverTimer
 
 onready var bat_wings = $BatWings
 onready var baseball_bat = $AnimatedSprite/BaseballBat
@@ -43,20 +47,32 @@ onready var camera = get_parent().get_node("LeanCamera")
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["bull"]
 var inventory_max = 3
 
 export var mushroom_force = 800
+
 export var frog_jump = 473
 export var frog_hinder = 174
 export var flower_slow = 35
+
+export var bull_boost_ground = 1000
+export var bull_boost_air = 300
+export var bull_knock_x = 200
+export var bull_knock_y = 200
+var bull_ramming = false
+
 export(PackedScene) var beachball
 export(PackedScene) var flower
 export(PackedScene) var anvil_stomp
 export(PackedScene) var floppy_disk
 export(PackedScene) var lilipad
+export(PackedScene) var bull_star
+
 onready var floppy_disk_exists = get_parent().has_node("Floppydisk")
+
 export var anvil_gravity = 350
+
 export var bat_flap = 736
 var current_bat_flap = bat_flap
 export var bat_decay = 5
@@ -70,7 +86,9 @@ func ready():
 func _physics_process(delta):
 	
 	# Get Inputs
-	if !jump_death_called: x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
+	if !jump_death_called and !bull_ramming:
+		x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
+	
 	var current_jump = JUMP_FORCE + frog_jump*int(inventory.has("frog"))
 	
 	var frog_current_hinder = (frog_hinder * int(inventory.has("frog"))) * int(!is_on_floor())
@@ -80,7 +98,7 @@ func _physics_process(delta):
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, -MAX_SPEED + frog_current_hinder, MAX_SPEED - frog_current_hinder)
 		
-		if !is_attacking: 
+		if !is_attacking and !bull_ramming: 
 			sprite.playing = true
 			sprite.play("Walk")
 		else:
@@ -90,7 +108,7 @@ func _physics_process(delta):
 			sprite.flip_h = x_input < 0
 	else:
 		sprite.playing = false
-		if is_on_floor() and !is_attacking:
+		if is_on_floor() and !is_attacking and !bull_ramming:
 			sprite.play("default")
 	
 	# Apply Gravity
@@ -122,7 +140,7 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 		
 		# Animation
-		if !is_attacking:
+		if !is_attacking and !bull_ramming:
 			if motion.y < 0:
 				sprite.play("Jump")
 			else:
@@ -176,7 +194,7 @@ func _physics_process(delta):
 	
 	floppy_disk_item()
 	
-	marlin_item()
+	bull_item(delta)
 	
 
 # ---------------------------------------------------------------- #
@@ -252,15 +270,48 @@ func floppy_disk_item():
 			get_parent().add_child(this_disk)
 
 
-
-func marlin_item():
-	
-	if inventory.has("marlin"):
+func bull_item(delta):
+	if inventory.has("bull"):
 		
-		# Start timer
-		if Input.is_action_just_pressed("move_right"):
-			double_tap_timer.start()
+		# Change area direction
+		if sprite.flip_h:
+			bull_pos_holder.scale.x = -1
+		else:
+			bull_pos_holder.scale.x = 1
+		
+#		print(bull_charge_timer.time_left)
+#		print(bull_ramming)
+		
+		# Begin Charge 
+		if Input.is_action_just_pressed("move_left") and Input.is_action_just_pressed("move_right"):
+			bull_charge_timer.start()
 			
+			if !jump_death_called:
+				sprite.play("BullRam")
+				sprite.frame = 0
+		
+		# If charging
+		if bull_charge_timer.time_left > 0:
+			bull_ramming = true
+			
+			# Cancel Charge if not pressing	
+			if !Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_right"):
+				bull_charge_timer.stop()
+				bull_ramming = false
+			
+			# Change anim frame
+			sprite.frame = 0
+		
+		# If recovering
+		if bull_recover_timer.time_left > 0:
+			# Play anim
+			sprite.frame = 1
+		
+		
+		# Play anim
+		if bull_ramming:
+			sprite.play("BullRam")
+
 
 # ---------------------------------------------------------------- #
 
@@ -323,6 +374,42 @@ func _on_invincibilityTimer_timeout():
 	invincible = false
 
 
+
+func _on_BullChargeTimer_timeout():
+	if inventory.has("bull"):
+		if is_on_floor():
+			motion.x = bull_boost_ground * bull_pos_holder.scale.x
+		else:
+			motion.x = bull_boost_air * bull_pos_holder.scale.x
+	
+	bull_recover_timer.start()
+
+func _on_BullRecoverTimer_timeout():
+	if inventory.has("bull"):
+		sprite.play("default")
+		
+		bull_ramming = false
+		print("done ram")
+
+func _on_BullHitbox_body_entered(body):
+	var this_body = body.get_parent()
+	
+	if inventory.has("bull") and sprite.animation == "BullRam" and sprite.frame == 1:
+		
+		# Break enemy
+		if this_body.is_in_group("Enemies"):
+			this_body.survive -= 1
+			
+			# Bouce player
+			bull_ramming = false
+			
+			# Make Star
+#			var this_bull_star = bull_star.instance()
+#			this_bull_star.position = position
+#			get_parent().add_child(this_bull_star)
+
+
+
 func _on_DeathEffect_animation_finished():
 	death_effect.visible = false
 
@@ -346,3 +433,5 @@ func shatter():
 			death_timer.start()
 			
 			jump_death_called = true
+
+

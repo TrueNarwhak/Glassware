@@ -5,14 +5,14 @@ var item_sprites = [
 	preload("res://images/Items/v2/Anvil.png"), preload("res://images/Items/v2/baseball.png"),
 	preload("res://images/Items/v2/Bat.png"), preload("res://images/Items/v2/FloppyDisk.png"),
 	preload("res://images/Items/v2/Frog.png"), preload("res://images/Items/v2/Ghost.png"), 
-	preload("res://images/Items/v2/jack.png"), preload("res://images/Items/v2/Marlin.png"), 
+	preload("res://images/Items/v2/jack.png"), preload("res://images/Items/v2/Bull.png"), 
 	preload("res://images/Items/v2/Mushroom.png"), preload("res://images/Items/v2/Pin.png"), 
 	preload("res://images/Items/v2/Seal.png"), preload("res://images/Items/v2/TnT.png"), 
 	preload("res://images/Items/v2/WateringCan.png")
 ]
 
 var items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "jack",
-	"marlin", "mushroom", "pin", "seal", "tnt", "wateringcan"]
+	"bull", "mushroom", "pin", "seal", "tnt", "wateringcan"]
 
 var item_tooltips = [
 	"Press down midair to slam down,\nbreaking foes, ..but you may lose control", 
@@ -22,7 +22,7 @@ var item_tooltips = [
 	"Protect your extra high jump with\na lilipad! ...But you're pretty slow in the air",
 	"Breaking foes summons ghosts that will\nattack others. ..Though, they grow restless",
 	"default text :OOOO\n no way",
-	"default text :OOOO\n no way",
+	"Hold left AND right to charge\nan uncontrollable forward thrust!",
 	"Yahoo! Jump on foes heads\nto break them to bits",
 	"A pin, that can break foes OR you, will fall\non vanquishing a foe. Hitting it gives you a boost",
 	"Throw beach balls every other attack!\nBoing, boing, boing, they'll bounce you too!",

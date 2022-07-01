@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=2]
+[gd_scene load_steps=148 format=2]
 
 [ext_resource path="res://images/Attacks/floppydisk window/window/0017.png" type="Texture" id=1]
 [ext_resource path="res://images/Attacks/floppydisk window/window/0018.png" type="Texture" id=2]
@@ -141,6 +141,7 @@
 [ext_resource path="res://images/Attacks/floppydisk window/x/0008.png" type="Texture" id=139]
 [ext_resource path="res://images/Attacks/floppydisk window/x/0014.png" type="Texture" id=140]
 [ext_resource path="res://images/Attacks/floppydisk window/window/0065.png" type="Texture" id=141]
+[ext_resource path="res://images/lights/square mask.png" type="Texture" id=142]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -244,19 +245,26 @@ script = ExtResource( 3 )
 
 [node name="Sprites" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
+light_mask = 32
 
 [node name="WindowSprite" type="AnimatedSprite" parent="Sprites"]
 frames = SubResource( 3 )
-frame = 59
+frame = 49
 playing = true
 
 [node name="XSprite" type="AnimatedSprite" parent="Sprites"]
 frames = SubResource( 4 )
-frame = 56
+frame = 46
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+light_mask = 32
+scale = Vector2( 13.6875, 13.6875 )
+texture = ExtResource( 142 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Appear = SubResource( 6 )
