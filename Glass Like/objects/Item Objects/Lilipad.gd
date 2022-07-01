@@ -59,7 +59,9 @@ func _on_Hitbox_body_entered(body):
 	
 	if this_body.is_in_group("Enemies"):
 		this_body.survive -= 1
-
+	
+	if body.is_in_group("EnemyProjectile"):
+		queue_free() 
 
 func _on_GoingupHitbox_body_entered(body):
 	var this_body = body.get_parent()
@@ -67,3 +69,6 @@ func _on_GoingupHitbox_body_entered(body):
 	if state == GOING_UP:
 		if this_body.is_in_group("Enemies"):
 			this_body.survive -= 1
+		
+		if body.is_in_group("EnemyProjectile"):
+			queue_free() 
