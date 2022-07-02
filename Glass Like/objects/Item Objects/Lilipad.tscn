@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://images/Attacks/Lilipad/Lilipad1.png" type="Texture" id=1]
 [ext_resource path="res://images/Attacks/Lilipad/Lilipad2.png" type="Texture" id=2]
@@ -12,9 +12,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 121.205, 133.141 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 38.6668
@@ -35,10 +32,10 @@ frames = SubResource( 1 )
 
 [node name="GoingupHitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GoingupHitbox"]
-modulate = Color( 0, 1, 0.0627451, 1 )
-position = Vector2( 0, 94.5763 )
-shape = SubResource( 4 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GoingupHitbox"]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 0, 5.5093 )
+polygon = PoolVector2Array( 0, -44.0744, -117.532, -44.0744, -220.372, 220.372, 0, 220.372, 220.372, 220.372, 117.532, -44.0744 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 

@@ -61,7 +61,7 @@ func _on_Hitbox_body_entered(body):
 		this_body.survive -= 1
 	
 	if body.is_in_group("EnemyProjectile"):
-		queue_free() 
+		queue_free()
 
 func _on_GoingupHitbox_body_entered(body):
 	var this_body = body.get_parent()
