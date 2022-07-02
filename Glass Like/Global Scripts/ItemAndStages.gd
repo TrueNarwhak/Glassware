@@ -5,13 +5,13 @@ var item_sprites = [
 	preload("res://images/Items/v2/Anvil.png"), preload("res://images/Items/v2/baseball.png"),
 	preload("res://images/Items/v2/Bat.png"), preload("res://images/Items/v2/FloppyDisk.png"),
 	preload("res://images/Items/v2/Frog.png"), preload("res://images/Items/v2/Ghost.png"), 
-	preload("res://images/Items/v2/jack.png"), preload("res://images/Items/v2/Bull.png"), 
+	preload("res://images/Items/v2/Octopus.png"), preload("res://images/Items/v2/Bull.png"), 
 	preload("res://images/Items/v2/Mushroom.png"), preload("res://images/Items/v2/Pin.png"), 
 	preload("res://images/Items/v2/Seal.png"), preload("res://images/Items/v2/TnT.png"), 
 	preload("res://images/Items/v2/WateringCan.png")
 ]
 
-var items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "jack",
+var items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "octopus",
 	"bull", "mushroom", "pin", "seal", "tnt", "wateringcan"]
 
 var item_tooltips = [
@@ -20,8 +20,8 @@ var item_tooltips = [
 	"Replace your jump with flight\n...but it lasts only a little each stage",
 	"default text :OOOOO\n noway",
 	"Protect your extra high jump with\na lilipad! ...But you're pretty slow in the air",
-	"Breaking foes summons ghosts that will\nattack others. ..Though, they grow restless",
-	"default text :OOOO\n no way",
+	"Breaking foes summons ghosts that will\nattack others. ...Though, they grow restless",
+	"Grow Tentacles! They'll attack anything near you.\nSticky cups might pull you around though...",
 	"Hold left AND right to charge\nan uncontrollable forward thrust!",
 	"Yahoo! Jump on foes heads\nto break them to bits",
 	"A pin, that can break foes OR you, will fall\non vanquishing a foe. Hitting it gives you a boost",
@@ -49,14 +49,6 @@ onready var intensity_1_stages = [
 	
 ]
 
-onready var intensity_2_stages = [
-	
-]
-
-onready var intensity_3_stages = [
-	
-]
-
 onready var next_stage = intensity_1_stages[randi() % intensity_1_stages.size()]
 
 # Logic
@@ -68,14 +60,14 @@ func _ready():
 func reset_all():
 	stages_cleared = -1
 	
-	items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "jack",
+	items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "octopus",
 	"bull", "mushroom", "pin", "seal", "tnt", "wateringcan"]
 	
 	item_sprites = [
 		preload("res://images/Items/v2/Anvil.png"), preload("res://images/Items/v2/baseball.png"),
 		preload("res://images/Items/v2/Bat.png"), preload("res://images/Items/v2/FloppyDisk.png"),
 		preload("res://images/Items/v2/Frog.png"), preload("res://images/Items/v2/Ghost.png"), 
-		preload("res://images/Items/v2/jack.png"), preload("res://images/Items/v2/Bull.png"), 
+		preload("res://images/Items/v2/Octopus.png"), preload("res://images/Items/v2/Bull.png"), 
 		preload("res://images/Items/v2/Mushroom.png"), preload("res://images/Items/v2/Pin.png"), 
 		preload("res://images/Items/v2/Seal.png"), preload("res://images/Items/v2/TnT.png"), 
 		preload("res://images/Items/v2/WateringCan.png")
@@ -86,9 +78,9 @@ func reset_all():
 		"Swing a heavy baseball\nbat that reflects proectiles",
 		"Replace your jump with flight\n...but it lasts only a little each stage",
 		"default text :OOOOO\n noway",
-		"Jump twice as fast, and twice as\nhigh. ...But, you move slow in the air",
+		"Protect your extra high jump with\na lilipad! ...But you're pretty slow in the air",
 		"Breaking foes summons ghosts that will\nattack others. ..Though, they grow restless",
-		"default text :OOOO\n no way",
+		"Grow Tentacles! They'll attack anything near you.\nSticky cups might pull you around though...",
 		"Hold left AND right to charge\nan uncontrollable forward thrust!",
 		"Yahoo! Jump on foes heads\nto break them to bits",
 		"A pin, that can break foes OR you, will fall\non vanquishing a foe. Hitting it gives you a boost",

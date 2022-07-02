@@ -68,6 +68,7 @@ export(PackedScene) var anvil_stomp
 export(PackedScene) var floppy_disk
 export(PackedScene) var lilipad
 export(PackedScene) var bull_star
+export(PackedScene) var tentacle_holder
 
 onready var floppy_disk_exists = get_parent().has_node("Floppydisk")
 
@@ -77,6 +78,8 @@ export var bat_flap = 736
 var current_bat_flap = bat_flap
 export var bat_decay = 5
 export var min_bat_flap = 5
+
+export var tentacle_holder_size = Vector2(2.452, 2.452)
 
 # ------------------------------------ #
 
@@ -195,6 +198,8 @@ func _physics_process(delta):
 	floppy_disk_item()
 	
 	bull_item(delta)
+	
+	octopus_item()
 	
 
 # ---------------------------------------------------------------- #
@@ -315,6 +320,17 @@ func bull_item(delta):
 		if bull_ramming:
 			sprite.play("BullRam")
 
+
+func octopus_item():
+	if inventory.has("octopus"):
+		
+		# Place Tentacles
+		if !get_node("TentacleHolder"):
+			var this_tentacle_holder = tentacle_holder.instance()
+#			this_tentacle_holder.position = position
+			this_tentacle_holder.scale = tentacle_holder_size
+			
+			add_child(this_tentacle_holder)
 
 # ---------------------------------------------------------------- #
 

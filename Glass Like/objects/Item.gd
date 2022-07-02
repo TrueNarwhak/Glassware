@@ -31,7 +31,6 @@ func _ready():
 	
 	# Start anim
 	anim.play("Idle") 
-	
 #	print(items_current)
 #	print(item_index)
 #	print(item_selected)

@@ -69,6 +69,7 @@ func _on_GoingupHitbox_body_entered(body):
 	if state == GOING_UP:
 		if this_body.is_in_group("Enemies"):
 			this_body.survive -= 1
-		
+	
+	if state == GOING_UP or state == THROWN:
 		if body.is_in_group("EnemyProjectile"):
 			queue_free() 
