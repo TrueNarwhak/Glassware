@@ -88,11 +88,12 @@ func _on_TooltipArea_area_exited(area):
 
 func discard():
 	# Spit
+	collision_shape.disabled = true
 	var this_discarded_item = discarded_item.instance()
 	
-	this_discarded_item.position = global_position
-	this_discarded_item.sprite.texture = sprite.texture
-	get_parent().add_child(this_discarded_item)
+	this_discarded_item.position = position
+	this_discarded_item.await_texture = sprite.texture
+	get_parent().get_parent().get_parent().add_child(this_discarded_item)
 	
 	# Leave
 	queue_free()

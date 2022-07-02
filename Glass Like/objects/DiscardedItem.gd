@@ -7,10 +7,15 @@ export var jump = Vector2(0, -700)
 onready var sprite = $Sprite
 onready var anim = $AnimationPlayer
 
+var await_texture 
+
 export(PackedScene) var shard
 
 func _ready():
+	sprite.texture = await_texture
 	anim.play("Decay")
+	
+	jump.x = [-300, 300][randi() % 2]
 	apply_central_impulse(jump)
 
 func _process(delta):

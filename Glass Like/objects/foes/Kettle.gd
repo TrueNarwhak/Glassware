@@ -56,6 +56,10 @@ func _physics_process(delta):
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false
+	
+	# Clamp
+#	body.position.x = clamp(body.position.x, 64, 896)
+#	body.position.y = clamp(body.position.y, 40, 600)
 
 
 func shoot():
