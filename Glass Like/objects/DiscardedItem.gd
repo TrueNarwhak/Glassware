@@ -3,6 +3,7 @@ extends RigidBody2D
 export var shards = 4
 export var spin = 20
 export var jump = Vector2(0, -700)
+export var x_boost = 250
 
 onready var sprite = $Sprite
 onready var anim = $AnimationPlayer
@@ -15,7 +16,7 @@ func _ready():
 	sprite.texture = await_texture
 	anim.play("Decay")
 	
-	jump.x = [-300, 300][randi() % 2]
+	jump.x = [-x_boost, x_boost][randi() % 2]
 	apply_central_impulse(jump)
 
 func _process(delta):

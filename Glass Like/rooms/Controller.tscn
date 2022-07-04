@@ -19,6 +19,10 @@ scale = Vector2( 1.16144, 1.16144 )
 [node name="Stage1" parent="." instance=ExtResource( 5 )]
 
 [node name="BlastZones" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Blastzone" parent="BlastZones" instance=ExtResource( 4 )]
 position = Vector2( -192, 100 )

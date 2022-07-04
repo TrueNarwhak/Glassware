@@ -45,39 +45,41 @@ func _process(delta):
 
 func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):
-		print("collected")
-#		emit_signal("collected")
-		
-		# Player Items
-		if body.inventory.has("bat"):
-			body.current_bat_flap = body.bat_flap
-		
-		# Player invincibility
-		body.invincible = true
-		body.invincibility_timer.start()
-		
-		# Attacks
-		body.can_attack_boost = true
-		body.set_physics_process(false)
-		
-		# HUD
-		itemhud.slots[itemhud.current_slots].texture = ItemAndStages.item_sprites[item_index]
-		itemhud.current_slots += 1 
-		
-		# Inventory
-		body.inventory.append(item_selected)
-		
-		ItemAndStages.item_sprites.remove(item_index)
-		ItemAndStages.items_current.remove(item_index)
-		ItemAndStages.item_tooltips.remove(item_index)
-		
-		# Stages
-		ItemAndStages.next_stage = ItemAndStages.intensity_1_stages[randi() % ItemAndStages.intensity_1_stages.size()]
-		
-		get_parent().get_parent().all_enemies_gone_called = true
-		get_parent().get_parent().stage_shift(ItemAndStages.next_stage)
-		queue_free()
-		
+		if body.inventory.size() != 3: 
+			print("collected")
+	#		emit_signal("collected")
+			
+			# Player Items
+			if body.inventory.has("bat"):
+				body.current_bat_flap = body.bat_flap
+			
+			# Player invincibility
+			body.invincible = true
+			body.invincibility_timer.start()
+			
+			# Attacks
+			body.can_attack_boost = true
+			body.set_physics_process(false)
+			
+			# HUD
+			itemhud.slots[itemhud.current_slots].texture = ItemAndStages.item_sprites[item_index]
+			itemhud.current_slots += 1 
+			
+			# Inventory
+			body.inventory.append(item_selected)
+			
+			ItemAndStages.item_sprites.remove(item_index)
+			ItemAndStages.items_current.remove(item_index)
+			ItemAndStages.item_tooltips.remove(item_index)
+			
+			# Stages
+			ItemAndStages.next_stage = ItemAndStages.intensity_1_stages[randi() % ItemAndStages.intensity_1_stages.size()]
+			
+			get_parent().get_parent().all_enemies_gone_called = true
+			get_parent().get_parent().stage_shift(ItemAndStages.next_stage)
+			queue_free()
+		else:
+			discard()
 
 func _on_TooltipArea_body_entered(body):
 	if body.is_in_group("Player"):
