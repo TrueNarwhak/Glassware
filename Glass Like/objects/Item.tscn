@@ -297,8 +297,6 @@ margin_top = -175.0
 margin_right = 635.0
 margin_bottom = -34.0
 custom_fonts/font = SubResource( 9 )
-text = "Grow Tentacles! They'll attack anything near you.
-Sticky cups might pull you around though..."
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

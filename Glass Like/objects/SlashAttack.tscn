@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://images/Attacks/Slash.png" type="Texture" id=1]
 [ext_resource path="res://objects/SlashAttack.gd" type="Script" id=2]
 [ext_resource path="res://objects/Item Objects/TnT.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Item Objects/PinProjectile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Item Objects/Ghost.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 72, 28.5 )
@@ -84,6 +85,7 @@ collision_mask = 3
 script = ExtResource( 2 )
 tnt = ExtResource( 3 )
 pin = ExtResource( 4 )
+ghost = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

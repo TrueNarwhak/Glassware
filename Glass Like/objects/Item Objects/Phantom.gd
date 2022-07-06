@@ -42,5 +42,5 @@ func _process(delta):
 #			position.x = clamp(position.x, 0, 960)
 #			position.y = clamp(position.y, 0, 540)
 			
-			position.x = move_toward(position.x, player.position.x, 0.6)
-			position.y = move_toward(position.y, player.position.y, 0.6)
+			position.x = move_toward(position.x, player.position.x, 0.9)
+			position.y = move_toward(position.y, player.position.y, 0.9)
