@@ -285,7 +285,7 @@ func bull_item(delta):
 	if inventory.has("bull"):
 		
 		# Change area direction
-		if sprite.flip_h:
+		if position.x - get_global_mouse_position().x > 0:
 			bull_pos_holder.scale.x = -1
 		else:
 			bull_pos_holder.scale.x = 1
@@ -322,6 +322,11 @@ func bull_item(delta):
 		# Play anim
 		if bull_ramming:
 			sprite.play("BullRam")
+			
+			if bull_pos_holder.scale.x == 1:
+				sprite.flip_h = false
+			else:
+				sprite.flip_h = true
 
 
 func octopus_item():
