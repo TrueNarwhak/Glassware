@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export var TARGET_FPS = 60
 export var ACCELERATION = 100
-export var MAX_SPEED = 414
+export var default_max_speed = 414
 export var FRICTION = 7
 export var AIR_RESISTANCE = 1
 export var GRAVITY = 21
@@ -17,6 +17,7 @@ export(PackedScene) var shard
 
 export(PackedScene) var stats
 
+var MAX_SPEED = default_max_speed
 var is_attacking = false
 var can_attack_boost = true
 var motion = Vector2.ZERO
@@ -55,6 +56,8 @@ export var mushroom_force = 800
 export var frog_jump = 473
 export var frog_hinder = 174
 export var flower_slow = 35
+
+export var watering_can_offset = 16
 
 export var bull_boost_ground = 1000
 export var bull_boost_air = 300
@@ -366,7 +369,13 @@ func _on_MushroomStomp_body_entered(body):
 func _on_WateringCanTimer_timeout():
 	if inventory.has("wateringcan") and is_on_floor() and !x_input == 0:
 		var this_flower = flower.instance()
-		this_flower.position = feet_pos.get_global_position()
+		
+		if sprite.flip_h:
+			this_flower.position.x = feet_pos.get_global_position().x + watering_can_offset
+		else:
+			this_flower.position.x = feet_pos.get_global_position().x - watering_can_offset		
+		
+		this_flower.position.y = feet_pos.get_global_position().y
 		get_parent().add_child(this_flower)
 
 # ---------------------------------------------------------------- #

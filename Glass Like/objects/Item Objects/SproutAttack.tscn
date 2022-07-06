@@ -6,7 +6,7 @@
 [ext_resource path="res://objects/Item Objects/SproutAttack.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 201.667, 18.5714 )
+extents = Vector2( 145, 18.5714 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Disappear"
@@ -237,7 +237,7 @@ tracks/7/keys = {
 }
 
 [node name="SproutAttack" type="Area2D"]
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.8, 0.8 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 4 )
@@ -249,7 +249,6 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -22.8571, -37.1429, 2.85714, -82.8572, 40, -120, 91.4286, -124.286, 104.286, -87.1429, 74.2857, -38.5714, 44.2857, 0, 7.14286, 64.2857, -5.71429, 115.714 )
 
 [node name="CauseOtherSpoutHitbox" type="Area2D" parent="."]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CauseOtherSpoutHitbox"]
 modulate = Color( 0.317647, 1, 0.278431, 1 )

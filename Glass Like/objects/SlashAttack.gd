@@ -52,6 +52,12 @@ func _on_SlashAttack_body_entered(body):
 				if body.state == 3:
 					body.disperse()
 
+func _on_SlashAttack_area_entered(area):
+	if area.is_in_group("SproutActivationArea") and area.get_parent().can_sprout:
+		area.get_parent().make_sprout()
+		area.get_parent().queue_free()
+
+
 # ------------------------------------------------------ #
 
 
@@ -81,9 +87,3 @@ func ghost_item_attack(this_body):
 		get_parent().get_parent().add_child(this_ghost)
 
 # ------------------------------------------------------ #
-
-
-func _on_SlashAttack_area_entered(area):
-	if area.is_in_group("Flower") and area.can_sprout:
-		area.make_sprout()
-		area.queue_free()

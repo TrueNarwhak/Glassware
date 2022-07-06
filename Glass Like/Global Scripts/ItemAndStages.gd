@@ -27,7 +27,7 @@ var item_tooltips = [
 	"A pin, that can break foes OR you, will fall\non vanquishing a foe. Hitting it gives you a boost",
 	"Throw beach balls every other attack!\nBoing, boing, boing, they'll bounce you too!",
 	"Breaking foes throws an\nexplosive. Pow!",
-	"default text :OOOO\n no way"
+	"Plant Sprouts with every step! They're slow\nto walk through BUT hitting them causes them to bloom"
 ]
 
 # Stages
@@ -86,5 +86,5 @@ func reset_all():
 		"A pin, that can break foes OR you, will fall\non vanquishing a foe. Hitting it gives you a boost",
 		"Throw beach balls every other attack!\nBoing, boing, boing, they'll bounce you too!",
 		"Breaking foes throws an\nexplosive. Pow!",
-		"default text :OOOO\n no way"
+		"Plant Sprouts with every step! They're slow\nto walk through BUT hitting them causes them to bloom"
 	]

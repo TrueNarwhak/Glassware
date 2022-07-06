@@ -5,8 +5,11 @@ onready var stage_cast = $StageCast
 var sprites = 1
 
 export(PackedScene) var sprout
+export var slowed_speed = 100
 
 var can_sprout = false
+
+# ----------------------------------------------- #
 
 func _ready():
 	anim.play("Grow")
@@ -23,14 +26,22 @@ func make_sprout():
 	var this_sprout = sprout.instance()
 	
 	this_sprout.position.x = get_global_position().x
-	this_sprout.position.y = get_global_position().y -60
+	this_sprout.position.y = get_global_position().y -85
 	get_parent().add_child(this_sprout)
 
 func _on_Flower_body_entered(body):
-	var this_body = body.get_parent()
+#	var this_body = body.get_parent()
+#
+#	if this_body.is_in_group("Enemies"):
+#		this_body.survive -= 1
 	
-	if this_body.is_in_group("Enemies"):
-		this_body.survive -= 1
+	if body.is_in_group("Player") and body.is_on_floor():
+		body.MAX_SPEED = slowed_speed
+
+
+func _on_Flower_body_exited(body):
+	if body.is_in_group("Player"):
+		body.MAX_SPEED = body.default_max_speed
 
 
 func _on_CanSproutTimer_timeout():

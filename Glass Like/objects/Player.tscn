@@ -131,6 +131,7 @@ script = ExtResource( 5 )
 attack = ExtResource( 8 )
 shard = ExtResource( 12 )
 stats = ExtResource( 18 )
+watering_can_offset = 25
 bull_boost_ground = 2608
 bull_boost_air = 1071
 bull_knock_x = 685
@@ -191,11 +192,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 flip_h = true
 
