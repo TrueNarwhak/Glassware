@@ -3,7 +3,7 @@ extends Node
 # Items
 var item_sprites = [
 	preload("res://images/Items/v2/Anvil.png"), preload("res://images/Items/v2/baseball.png"),
-	preload("res://images/Items/v2/Bat.png"), preload("res://images/Items/v2/FloppyDisk.png"),
+	preload("res://images/Items/v2/Bat.png"),
 	preload("res://images/Items/v2/Frog.png"), preload("res://images/Items/v2/Ghost.png"), 
 	preload("res://images/Items/v2/Octopus.png"), preload("res://images/Items/v2/Bull.png"), 
 	preload("res://images/Items/v2/Mushroom.png"), preload("res://images/Items/v2/Pin.png"), 
@@ -11,14 +11,13 @@ var item_sprites = [
 	preload("res://images/Items/v2/WateringCan.png")
 ]
 
-var items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "octopus",
+var items_current = ["anvil", "baseball", "bat", "frog", "ghost", "octopus",
 	"bull", "mushroom", "pin", "seal", "tnt", "wateringcan"]
 
 var item_tooltips = [
 	"Press down midair to slam down,\nbreaking foes, ..but you may lose control", 
 	"Swing a heavy baseball\nbat that reflects proectiles",
 	"Replace your jump with flight\n...but it lasts only a little each stage",
-	"default text :OOOOO\n noway",
 	"Protect your extra high jump with\na lilipad! ...But you're pretty slow in the air",
 	"Breaking foes summon ghosts! They'll attack\nthem, but grow vengeful if left without enemies...",
 	"Grow Tentacles! They'll attack anything near you.\nSticky cups might pull you around though...",
@@ -60,12 +59,12 @@ func _ready():
 func reset_all():
 	stages_cleared = -1
 	
-	items_current = ["anvil", "baseball", "bat", "floppydisk", "frog", "ghost", "octopus",
+	items_current = ["anvil", "baseball", "bat", "frog", "ghost", "octopus",
 	"bull", "mushroom", "pin", "seal", "tnt", "wateringcan"]
 	
 	item_sprites = [
 		preload("res://images/Items/v2/Anvil.png"), preload("res://images/Items/v2/baseball.png"),
-		preload("res://images/Items/v2/Bat.png"), preload("res://images/Items/v2/FloppyDisk.png"),
+		preload("res://images/Items/v2/Bat.png"),
 		preload("res://images/Items/v2/Frog.png"), preload("res://images/Items/v2/Ghost.png"), 
 		preload("res://images/Items/v2/Octopus.png"), preload("res://images/Items/v2/Bull.png"), 
 		preload("res://images/Items/v2/Mushroom.png"), preload("res://images/Items/v2/Pin.png"), 
@@ -77,7 +76,6 @@ func reset_all():
 		"Press down midair to slam down,\nbreaking foes, ..but you may lose control", 
 		"Swing a heavy baseball\nbat that reflects proectiles",
 		"Replace your jump with flight\n...but it lasts only a little each stage",
-		"default text :OOOOO\n noway",
 		"Protect your extra high jump with\na lilipad! ...But you're pretty slow in the air",
 		"Breaking foes summon ghosts! They'll attack\nthem, but grow vengeful if left without enemies...",
 		"Grow Tentacles! They'll attack anything near you.\nSticky cups might pull you around though...",
