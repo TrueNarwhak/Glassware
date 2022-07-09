@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
@@ -6,9 +6,45 @@
 [ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://rooms/Controller.gd" type="Script" id=5]
 [ext_resource path="res://images/Credits/GalleryPortrait.png" type="Texture" id=6]
+[ext_resource path="res://rooms/msc/CreditsText.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/msc/CreditsAnim.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 401, 8 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="Animation" id=3]
+resource_name = "Credits"
+length = 35.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Viewport/CreditsTex:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 29 ), Vector2( 0, -2011.06 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Viewport/CreditsTex:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 29 ) ]
+}
 
 [node name="Credits" type="Node2D"]
 script = ExtResource( 5 )
@@ -17,15 +53,15 @@ script = ExtResource( 5 )
 position = Vector2( -96, -56 )
 scale = Vector2( 1.20385, 1.20385 )
 
-[node name="Node" type="Node2D" parent="."]
+[node name="Painting" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Node"]
+[node name="Frame" type="Sprite" parent="Painting"]
 position = Vector2( 480, 232 )
 scale = Vector2( 0.459861, 0.459861 )
 texture = ExtResource( 6 )
 
 [node name="Shelf" type="StaticBody2D" parent="." groups=["StageGround"]]
-position = Vector2( 80, 502 )
+position = Vector2( 80, 520 )
 collision_layer = 9
 collision_mask = 9
 
@@ -57,3 +93,22 @@ position = Vector2( 480, 448 )
 
 [node name="LeanCamera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 480, 272 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 960, 540 )
+transparent_bg = true
+
+[node name="CreditsTex" parent="Viewport" instance=ExtResource( 8 )]
+
+[node name="CreditsSprite" type="Sprite" parent="."]
+position = Vector2( 479, 232 )
+rotation = 3.14159
+scale = Vector2( -0.682166, 0.682166 )
+texture = SubResource( 2 )
+
+[node name="CreditsAnim" type="AnimationPlayer" parent="."]
+anims/Credits = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+script = ExtResource( 9 )

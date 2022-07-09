@@ -9,6 +9,10 @@ onready var slot_large2 = $Recipt/Slots/SlotLarge2
 
 onready var stages_cleared_num = $Recipt/Score/StagesClearedNum
 
+var restart_flag = false
+
+# ---------------------------------------------------- #
+
 func _ready():
 	anim.play("ComeIn")
 	
@@ -19,10 +23,10 @@ func _ready():
 	stages_cleared_num.text = str(ItemAndStages.stages_cleared)
 
 func _process(delta):
-	if Input.is_action_just_pressed("restart") and can_restart():
+	if Input.is_action_just_pressed("restart") and restart_flag:
 		get_tree().reload_current_scene()
 		ItemAndStages.reset_all()
 #		get_tree().change_scene("res://rooms/Menus/Quote.tscn")
 
 func can_restart():
-	return true
+	restart_flag = true

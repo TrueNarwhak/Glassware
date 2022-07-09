@@ -1,19 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://objects/resorces/CreditsHeader.tres" type="DynamicFont" id=1]
 [ext_resource path="res://objects/resorces/CreditsText.tres" type="DynamicFont" id=2]
+[ext_resource path="res://images/Credits/People/Shrooms.png" type="Texture" id=3]
+[ext_resource path="res://images/Credits/People/sab.png" type="Texture" id=4]
+[ext_resource path="res://images/Credits/People/rad.png" type="Texture" id=5]
+[ext_resource path="res://images/Credits/People/Sharkmissle.png" type="Texture" id=6]
+[ext_resource path="res://images/Credits/People/argo.png" type="Texture" id=7]
+[ext_resource path="res://images/Credits/People/moff.png" type="Texture" id=8]
+[ext_resource path="res://images/Credits/People/Dudalina.png" type="Texture" id=9]
+[ext_resource path="res://images/Credits/People/Fish.png" type="Texture" id=10]
+[ext_resource path="res://images/Credits/People/sharki.png" type="Texture" id=11]
+[ext_resource path="res://images/Credits/People/Volbo.png" type="Texture" id=12]
+[ext_resource path="res://images/Credits/People/Chepic.png" type="Texture" id=13]
+[ext_resource path="res://images/Credits/People/doc.png" type="Texture" id=14]
+[ext_resource path="res://images/Credits/logo/Godot.png" type="Texture" id=15]
 
 [node name="CreditsTex" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -603.0
-margin_bottom = -603.0
+margin_top = 29.0
+margin_bottom = 29.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Narwhak" type="Control" parent="."]
 anchor_right = 1.0
+margin_top = 29.0
+margin_bottom = 29.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CreditHeader" type="Label" parent="Narwhak"]
 anchor_right = 1.0
@@ -31,7 +49,7 @@ anchor_right = 1.0
 margin_top = 57.0
 margin_bottom = 123.0
 custom_fonts/font = ExtResource( 2 )
-text = "True Narwhak :)"
+text = "True Narwhak (  thats me :o  )"
 align = 1
 valign = 1
 __meta__ = {
@@ -41,39 +59,35 @@ __meta__ = {
 [node name="MadeWith" type="Control" parent="."]
 anchor_right = 1.0
 margin_left = -37.0
-margin_top = 285.0
+margin_top = 384.0
 margin_right = -37.0
-margin_bottom = 285.0
+margin_bottom = 384.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CreditHeader" type="Label" parent="MadeWith"]
 anchor_right = 1.0
 margin_bottom = 69.0
 custom_fonts/font = ExtResource( 1 )
-text = "Made With"
+text = "Made With:"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreditText" type="Label" parent="MadeWith"]
-anchor_right = 1.0
-margin_top = 57.0
-margin_bottom = 123.0
-custom_fonts/font = ExtResource( 2 )
-text = "(godot)"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="MadeWith"]
+position = Vector2( 518, 166 )
+scale = Vector2( 0.583587, 0.583587 )
+texture = ExtResource( 15 )
 
 [node name="Playtestsers" type="Control" parent="."]
 anchor_right = 1.0
 margin_left = -37.0
-margin_top = 676.0
+margin_top = 857.0
 margin_right = -37.0
-margin_bottom = 676.0
+margin_bottom = 857.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -91,12 +105,12 @@ __meta__ = {
 
 [node name="CreditText" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 42.0
+margin_left = 237.144
 margin_top = 108.0
-margin_right = -425.0
+margin_right = -439.856
 margin_bottom = 174.0
 custom_fonts/font = ExtResource( 2 )
-text = "RadicalTourism"
+text = "Doctorpus"
 align = 1
 valign = 1
 __meta__ = {
@@ -105,9 +119,9 @@ __meta__ = {
 
 [node name="CreditText2" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 508.0
+margin_left = 570.144
 margin_top = 108.0
-margin_right = 41.0
+margin_right = 103.144
 margin_bottom = 174.0
 custom_fonts/font = ExtResource( 2 )
 text = "Moffball"
@@ -119,10 +133,10 @@ __meta__ = {
 
 [node name="CreditText3" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 60.0
-margin_top = 423.0
-margin_right = -407.0
-margin_bottom = 489.0
+margin_left = 103.963
+margin_top = 482.623
+margin_right = -363.037
+margin_bottom = 548.623
 custom_fonts/font = ExtResource( 2 )
 text = "Argonautical"
 align = 1
@@ -133,10 +147,10 @@ __meta__ = {
 
 [node name="CreditText4" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 122.0
-margin_top = 189.0
-margin_right = -410.0
-margin_bottom = 255.0
+margin_left = 165.963
+margin_top = 207.01
+margin_right = -366.037
+margin_bottom = 273.01
 custom_fonts/font = ExtResource( 2 )
 text = "Sabbytom"
 align = 1
@@ -147,10 +161,10 @@ __meta__ = {
 
 [node name="CreditText5" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 508.0
-margin_top = 189.0
-margin_right = 41.0
-margin_bottom = 255.0
+margin_left = 570.144
+margin_top = 207.01
+margin_right = 103.144
+margin_bottom = 273.01
 custom_fonts/font = ExtResource( 2 )
 text = "Fishnoid"
 align = 1
@@ -161,10 +175,10 @@ __meta__ = {
 
 [node name="CreditText6" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 479.0
-margin_top = 421.0
-margin_right = 12.0
-margin_bottom = 487.0
+margin_left = 541.144
+margin_top = 480.623
+margin_right = 74.1436
+margin_bottom = 546.623
 custom_fonts/font = ExtResource( 2 )
 text = "Sharkicide"
 align = 1
@@ -175,10 +189,10 @@ __meta__ = {
 
 [node name="CreditText7" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 118.0
-margin_top = 267.0
-margin_right = -445.0
-margin_bottom = 333.0
+margin_left = 161.963
+margin_top = 299.122
+margin_right = -401.037
+margin_bottom = 365.122
 custom_fonts/font = ExtResource( 2 )
 text = "Sharkmissle"
 align = 1
@@ -189,10 +203,10 @@ __meta__ = {
 
 [node name="CreditText8" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 518.0
-margin_top = 267.0
-margin_right = 41.0
-margin_bottom = 333.0
+margin_left = 580.144
+margin_top = 299.122
+margin_right = 103.144
+margin_bottom = 365.122
 custom_fonts/font = ExtResource( 2 )
 text = "Dudlina"
 align = 1
@@ -203,10 +217,10 @@ __meta__ = {
 
 [node name="CreditText10" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 518.0
-margin_top = 335.0
-margin_right = 41.0
-margin_bottom = 401.0
+margin_left = 580.144
+margin_top = 390.0
+margin_right = 103.144
+margin_bottom = 456.0
 custom_fonts/font = ExtResource( 2 )
 text = "Chepic"
 align = 1
@@ -217,10 +231,10 @@ __meta__ = {
 
 [node name="CreditText11" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 84.0
-margin_top = 493.0
-margin_right = -393.0
-margin_bottom = 559.0
+margin_left = 127.963
+margin_top = 581.979
+margin_right = -349.037
+margin_bottom = 647.979
 custom_fonts/font = ExtResource( 2 )
 text = "Nelshroom"
 align = 1
@@ -229,12 +243,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CreditText13" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 297.144
+margin_top = 678.979
+margin_right = -179.856
+margin_bottom = 744.979
+custom_fonts/font = ExtResource( 2 )
+text = "Radical Tourism"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CreditText12" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 106.0
-margin_top = 335.0
-margin_right = -371.0
-margin_bottom = 401.0
+margin_left = 149.963
+margin_top = 390.0
+margin_right = -327.037
+margin_bottom = 456.0
 custom_fonts/font = ExtResource( 2 )
 text = "Joltabolt"
 align = 1
@@ -245,24 +273,84 @@ __meta__ = {
 
 [node name="CreditText9" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
-margin_left = 461.0
-margin_top = 493.0
-margin_right = -6.0
-margin_bottom = 559.0
+margin_left = 611.144
+margin_top = 582.0
+margin_right = -19.8564
+margin_bottom = 648.0
 custom_fonts/font = ExtResource( 2 )
-text = "Volbo_Dugs"
+text = "Volbo Dugs"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sprite" type="Sprite" parent="Playtestsers"]
+position = Vector2( 143.644, 127 )
+scale = Vector2( 0.565217, 0.565217 )
+texture = ExtResource( 14 )
+
+[node name="Sprite4" type="Sprite" parent="Playtestsers"]
+position = Vector2( 143.644, 505.623 )
+scale = Vector2( 0.495517, 0.495517 )
+texture = ExtResource( 7 )
+
+[node name="Sprite5" type="Sprite" parent="Playtestsers"]
+position = Vector2( 143.644, 608.979 )
+scale = Vector2( 0.495517, 0.495517 )
+texture = ExtResource( 3 )
+
+[node name="Sprite12" type="Sprite" parent="Playtestsers"]
+position = Vector2( 320.144, 712 )
+scale = Vector2( 0.571644, 0.571644 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="Playtestsers"]
+position = Vector2( 147.824, 232.01 )
+scale = Vector2( 0.503858, 0.503858 )
+texture = ExtResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="Playtestsers"]
+position = Vector2( 138.824, 325.122 )
+scale = Vector2( 0.595656, 0.595656 )
+texture = ExtResource( 6 )
+
+[node name="Sprite6" type="Sprite" parent="Playtestsers"]
+position = Vector2( 613.644, 127 )
+scale = Vector2( 0.565217, 0.565217 )
+texture = ExtResource( 8 )
+
+[node name="Sprite7" type="Sprite" parent="Playtestsers"]
+position = Vector2( 605.144, 515 )
+scale = Vector2( 0.495517, 0.495517 )
+texture = ExtResource( 11 )
+
+[node name="Sprite8" type="Sprite" parent="Playtestsers"]
+position = Vector2( 602.143, 613.979 )
+scale = Vector2( 0.59294, 0.59294 )
+texture = ExtResource( 12 )
+
+[node name="Sprite9" type="Sprite" parent="Playtestsers"]
+position = Vector2( 617.824, 232.01 )
+scale = Vector2( 0.503858, 0.503858 )
+texture = ExtResource( 10 )
+
+[node name="Sprite10" type="Sprite" parent="Playtestsers"]
+position = Vector2( 608.824, 325.122 )
+scale = Vector2( 0.595656, 0.595656 )
+texture = ExtResource( 9 )
+
+[node name="Sprite11" type="Sprite" parent="Playtestsers"]
+position = Vector2( 608.824, 414 )
+scale = Vector2( 0.519084, 0.519084 )
+texture = ExtResource( 13 )
+
 [node name="Assets" type="Control" parent="."]
 anchor_right = 1.0
 margin_left = -37.0
-margin_top = 1404.0
+margin_top = 1793.0
 margin_right = -37.0
-margin_bottom = 1404.0
+margin_bottom = 1793.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -296,6 +384,28 @@ margin_top = 103.0
 margin_bottom = 169.0
 custom_fonts/font = ExtResource( 2 )
 text = "Lean Camera: samsface"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Assets2" type="Control" parent="."]
+anchor_right = 1.0
+margin_left = -37.0
+margin_top = 2207.0
+margin_right = -37.0
+margin_bottom = 2207.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText" type="Label" parent="Assets2"]
+anchor_right = 1.0
+margin_top = 57.0
+margin_bottom = 123.0
+custom_fonts/font = ExtResource( 2 )
+text = "Thank you for playing :)"
 align = 1
 valign = 1
 __meta__ = {
