@@ -227,10 +227,32 @@ func frog_item(delta):
 		get_parent().add_child(this_lilipad)
 
 
+func mushroom_item_stomp(body):
+	# Mushroom
+	if inventory.has("mushroom") and body.get_parent().is_in_group("Enemies") and !is_on_floor():
+		body.get_parent().survive -= 1
+		print("stomp!")
+		motion.y = -mushroom_force
+
+
 func anvil_item(delta):
 	if inventory.has("anvil") and !is_on_floor() and !jump_death_called:
 		if Input.is_action_pressed("move_down"):
 			motion.y += anvil_gravity * delta * TARGET_FPS
+
+func anvil_item_stomp(body):
+	if inventory.has("anvil") and Input.is_action_pressed("move_down"):
+		
+		# Normal Break
+		if body.get_parent().is_in_group("Enemies"):
+			body.get_parent().survive -= 1
+		
+		# Create Shockwave
+		if body.is_in_group("StageGround"):
+			var this_stomp = anvil_stomp.instance()
+			this_stomp.position.x = get_global_position().x
+			this_stomp.position.y = get_global_position().y + 25
+			get_parent().add_child(this_stomp)
 
 
 func bat_item(delta):
@@ -353,22 +375,8 @@ func darken_bat_wings():
 # ---------------------------------------------------------------- #
 
 func _on_MushroomStomp_body_entered(body):
-	
-	# Mushroom
-	if inventory.has("mushroom") and body.get_parent().is_in_group("Enemies") and !is_on_floor():
-		body.get_parent().survive -= 1
-		print("stomp!")
-		motion.y = -mushroom_force
-	
-	# Anvil
-	if inventory.has("anvil") and Input.is_action_pressed("move_down") and body.is_in_group("StageGround"):
-		var this_stomp = anvil_stomp.instance()
-		this_stomp.position.x = get_global_position().x
-		this_stomp.position.y = get_global_position().y + 25
-		get_parent().add_child(this_stomp)
-		
-		if body.get_parent().is_in_group("Enemies"):
-			body.get_parent().survive -= 1
+	mushroom_item_stomp(body)
+	anvil_item_stomp(body)
 
 
 func _on_WateringCanTimer_timeout():
