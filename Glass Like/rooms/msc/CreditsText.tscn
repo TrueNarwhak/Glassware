@@ -1,0 +1,303 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/resorces/CreditsHeader.tres" type="DynamicFont" id=1]
+[ext_resource path="res://objects/resorces/CreditsText.tres" type="DynamicFont" id=2]
+
+[node name="CreditsTex" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -603.0
+margin_bottom = -603.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Narwhak" type="Control" parent="."]
+anchor_right = 1.0
+
+[node name="CreditHeader" type="Label" parent="Narwhak"]
+anchor_right = 1.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 1 )
+text = "Design, Art, Programming, and sound, By:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText" type="Label" parent="Narwhak"]
+anchor_right = 1.0
+margin_top = 57.0
+margin_bottom = 123.0
+custom_fonts/font = ExtResource( 2 )
+text = "True Narwhak :)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MadeWith" type="Control" parent="."]
+anchor_right = 1.0
+margin_left = -37.0
+margin_top = 285.0
+margin_right = -37.0
+margin_bottom = 285.0
+
+[node name="CreditHeader" type="Label" parent="MadeWith"]
+anchor_right = 1.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 1 )
+text = "Made With"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText" type="Label" parent="MadeWith"]
+anchor_right = 1.0
+margin_top = 57.0
+margin_bottom = 123.0
+custom_fonts/font = ExtResource( 2 )
+text = "(godot)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Playtestsers" type="Control" parent="."]
+anchor_right = 1.0
+margin_left = -37.0
+margin_top = 676.0
+margin_right = -37.0
+margin_bottom = 676.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditHeader" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 1 )
+text = "Playtesters:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 42.0
+margin_top = 108.0
+margin_right = -425.0
+margin_bottom = 174.0
+custom_fonts/font = ExtResource( 2 )
+text = "RadicalTourism"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText2" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 508.0
+margin_top = 108.0
+margin_right = 41.0
+margin_bottom = 174.0
+custom_fonts/font = ExtResource( 2 )
+text = "Moffball"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText3" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 60.0
+margin_top = 423.0
+margin_right = -407.0
+margin_bottom = 489.0
+custom_fonts/font = ExtResource( 2 )
+text = "Argonautical"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText4" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 122.0
+margin_top = 189.0
+margin_right = -410.0
+margin_bottom = 255.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sabbytom"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText5" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 508.0
+margin_top = 189.0
+margin_right = 41.0
+margin_bottom = 255.0
+custom_fonts/font = ExtResource( 2 )
+text = "Fishnoid"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText6" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 479.0
+margin_top = 421.0
+margin_right = 12.0
+margin_bottom = 487.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sharkicide"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText7" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 118.0
+margin_top = 267.0
+margin_right = -445.0
+margin_bottom = 333.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sharkmissle"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText8" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 518.0
+margin_top = 267.0
+margin_right = 41.0
+margin_bottom = 333.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dudlina"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText10" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 518.0
+margin_top = 335.0
+margin_right = 41.0
+margin_bottom = 401.0
+custom_fonts/font = ExtResource( 2 )
+text = "Chepic"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText11" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 84.0
+margin_top = 493.0
+margin_right = -393.0
+margin_bottom = 559.0
+custom_fonts/font = ExtResource( 2 )
+text = "Nelshroom"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText12" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 106.0
+margin_top = 335.0
+margin_right = -371.0
+margin_bottom = 401.0
+custom_fonts/font = ExtResource( 2 )
+text = "Joltabolt"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText9" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 461.0
+margin_top = 493.0
+margin_right = -6.0
+margin_bottom = 559.0
+custom_fonts/font = ExtResource( 2 )
+text = "Volbo_Dugs"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Assets" type="Control" parent="."]
+anchor_right = 1.0
+margin_left = -37.0
+margin_top = 1404.0
+margin_right = -37.0
+margin_bottom = 1404.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditHeader" type="Label" parent="Assets"]
+anchor_right = 1.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 1 )
+text = "With Assets from:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText" type="Label" parent="Assets"]
+anchor_right = 1.0
+margin_top = 57.0
+margin_bottom = 123.0
+custom_fonts/font = ExtResource( 2 )
+text = "Platformer Controller: Heartbeast"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText2" type="Label" parent="Assets"]
+anchor_right = 1.0
+margin_top = 103.0
+margin_bottom = 169.0
+custom_fonts/font = ExtResource( 2 )
+text = "Lean Camera: samsface"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
