@@ -214,6 +214,7 @@ position = Vector2( -67, 90 )
 rotation = -0.13308
 
 [node name="PinkBG" type="Sprite" parent="Recipt/ItemsLabel"]
+visible = false
 modulate = Color( 0.937255, 0.937255, 0.937255, 1 )
 position = Vector2( 503.835, 595.831 )
 scale = Vector2( 0.850854, 0.30712 )
@@ -292,16 +293,19 @@ position = Vector2( 86, 96.8 )
 scale = Vector2( 0.81056, 0.81056 )
 
 [node name="SlotLarge0" type="Sprite" parent="Recipt/Slots"]
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 368.524, 654.418 )
 rotation = -0.13308
 texture = ExtResource( 4 )
 
 [node name="SlotLarge1" type="Sprite" parent="Recipt/Slots"]
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 527.109, 633.188 )
 rotation = -0.13308
 texture = ExtResource( 3 )
 
 [node name="SlotLarge2" type="Sprite" parent="Recipt/Slots"]
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 685.695, 611.958 )
 rotation = -0.13308
 texture = ExtResource( 5 )
