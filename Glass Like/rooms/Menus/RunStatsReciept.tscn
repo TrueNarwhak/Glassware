@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://images/ui/reciept.jpg" type="Texture" id=1]
 [ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://images/ui/Tape.png" type="Texture" id=7]
 [ext_resource path="res://rooms/Menus/RunStatsReciept.gd" type="Script" id=8]
 [ext_resource path="res://images/msc/barcode.png" type="Texture" id=9]
+[ext_resource path="res://objects/ui/Tag.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -70,6 +71,18 @@ tracks/2/keys = {
 "method": "can_restart"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("TagsHolder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.5, 4.5 ),
+"transitions": PoolRealArray( 1, 0.329877, 1 ),
+"update": 0,
+"values": [ Vector2( -552, 0 ), Vector2( -552, 0 ), Vector2( -164, 0 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -120,6 +133,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TagsHolder:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -903, 0 ) ]
 }
 
 [node name="RunStatsReciept" type="Node2D"]
@@ -362,6 +387,27 @@ rotation = -0.132857
 scale = Vector2( 0.600001, 0.286302 )
 texture = ExtResource( 9 )
 
+[node name="TagsHolder" type="Node2D" parent="."]
+position = Vector2( -903, 0 )
+
+[node name="Tag" parent="TagsHolder" instance=ExtResource( 10 )]
+position = Vector2( 169, 25 )
+scale = Vector2( 0.57748, 0.57748 )
+room_path = "res://rooms/msc/Credits.tscn"
+
+[node name="Label" parent="TagsHolder/Tag" index="1"]
+text = "Credits"
+
+[node name="Tag2" parent="TagsHolder" instance=ExtResource( 10 )]
+position = Vector2( 169, 148 )
+scale = Vector2( 0.57748, 0.57748 )
+
+[node name="Label" parent="TagsHolder/Tag2" index="1"]
+text = "Catalouge"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ComeIn = SubResource( 7 )
 anims/RESET = SubResource( 6 )
+
+[editable path="TagsHolder/Tag"]
+[editable path="TagsHolder/Tag2"]

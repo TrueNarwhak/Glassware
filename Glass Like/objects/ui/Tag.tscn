@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://images/ui/buttons/Tag.png" type="Texture" id=1]
+[ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://objects/ui/Tag.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+outline_size = 1
+font_data = ExtResource( 2 )
+
+[node name="Tag" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 22.0
+margin_top = 20.0
+margin_right = 277.0
+margin_bottom = 83.0
+custom_colors/font_color = Color( 1, 0.705882, 0.815686, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0.705882, 0.815686, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "aaa"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_TextureButton_button_down"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_TextureButton_mouse_exited"]

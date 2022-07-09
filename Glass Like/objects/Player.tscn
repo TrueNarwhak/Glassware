@@ -51,12 +51,22 @@ animations = [ {
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 8 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 0.1
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Shatter",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
@@ -68,20 +78,15 @@ animations = [ {
 "name": "GroundAttack",
 "speed": 65.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Jump",
-"speed": 5.0
+"name": "Walk",
+"speed": 6.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Helicopter Kick",
 "speed": 30.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Shatter",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
@@ -92,14 +97,9 @@ animations = [ {
 "loop": true,
 "name": "BullRam",
 "speed": 0.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 6.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ) ],
 "loop": true,
@@ -114,10 +114,10 @@ extents = Vector2( 92, 74 )
 radius = 26.0
 height = 44.0
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 52, 36 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ) ],
 "loop": true,
@@ -156,14 +156,14 @@ animation = "deatheffect"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 7 )
 position = Vector2( 11, -37 )
-frames = SubResource( 1 )
+frames = SubResource( 11 )
 animation = "Walk"
 offset = Vector2( 0, -1.032 )
 
 [node name="BaseballBat" type="AnimatedSprite" parent="AnimatedSprite"]
 visible = false
 position = Vector2( -55, 13 )
-frames = SubResource( 5 )
+frames = SubResource( 12 )
 
 [node name="BullPosHolder" type="Position2D" parent="AnimatedSprite"]
 
@@ -183,7 +183,7 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomStomp"]
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, 50 )
-shape = SubResource( 3 )
+shape = SubResource( 13 )
 
 [node name="BatWings" type="Node2D" parent="."]
 visible = false
@@ -191,14 +191,12 @@ position = Vector2( -122, -46 )
 
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
-frames = SubResource( 4 )
-frame = 1
+frames = SubResource( 14 )
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
-frames = SubResource( 4 )
-frame = 1
+frames = SubResource( 14 )
 playing = true
 flip_h = true
 

@@ -1,27 +1,26 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
-[ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://rooms/msc/Credits.gd" type="Script" id=5]
-[ext_resource path="res://images/Credits/GalleryPortrait.png" type="Texture" id=6]
-[ext_resource path="res://images/stage/1x/Next Arrow.png" type="Texture" id=7]
+[ext_resource path="res://rooms/msc/CreditsAnim.gd" type="Script" id=1]
+[ext_resource path="res://rooms/msc/Credits.gd" type="Script" id=2]
+[ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=3]
+[ext_resource path="res://images/stage/1x/Next Arrow.png" type="Texture" id=4]
+[ext_resource path="res://images/Credits/GalleryPortrait.png" type="Texture" id=5]
+[ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://rooms/msc/CreditsText.tscn" type="PackedScene" id=8]
-[ext_resource path="res://rooms/msc/CreditsAnim.gd" type="Script" id=9]
-[ext_resource path="res://objects/Balloon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 401, 8 )
 
-[sub_resource type="ViewportTexture" id=6]
+[sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 57.0001
 height = 23.9997
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 resource_name = "Credits"
 length = 40.0
 tracks/0/type = "value"
@@ -85,7 +84,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 300 ), Vector2( 0, -2011.06 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("NextStageArrow:visible")
@@ -148,11 +147,10 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 29 ) ]
 }
 
-[node name="Credits" type="Node2D"]
-script = ExtResource( 5 )
-balloon = ExtResource( 10 )
+[node name="Credits2" type="Node2D"]
+script = ExtResource( 2 )
 
-[node name="Wall" parent="." instance=ExtResource( 3 )]
+[node name="Wall" parent="." instance=ExtResource( 6 )]
 position = Vector2( -96, -56 )
 scale = Vector2( 1.20385, 1.20385 )
 
@@ -161,7 +159,7 @@ scale = Vector2( 1.20385, 1.20385 )
 [node name="Frame" type="Sprite" parent="Painting"]
 position = Vector2( 480, 232 )
 scale = Vector2( 0.459861, 0.459861 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="Shelf" type="StaticBody2D" parent="." groups=["StageGround"]]
 position = Vector2( 80, 520 )
@@ -175,11 +173,11 @@ one_way_collision = true
 
 [node name="Sprite" type="Sprite" parent="Shelf"]
 position = Vector2( 20, 10 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="Shelf"]
 position = Vector2( 782, 10 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 flip_h = true
 
 [node name="ColorRect" type="ColorRect" parent="Shelf"]
@@ -191,7 +189,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LeanCamera" parent="." instance=ExtResource( 4 )]
+[node name="LeanCamera" parent="." instance=ExtResource( 7 )]
 position = Vector2( 480, 272 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -201,14 +199,14 @@ size = Vector2( 960, 540 )
 transparent_bg = true
 
 [node name="CreditsTex" parent="Viewport" instance=ExtResource( 8 )]
-margin_right = 6720.0
-margin_bottom = 3809.0
+margin_right = 4800.0
+margin_bottom = 2729.0
 
 [node name="CreditsSprite" type="Sprite" parent="."]
 position = Vector2( 479, 232 )
 rotation = 3.14159
 scale = Vector2( -0.682166, 0.682166 )
-texture = SubResource( 6 )
+texture = SubResource( 2 )
 
 [node name="NextStageArrow" type="Area2D" parent="."]
 visible = false
@@ -217,23 +215,17 @@ scale = Vector2( 0.695837, 0.695837 )
 
 [node name="Sprite" type="Sprite" parent="NextStageArrow"]
 modulate = Color( 1, 1, 1, 0 )
-texture = ExtResource( 7 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextStageArrow"]
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="CreditsAnim" type="AnimationPlayer" parent="."]
-anims/Credits = SubResource( 3 )
-anims/RESET = SubResource( 4 )
-script = ExtResource( 9 )
+anims/Credits = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+script = ExtResource( 1 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 482, 474 )
-
-[node name="BalloonTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="body_entered" from="NextStageArrow" to="." method="_on_NextStageArrow_body_entered"]
-[connection signal="timeout" from="BalloonTimer" to="." method="_on_BalloonTimer_timeout"]
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 669, 368 )

@@ -56,6 +56,9 @@ func _on_SlashAttack_area_entered(area):
 	if area.is_in_group("SproutActivationArea") and area.get_parent().can_sprout:
 		area.get_parent().make_sprout()
 		area.get_parent().queue_free()
+	
+	if area.is_in_group("Balloon"):
+		area.pop()
 
 
 # ------------------------------------------------------ #
