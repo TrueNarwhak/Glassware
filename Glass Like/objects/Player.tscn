@@ -192,13 +192,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 14 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 14 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 
@@ -238,6 +238,10 @@ one_shot = true
 wait_time = 0.607
 one_shot = true
 
+[node name="SealTimer" type="Timer" parent="Timers"]
+wait_time = 0.761
+one_shot = true
+
 [connection signal="animation_finished" from="DeathEffect" to="." method="_on_DeathEffect_animation_finished"]
 [connection signal="body_entered" from="AnimatedSprite/BullPosHolder/BullHitbox" to="." method="_on_BullHitbox_body_entered"]
 [connection signal="body_entered" from="MushroomStomp" to="." method="_on_MushroomStomp_body_entered"]
@@ -247,3 +251,4 @@ one_shot = true
 [connection signal="timeout" from="Timers/InvincibilityTimer" to="." method="_on_invincibilityTimer_timeout"]
 [connection signal="timeout" from="Timers/BullChargeTimer" to="." method="_on_BullChargeTimer_timeout"]
 [connection signal="timeout" from="Timers/BullRecoverTimer" to="." method="_on_BullRecoverTimer_timeout"]
+[connection signal="timeout" from="Timers/SealTimer" to="." method="_on_SealTimer_timeout"]

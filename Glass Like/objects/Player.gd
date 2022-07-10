@@ -40,6 +40,7 @@ onready var invincibility_timer = $Timers/InvincibilityTimer
 onready var stat_timer = $Timers/StatTimer
 onready var bull_charge_timer = $Timers/BullChargeTimer
 onready var bull_recover_timer = $Timers/BullRecoverTimer
+onready var seal_timer = $Timers/SealTimer
 
 onready var bat_wings = $BatWings
 onready var baseball_bat = $AnimatedSprite/BaseballBat
@@ -48,8 +49,10 @@ onready var camera = get_parent().get_node("LeanCamera")
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["seal"]
 var inventory_max = 3
+
+var can_seal = true
 
 export var mushroom_force = 800
 
@@ -191,7 +194,6 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, Vector2.UP)
 	
 	# Items 
-	# Anvil
 	anvil_item(delta)
 	
 	bat_item(delta)
@@ -208,15 +210,21 @@ func _physics_process(delta):
 # ---------------------------------------------------------------- #
 
 func seal_item_attack():
-	beachball_count += 1
-	if beachball_count > 1:
-		beachball_count = 0
+#	beachball_count += 1
+#	if beachball_count > 1:
+#		beachball_count = 0
 	
-	if inventory.has("seal") and beachball_count == 1:
+	if inventory.has("seal") and can_seal:
 #		if inventory.has("seal"):
 		var this_beachball = beachball.instance()
 		this_beachball.position = ball_aim_pos.global_position
 		get_parent().add_child(this_beachball)
+	
+	# Set Attack Vars
+	can_seal = false
+	
+	if seal_timer.time_left == 0:
+		seal_timer.start()
 
 
 func frog_item(delta):
@@ -415,6 +423,10 @@ func _on_invincibilityTimer_timeout():
 	invincible = false
 
 
+func _on_SealTimer_timeout():
+	can_seal = true
+
+
 
 func _on_BullChargeTimer_timeout():
 	if inventory.has("bull"):
@@ -474,5 +486,8 @@ func shatter():
 			death_timer.start()
 			
 			jump_death_called = true
+
+
+
 
 
