@@ -325,7 +325,7 @@ margin_bottom = 768.722
 rect_rotation = -7.43527
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Stages Cleared:"
+text = "Isles Cleared:"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -379,7 +379,7 @@ margin_bottom = 824.088
 rect_rotation = -7.43527
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Highest score:"
+text = "Highest Isles:"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

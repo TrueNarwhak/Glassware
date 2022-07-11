@@ -23,15 +23,15 @@ func _ready():
 func _process(delta):
 	
 	# Keys
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and key_parent.get_node("Up"):
 		remove_key(up)
-	if Input.is_action_just_pressed("move_down"):
+	if Input.is_action_just_pressed("move_down") and key_parent.get_node("Down"):
 		remove_key(down)
-	if Input.is_action_just_pressed("move_left"):
+	if Input.is_action_just_pressed("move_left") and key_parent.get_node("Left"):
 		remove_key(left)
-	if Input.is_action_just_pressed("move_right"):
+	if Input.is_action_just_pressed("move_right") and key_parent.get_node("Right"):
 		remove_key(right)
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and key_parent.get_node("Mouse"):
 		remove_key(mouse)
 	
 	# Full Screen

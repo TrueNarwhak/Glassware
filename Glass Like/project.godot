@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Glass Like"
-run/main_scene="res://rooms/Controller.tscn"
+run/main_scene="res://rooms/Menus/KeyBypass.tscn"
 config/icon="res://images/icon.png"
 
 [autoload]

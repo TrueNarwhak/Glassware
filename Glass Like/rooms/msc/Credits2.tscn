@@ -199,8 +199,8 @@ size = Vector2( 960, 540 )
 transparent_bg = true
 
 [node name="CreditsTex" parent="Viewport" instance=ExtResource( 8 )]
-margin_right = 4800.0
-margin_bottom = 2729.0
+margin_right = 5760.0
+margin_bottom = 3269.0
 
 [node name="CreditsSprite" type="Sprite" parent="."]
 position = Vector2( 479, 232 )

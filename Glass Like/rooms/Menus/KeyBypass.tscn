@@ -69,28 +69,29 @@ script = ExtResource( 13 )
 [node name="Down" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 355, 323.5 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Up" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 355, 192 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Right" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 492.5, 323.5 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Left" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 219.5, 323.5 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="Mouse" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 740.5, 304 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="LeanCamera" parent="." instance=ExtResource( 11 )]
@@ -104,7 +105,7 @@ margin_top = 4.0
 margin_right = 252.0
 margin_bottom = 51.0
 custom_fonts/font = SubResource( 6 )
-text = "(early draft: 0.0.4)"
+text = "(early draft: 0.0.5)"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

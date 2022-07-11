@@ -49,7 +49,7 @@ onready var camera = get_parent().get_node("LeanCamera")
 
 # ------------------------------------ #
 
-var inventory = ["seal"]
+var inventory = []
 var inventory_max = 3
 
 var can_seal = true
