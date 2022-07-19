@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bull Hit.ogg-bcbd23bc0e1489d08f8321be124d1fb2.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Bull Hit.ogg"
+dest_files=[ "res://.import/Bull Hit.ogg-bcbd23bc0e1489d08f8321be124d1fb2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

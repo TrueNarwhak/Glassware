@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://images/Attacks/Explosion.png" type="Texture" id=1]
 [ext_resource path="res://objects/foes/ChampaignExplosion.gd" type="Script" id=2]
 [ext_resource path="res://objects/resorces/foesExpand.tres" type="Animation" id=3]
+[ext_resource path="res://sound/sfx/Champaign Glass Like Explode.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=4]
 
@@ -73,6 +74,10 @@ shape = SubResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Expand = ExtResource( 3 )
 anims/RESET = SubResource( 3 )
+
+[node name="Explode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="." to="." method="_on_ChampaignExplosion_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

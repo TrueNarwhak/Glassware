@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/NT wrench.ogg-3a68d1df2ebe7365b836ba2cffd7bda6.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/NT wrench.ogg"
+dest_files=[ "res://.import/NT wrench.ogg-3a68d1df2ebe7365b836ba2cffd7bda6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

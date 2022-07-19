@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/recieptprint2.ogg-f5d9db73e41a8d5d7b93144d62caac27.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Receipt/recieptprint2.ogg"
+dest_files=[ "res://.import/recieptprint2.ogg-f5d9db73e41a8d5d7b93144d62caac27.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

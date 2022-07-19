@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var music = $HerFoyer
+
 func _ready():
 	# OPTIONS INIT
 	# todo - options global

@@ -25,6 +25,22 @@ onready var jump_timer = $KinematicBody2D/JumpTimer
 onready var expode_timer = $KinematicBody2D/ExplodeTimer
 onready var anim = $AnimationPlayer
 
+onready var jump_step_sfx  = $JumpStep
+onready var water_drop_sfx = $WaterDrop
+
+var jump_sounds = [
+	load("res://sound/sfx/Clink/Clink1.ogg"), 
+	load("res://sound/sfx/Clink/Clink2.ogg")
+]
+
+var water_drop_sounds = [
+	load("res://sound/sfx/WaterDrop/WaterDrop Down.ogg"), 
+	load("res://sound/sfx/WaterDrop/WaterDrop Up.ogg"), 
+	load("res://sound/sfx/WaterDrop/WaterDrop.ogg")
+]
+
+var play_sound = true
+
 # --------------------------------------------------------------- #
 
 func _ready():
@@ -36,9 +52,20 @@ func _physics_process(delta):
 	if !body.is_on_floor(): 
 		motion.x -= accel * delta * target_fps
 		motion.x = clamp(motion.x, -current_jump_distance, current_jump_distance)
-	
+		
+		# Sound
+		play_sound = true
 	else:
 		motion.x = 0
+		
+		# Sound
+		if play_sound:
+			jump_step_sfx.stream = jump_sounds[randi() % jump_sounds.size()]
+			jump_step_sfx.play()
+			
+#			water_drop_sfx.stream = water_drop_sounds[randi() % water_drop_sounds.size()]
+			
+			play_sound = false
 	
 	
 	motion.y += gravity * delta * target_fps

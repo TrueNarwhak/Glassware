@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Omori Cut Glass Like.ogg-c79e045d0848aca140a008d74f300a42.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Omori Cut Glass Like.ogg"
+dest_files=[ "res://.import/Omori Cut Glass Like.ogg-c79e045d0848aca140a008d74f300a42.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

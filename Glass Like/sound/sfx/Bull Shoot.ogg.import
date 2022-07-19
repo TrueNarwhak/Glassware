@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bull Shoot.ogg-5b5c36200c5bdfdb5d4f71a074a5a459.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Bull Shoot.ogg"
+dest_files=[ "res://.import/Bull Shoot.ogg-5b5c36200c5bdfdb5d4f71a074a5a459.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

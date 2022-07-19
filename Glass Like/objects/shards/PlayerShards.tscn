@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://images/shard/Player Shards.png" type="Texture" id=1]
 [ext_resource path="res://objects/shards/Shards.gd" type="Script" id=2]
 [ext_resource path="res://objects/resorces/ShardPhysics.tres" type="PhysicsMaterial" id=3]
+[ext_resource path="res://sound/sfx/Fall Clicks/glass fall click1.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.0278
@@ -11,6 +12,8 @@ radius = 18.0278
 collision_layer = 8
 collision_mask = 0
 physics_material_override = ExtResource( 3 )
+contacts_reported = 3
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -21,3 +24,7 @@ hframes = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.705744, 0.705744 )
 shape = SubResource( 1 )
+
+[node name="FallClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "ShardClicks"

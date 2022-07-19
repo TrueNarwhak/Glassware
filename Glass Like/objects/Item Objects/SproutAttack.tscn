@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://images/Attacks/Sprout/SproutAttack.png" type="Texture" id=1]
 [ext_resource path="res://images/Attacks/Sprout/SproutAttack1.png" type="Texture" id=2]
 [ext_resource path="res://images/Attacks/Sprout/SproutAttack2.png" type="Texture" id=3]
 [ext_resource path="res://objects/Item Objects/SproutAttack.gd" type="Script" id=4]
+[ext_resource path="res://sound/sfx/pop.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sound/sfx/Stretch.ogg" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 145, 18.5714 )
@@ -46,6 +48,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 3.4822, 0.170754 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.298039, 0.243137, 0.184314, 0 ) ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("SlideWhistle")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -135,6 +151,20 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -22.8571, -37.1429, 2.85714, -82.8572, 40, -120, 91.4286, -124.286, 104.286, -87.1429, 74.2857, -38.5714, 44.2857, 0, 7.14286, 64.2857, -5.71429, 115.714 ), PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -22.8571, -37.1429, 2.85714, -82.8572, 40, -120, 91.4286, -124.286, 104.286, -87.1429, 74.2857, -38.5714, 44.2857, 0, 7.14286, 64.2857, -5.71429, 115.714 ), PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -22.8571, -37.1429, 2.85714, -82.8572, 40, -120, 91.4286, -124.286, 104.286, -87.1429, 74.2857, -38.5714, 44.2857, 0, 7.14286, 64.2857, -5.71429, 115.714 ), PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -11.4286, -13.8628, 31.4286, -41.5885, 68.5714, -44.361, 91.4286, -34.657, 138.571, -4.15885, 72.8571, 22.1805, 44.2857, 0, 7.14286, 64.2857, -5.71429, 115.714 ), PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -11.4286, -13.8628, 31.4286, -41.5885, 68.5714, -44.361, 91.4286, -34.657, 138.571, -4.15885, 72.8571, 22.1805, 44.2857, 0, 7.14286, 64.2857, -5.71429, 115.714 ), PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -11.4286, -13.8628, 15.7143, -9.71919, 44.2857, 9.71919, 72.8571, 9.71919, 97.1429, 55.0754, 100, 100.432, 32.8571, 56.6953, 18.5714, 32.3973, 2.85714, 25.9178, -12.8571, 66.4145, -5.71429, 115.714 ) ]
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("Grow")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -253,13 +283,21 @@ polygon = PoolVector2Array( -85.7143, 115.714, -58.5714, 30, -22.8571, -37.1429,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CauseOtherSpoutHitbox"]
 modulate = Color( 0.317647, 1, 0.278431, 1 )
 position = Vector2( 0, 101.429 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Disappear = SubResource( 2 )
 anims/Grow = SubResource( 3 )
 anims/RESET = SubResource( 4 )
+
+[node name="Grow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SoundEffects"
+
+[node name="SlideWhistle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -7.133
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="." to="." method="_on_SproutAttack_body_entered"]
 [connection signal="area_entered" from="CauseOtherSpoutHitbox" to="." method="_on_CauseOtherSpoutHitbox_area_entered"]

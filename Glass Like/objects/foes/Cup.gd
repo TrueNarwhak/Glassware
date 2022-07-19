@@ -14,10 +14,26 @@ var current_jump_distance = jump_distance
 
 onready var body = $KinematicBody2D
 onready var sprite = $KinematicBody2D/AnimatedSprite
+
+onready var jump_step_sfx = $JumpStep
+
+# --------------------------------------------- #
+
+var jump_sounds = [
+	load("res://sound/sfx/Impact Medium/impactWood_medium_000.ogg"), 
+	load("res://sound/sfx/Impact Medium/impactWood_medium_001.ogg"), 
+	load("res://sound/sfx/Impact Medium/impactWood_medium_002.ogg"), 
+	load("res://sound/sfx/Impact Medium/impactWood_medium_003.ogg"), 
+	load("res://sound/sfx/Impact Medium/impactWood_medium_004.ogg")
+]
+
+var play_sound = true
+
 # --------------------------------------------- #
 
 func _ready():
-	pass
+	randomize()
+	
 
 func _physics_process(delta):
 	
@@ -28,10 +44,20 @@ func _physics_process(delta):
 		
 		sprite.playing = true
 		sprite.play("Hop")
+		
+		# Sound
+		play_sound = true
 	else:
 		motion.x = 0
 		sprite.play("default")
-	
+		
+		# Sound
+		if play_sound:
+			jump_step_sfx.stream = jump_sounds[randi() % jump_sounds.size()]
+			jump_step_sfx.play()
+			
+			play_sound = false
+		
 	motion.y += gravity * delta * target_fps
 	
 	motion = body.move_and_slide(motion, Vector2.UP) 
@@ -47,6 +73,7 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	if body.is_on_floor():
 		motion.y = -jump_height
+		
 
 
 func _on_Hitbox_body_entered(body):

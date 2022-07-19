@@ -42,6 +42,14 @@ onready var bull_charge_timer = $Timers/BullChargeTimer
 onready var bull_recover_timer = $Timers/BullRecoverTimer
 onready var seal_timer = $Timers/SealTimer
 
+onready var initial_shatter_sound = $Sounds/InitialShatterSound
+onready var attack_sound = $Sounds/AttackSound
+onready var anvil_sound = $Sounds/AnvilSound
+onready var bull_attack_ding_sound = $Sounds/BullAttackDing
+onready var bull_shoot_sound = $Sounds/BullShoot
+onready var bull_hit_sound = $Sounds/BullHit
+onready var flap_sound = $Sounds/Flap
+
 onready var bat_wings = $BatWings
 onready var baseball_bat = $AnimatedSprite/BaseballBat
 
@@ -67,6 +75,7 @@ export var bull_boost_air = 300
 export var bull_knock_x = 200
 export var bull_knock_y = 200
 var bull_ramming = false
+var can_bull_ding = true
 
 export(PackedScene) var beachball
 export(PackedScene) var flower
@@ -124,6 +133,12 @@ func _physics_process(delta):
 	motion.y += GRAVITY * delta * TARGET_FPS
 	
 	if is_on_floor():
+		
+		# Play music
+		if get_parent().name == "Controller":
+			if !get_parent().music.playing and !jump_death_called:
+				get_parent().music.play()
+				get_parent().music.seek(10.75)
 		
 		# If not moving
 		if x_input == 0:
@@ -261,6 +276,10 @@ func anvil_item_stomp(body):
 			this_stomp.position.x = get_global_position().x
 			this_stomp.position.y = get_global_position().y + 25
 			get_parent().add_child(this_stomp)
+		
+		# Play sound 
+		if !anvil_sound.playing:
+			anvil_sound.play()
 
 
 func bat_item(delta):
@@ -270,6 +289,9 @@ func bat_item(delta):
 			
 			current_bat_flap -= bat_decay * delta * TARGET_FPS
 			current_bat_flap = clamp(current_bat_flap, min_bat_flap, 99999)
+			
+			if !flap_sound.playing: 
+				flap_sound.play()
 	
 	bat_wings.visible = bool(int(Input.is_action_pressed("jump")) * int(current_bat_flap != 0) * int(inventory.has("bat")))
 	
@@ -330,6 +352,13 @@ func bull_item(delta):
 			if !jump_death_called:
 				sprite.play("BullRam")
 				sprite.frame = 0
+			
+			# Play sound
+			if !bull_attack_ding_sound.playing and can_bull_ding:
+				bull_attack_ding_sound.play()
+				can_bull_ding = false
+		else:
+			can_bull_ding = true
 		
 		# If charging
 		if bull_charge_timer.time_left > 0:
@@ -436,6 +465,10 @@ func _on_BullChargeTimer_timeout():
 			motion.x = bull_boost_air * bull_pos_holder.scale.x
 	
 	bull_recover_timer.start()
+	
+	# Play sound
+	if !bull_shoot_sound.playing:
+		bull_shoot_sound.play()
 
 func _on_BullRecoverTimer_timeout():
 	if inventory.has("bull"):
@@ -456,6 +489,10 @@ func _on_BullHitbox_body_entered(body):
 			# Bouce player
 			bull_ramming = false
 			
+			# Play sound
+			if !bull_hit_sound.playing:
+				bull_hit_sound.play()
+			
 			# Make Star
 #			var this_bull_star = bull_star.instance()
 #			this_bull_star.position = position
@@ -469,6 +506,7 @@ func _on_DeathEffect_animation_finished():
 func shatter():
 	print("Shxrch!")
 	
+	
 	if !invincible:
 		# Camera
 		if !jump_death_called:
@@ -478,6 +516,13 @@ func shatter():
 		# Play Effect 
 		death_effect.visible = true
 		death_effect.play()
+		
+		# Music
+		if !jump_death_called:
+			initial_shatter_sound.play()
+		
+		
+		get_parent().music.stop()
 		
 		# Die
 		if !jump_death_called:

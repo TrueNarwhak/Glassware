@@ -22,7 +22,8 @@ func _process(delta):
 
 func pop():
 	var this_disperse = disperse_cloud.instance()
-	this_disperse.position   = position
+	this_disperse.position = position
+	this_disperse.is_ghost = false
 	
 	get_parent().add_child(this_disperse)
 	

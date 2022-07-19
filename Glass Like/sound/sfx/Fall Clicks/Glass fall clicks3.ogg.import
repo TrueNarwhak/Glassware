@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Glass fall clicks3.ogg-284a12e59698475335d5546e6620547d.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Fall Clicks/Glass fall clicks3.ogg"
+dest_files=[ "res://.import/Glass fall clicks3.ogg-284a12e59698475335d5546e6620547d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ghost aaa terraria.ogg-afc7bd8ed6ea97d84780e86de178b721.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Ghost aaa terraria.ogg"
+dest_files=[ "res://.import/Ghost aaa terraria.ogg-afc7bd8ed6ea97d84780e86de178b721.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

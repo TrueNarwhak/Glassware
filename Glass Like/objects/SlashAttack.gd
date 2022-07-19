@@ -5,16 +5,28 @@ export(PackedScene) var tnt
 export(PackedScene) var pin
 export(PackedScene) var ghost
 
+onready var anim       = $AnimationPlayer
+onready var sprite     = $Sprite
+
 # ----------------------------------------------- #
 
 func _ready():
 	randomize()
 	
-	$AnimationPlayer.play("Attacking")
+	anim.play("Attacking")
 	look_at(get_global_mouse_position())
 	
 	if rotation_degrees < -90:
-		$Sprite.flip_v = true
+		sprite.flip_v = true
+	
+	
+	# Sound
+	if !get_parent().inventory.has("baseball"):
+		get_parent().attack_sound.stream = load("res://sound/sfx/Omori Cut Glass Like.ogg")
+		get_parent().attack_sound.play()
+	else:
+		get_parent().attack_sound.stream = load("res://sound/sfx/NT Wrench Glass Like.ogg")
+		get_parent().attack_sound.play()
 
 func _process(delta):
 	pass

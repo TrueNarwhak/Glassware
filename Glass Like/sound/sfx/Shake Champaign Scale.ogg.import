@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Shake Champaign Scale.ogg-8afed642af46089286277cf15c746325.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Shake Champaign Scale.ogg"
+dest_files=[ "res://.import/Shake Champaign Scale.ogg-8afed642af46089286277cf15c746325.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

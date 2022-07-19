@@ -3,6 +3,8 @@ extends Area2D
 onready var anim_player = $AnimationPlayer
 onready var sprite = $Sprite
 
+onready var explode_sfx = $Explode
+
 func _ready():
 	pass
 

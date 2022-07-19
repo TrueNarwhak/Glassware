@@ -67,11 +67,13 @@ func defeated_all():
 				# Spawner
 				if item_spawner is Position2D:
 					item_spawner.anim.play("ItemSpawn")
+					get_parent().get_node("HerFoyer").bus = "MuffledMusic"
 				
 				# Items 
 				if item_spawner.is_in_group("Item") and can_shift:
 #					item_spawner.anim.play("Destroy")
 					item_spawner.discard()
+					get_parent().get_node("HerFoyer").bus = "Music"
 					
 			
 		else:

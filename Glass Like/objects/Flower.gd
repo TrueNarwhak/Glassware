@@ -2,17 +2,21 @@ extends Area2D
 
 onready var anim = $AnimationPlayer
 onready var stage_cast = $StageCast
+onready var grow_sfx = $Grow
+onready var russle_sfx = $Russle
 var sprites = 1
 
 export(PackedScene) var sprout
 export var slowed_speed = 100
 
 var can_sprout = false
+var play_russle = true
 
 # ----------------------------------------------- #
 
 func _ready():
 	anim.play("Grow")
+	grow_sfx.play()
 
 func _process(delta):
 	yield(anim, "animation_finished")
@@ -37,7 +41,11 @@ func _on_Flower_body_entered(body):
 	
 	if body.is_in_group("Player") and body.is_on_floor():
 		body.MAX_SPEED = slowed_speed
-
+	
+	# Play sound
+	if !russle_sfx.playing and play_russle and anim.current_animation == "Idle":
+		russle_sfx.play()
+		play_russle = false
 
 func _on_Flower_body_exited(body):
 	if body.is_in_group("Player"):

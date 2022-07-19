@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://images/ui/reciept.jpg" type="Texture" id=1]
 [ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=2]
@@ -10,12 +10,18 @@
 [ext_resource path="res://rooms/Menus/RunStatsReciept.gd" type="Script" id=8]
 [ext_resource path="res://images/msc/barcode.png" type="Texture" id=9]
 [ext_resource path="res://objects/ui/Tag.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sound/sfx/Receipt/recieptprint1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://sound/sfx/Receipt/recieptprint2.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sound/sfx/Receipt/recieptprint3.ogg" type="AudioStream" id=13]
+[ext_resource path="res://objects/ui/DiscordLogo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://images/Logos/itchio.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
-size = 10
+size = 18
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 24
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -30,9 +36,70 @@ font_data = ExtResource( 2 )
 size = 36
 font_data = ExtResource( 2 )
 
+[sub_resource type="Animation" id=16]
+resource_name = "Grow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( 0.214138, 0.214138 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.214138, 0.214138 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Shrink"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.214, 0.214 ) ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 26
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
 [sub_resource type="Animation" id=7]
 resource_name = "ComeIn"
-length = 4.5
+length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Recipt:position")
 tracks/0/interp = 1
@@ -40,7 +107,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 1.5, 2.6, 3.5, 4.5 ),
+"times": PoolRealArray( 0.2, 1, 2, 4.4, 5, 7.3 ),
 "transitions": PoolRealArray( 0.353554, 1, 0.258816, 1, 0.225313, 1 ),
 "update": 0,
 "values": [ Vector2( 45, 295 ), Vector2( 45, 80 ), Vector2( 45, 80 ), Vector2( 45, -105 ), Vector2( 45, -105 ), Vector2( 45, -297 ) ]
@@ -52,7 +119,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.2, 2.7, 4.5 ),
+"times": PoolRealArray( 0.2, 1.7, 4.5, 7.3 ),
 "transitions": PoolRealArray( 1, 0.420448, 0.378929, 0.258816 ),
 "update": 0,
 "values": [ Color( 1, 0.705882, 0.815686, 0 ), Color( 1, 0.705882, 0.815686, 0.223529 ), Color( 1, 0.705882, 0.815686, 0.266667 ), Color( 1, 0.705882, 0.815686, 0.4 ) ]
@@ -64,7 +131,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4.2 ),
+"times": PoolRealArray( 7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -78,10 +145,56 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 3.5, 4.5 ),
+"times": PoolRealArray( 0.2, 6.1, 6.8 ),
 "transitions": PoolRealArray( 1, 0.329877, 1 ),
 "update": 0,
 "values": [ Vector2( -552, 0 ), Vector2( -552, 0 ), Vector2( -164, 0 ) ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Print")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0.2, 2, 5 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skip:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.9, 6.1, 7.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.694118 ), Color( 1, 1, 1, 0.694118 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Links:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 6.1, 7.3 ),
+"transitions": PoolRealArray( 1, 0.329877, 1 ),
+"update": 0,
+"values": [ Vector2( -56, 98 ), Vector2( 0, 98 ), Vector2( -392, 98 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -146,14 +259,40 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( -903, 0 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skip:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.694118 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Links:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [node name="RunStatsReciept" type="Node2D"]
 position = Vector2( 0, 251 )
 script = ExtResource( 8 )
 
 [node name="Tint" type="ColorRect" parent="."]
-margin_right = 960.0
-margin_bottom = 544.0
+margin_left = -989.0
+margin_top = -1059.0
+margin_right = 3386.0
+margin_bottom = 1109.0
 color = Color( 1, 0.705882, 0.815686, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -178,10 +317,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -242.829
-margin_top = -305.15
-margin_right = 240.171
-margin_bottom = -228.15
+margin_left = -168.239
+margin_top = -284.004
+margin_right = 314.761
+margin_bottom = -207.004
+rect_scale = Vector2( 0.692419, 0.692419 )
 custom_colors/font_color = Color( 0.184314, 0.184314, 0.184314, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "your receipt:"
@@ -196,10 +336,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -240.532
-margin_top = -287.223
-margin_right = 242.468
-margin_bottom = -210.223
+margin_left = -186.199
+margin_top = -268.636
+margin_right = 296.801
+margin_bottom = -191.636
+rect_scale = Vector2( 0.771975, 0.771975 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "**** Broken ****"
@@ -409,9 +550,54 @@ scale = Vector2( 0.57748, 0.57748 )
 [node name="Label" parent="TagsHolder/Tag2" index="1"]
 text = "Catalouge"
 
+[node name="Links" type="Node2D" parent="."]
+
+[node name="DiscordLogo" parent="Links" instance=ExtResource( 14 )]
+position = Vector2( 1192, 0 )
+
+[node name="DiscordLogo2" parent="Links" instance=ExtResource( 14 )]
+position = Vector2( 1292, 0 )
+link = "https://true-narwhak.itch.io/"
+
+[node name="TextureRect" parent="Links/DiscordLogo2" index="0"]
+texture_normal = ExtResource( 15 )
+
+[node name="AnimationPlayer" parent="Links/DiscordLogo2" index="1"]
+anims/Grow = SubResource( 16 )
+anims/RESET = SubResource( 17 )
+anims/Shrink = SubResource( 18 )
+
+[node name="Skip" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.694118 )
+margin_left = 814.0
+margin_top = 472.0
+margin_right = 960.0
+margin_bottom = 541.0
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 11 )
+button_mask = 3
+text = "hurry up!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ComeIn = SubResource( 7 )
 anims/RESET = SubResource( 6 )
 
+[node name="Print" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "RunStats"
+
+[node name="Hum" type="AudioStreamPlayer" parent="."]
+bus = "RunStats"
+
+[connection signal="pressed" from="Skip" to="." method="_on_Button_pressed"]
+
 [editable path="TagsHolder/Tag"]
 [editable path="TagsHolder/Tag2"]
+[editable path="Links/DiscordLogo2"]

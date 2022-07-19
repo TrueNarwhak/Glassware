@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Clink1.ogg-ae2e9370c49a058b95585de51c1f7f5c.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Clink/Clink1.ogg"
+dest_files=[ "res://.import/Clink1.ogg-ae2e9370c49a058b95585de51c1f7f5c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

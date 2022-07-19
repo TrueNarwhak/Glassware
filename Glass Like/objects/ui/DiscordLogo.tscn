@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/ui/Logo.gd" type="Script" id=1]
+[ext_resource path="res://images/Logos/discord.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Grow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( 0.214138, 0.214138 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.214138, 0.214138 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Shrink"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.214, 0.214 ) ]
+}
+
+[node name="DiscordLogo" type="Node2D"]
+scale = Vector2( 0.214138, 0.214138 )
+script = ExtResource( 1 )
+link = "https://discord.com/invite/H7UYMWcFUQ"
+
+[node name="TextureRect" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -166.0
+margin_top = -128.5
+margin_right = 166.0
+margin_bottom = 128.5
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Grow = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+anims/Shrink = SubResource( 3 )
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_TextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="_on_TextureRect_mouse_exited"]
+[connection signal="pressed" from="TextureRect" to="." method="_on_TextureRect_pressed"]

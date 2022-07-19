@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Paper Slide.ogg-b3550b22722d0f92719300b3c96531be.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Paper Slide.ogg"
+dest_files=[ "res://.import/Paper Slide.ogg-b3550b22722d0f92719300b3c96531be.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

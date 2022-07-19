@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/slide whistle.ogg-1550300fdb1cfe19277c35303bb8be40.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/slide whistle.ogg"
+dest_files=[ "res://.import/slide whistle.ogg-1550300fdb1cfe19277c35303bb8be40.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

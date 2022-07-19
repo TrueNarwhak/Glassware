@@ -1,6 +1,7 @@
 extends Position2D
 
 onready var anim = $AnimationPlayer
+onready var slap_sfx = $Slap
 export var pull_force = 400
 
 
@@ -31,6 +32,10 @@ func _on_Hitbox_body_entered(body):
 		
 		# Break foe
 		this_body.survive -= 1
+		
+		# Play sound
+		if !slap_sfx.playing:
+			slap_sfx.play()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "attack":

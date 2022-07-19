@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://images/enemies/champaign/1x/Champaign.png" type="Texture" id=1]
 [ext_resource path="res://objects/foes/Champaign.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://images/enemies/champaign/1x/label2.png" type="Texture" id=9]
 [ext_resource path="res://objects/foes/ChampaignExplosion.tscn" type="PackedScene" id=10]
 [ext_resource path="res://images/enemies/champaign/1x/Cap.png" type="Texture" id=11]
+[ext_resource path="res://sound/sfx/Clink/Clink1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sound/sfx/Shake Champaign Scale.ogg" type="AudioStream" id=13]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 197.681
@@ -95,6 +97,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Shake")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.12,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -171,6 +187,20 @@ wait_time = 0.53
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ExplodeShake = SubResource( 6 )
 anims/RESET = SubResource( 7 )
+
+[node name="JumpStep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 1.297
+bus = "SoundEffects"
+
+[node name="WaterDrop" type="AudioStreamPlayer" parent="."]
+volume_db = -3.41
+bus = "SoundEffects"
+
+[node name="Shake" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 11.0
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="KinematicBody2D/ActivationArea" to="." method="_on_ActivationArea_body_entered"]
 [connection signal="area_entered" from="KinematicBody2D/Hitbox" to="." method="_on_Hitbox_area_entered"]

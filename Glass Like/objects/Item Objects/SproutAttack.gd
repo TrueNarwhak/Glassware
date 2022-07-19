@@ -2,9 +2,11 @@ extends Area2D
 
 onready var anim = $AnimationPlayer
 onready var cause_other_sprout_hitbox = $CauseOtherSpoutHitbox
+onready var grow_sfx = $Grow
 
 func _ready():
 	anim.play("Grow")
+	grow_sfx.play()
 
 func _process(delta):
 	pass

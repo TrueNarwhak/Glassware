@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://rooms/stages/Stage 1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://rooms/Controller.gd" type="Script" id=6]
 [ext_resource path="res://objects/ui/ItemHud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sound/music/Patricia Taxxon - Her Foyer.mp3" type="AudioStream" id=8]
 
 [node name="Controller" type="Node2D"]
 script = ExtResource( 6 )
@@ -16,7 +17,7 @@ __meta__ = {
 
 [node name="Wall" parent="." instance=ExtResource( 2 )]
 show_behind_parent = true
-position = Vector2( -89, -35 )
+position = Vector2( -17, 20 )
 scale = Vector2( 1.16144, 1.16144 )
 
 [node name="Stage1" parent="." instance=ExtResource( 5 )]
@@ -54,3 +55,8 @@ position = Vector2( 480, 271 )
 position = Vector2( 480, -72 )
 
 [node name="ItemHud" parent="." instance=ExtResource( 7 )]
+
+[node name="HerFoyer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.115
+bus = "Music"
