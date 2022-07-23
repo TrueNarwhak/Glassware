@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Mana Chrip.ogg-52cec28dce717f7eb7786fa8c9294862.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Mana Chrip.ogg"
+dest_files=[ "res://.import/Mana Chrip.ogg-52cec28dce717f7eb7786fa8c9294862.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

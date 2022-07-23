@@ -24,9 +24,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "Explode",
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -34,9 +34,9 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Explode",
 "speed": 5.0
 } ]
 
@@ -47,9 +47,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Explode",
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -57,9 +57,9 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Explode",
 "speed": 5.0
 } ]
 
@@ -190,7 +190,7 @@ anims/RESET = SubResource( 7 )
 
 [node name="JumpStep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = 0.97
+volume_db = -6.374
 bus = "SoundEffects"
 
 [node name="WaterDrop" type="AudioStreamPlayer" parent="."]

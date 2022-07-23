@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://images/Attacks/ghost/Ghost1.png" type="Texture" id=1]
 [ext_resource path="res://images/Attacks/ghost/Ghost.png" type="Texture" id=2]
 [ext_resource path="res://objects/Item Objects/Ghost.gd" type="Script" id=3]
 [ext_resource path="res://images/Attacks/ghost/GhostStar.png" type="Texture" id=4]
 [ext_resource path="res://objects/Item Objects/DisperseCloud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sound/sfx/Mana Chrip.ogg" type="AudioStream" id=6]
+[ext_resource path="res://sound/sfx/Empress of Light Spawn.ogg" type="AudioStream" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -117,6 +119,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Evil")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.41,
+"start_offset": 0.16,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -245,6 +261,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 28.0, 28.0 ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Spawn")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
 
 [node name="Ghost" type="KinematicBody2D" groups=["Ghost"]]
 scale = Vector2( 0.5, 0.5 )
@@ -291,6 +321,15 @@ anims/Flicker = SubResource( 3 )
 "anims/Moral Shift" = SubResource( 9 )
 anims/RESET = SubResource( 4 )
 anims/Star = SubResource( 8 )
+
+[node name="Spawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 7.327
+bus = "SoundEffects"
+
+[node name="Evil" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_entered" from="EnemyDetectArea" to="." method="_on_EnemyDetectArea_body_entered"]

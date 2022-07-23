@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Empress of Light Spawn.ogg-387d2a6e9ecc46ad3ab3f16804149470.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Empress of Light Spawn.ogg"
+dest_files=[ "res://.import/Empress of Light Spawn.ogg-387d2a6e9ecc46ad3ab3f16804149470.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
