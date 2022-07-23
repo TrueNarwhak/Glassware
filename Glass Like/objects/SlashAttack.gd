@@ -22,10 +22,12 @@ func _ready():
 	
 	# Sound
 	if !get_parent().inventory.has("baseball"):
-		get_parent().attack_sound.stream = load("res://sound/sfx/Omori Cut Glass Like.ogg")
+		get_parent().attack_sound.stream = load("res://sound/sfx/glass slash.ogg")
+		get_parent().attack_sound.volume_db = 8.5
 		get_parent().attack_sound.play()
 	else:
 		get_parent().attack_sound.stream = load("res://sound/sfx/NT Wrench Glass Like.ogg")
+		get_parent().attack_sound.volume_db = 0.0
 		get_parent().attack_sound.play()
 
 func _process(delta):

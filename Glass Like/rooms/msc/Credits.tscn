@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://rooms/msc/CreditsText.tscn" type="PackedScene" id=8]
 [ext_resource path="res://rooms/msc/CreditsAnim.gd" type="Script" id=9]
 [ext_resource path="res://objects/Balloon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sound/music/Patricia Taxxon - Her Topiary.mp3" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 401, 8 )
@@ -82,7 +83,21 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 37.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 300 ), Vector2( 0, -2255.06 ) ]
+"values": [ Vector2( 0, 300 ), Vector2( 0, -2350.06 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("Music")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 11.0,
+"stream": ExtResource( 11 )
+} ],
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -236,6 +251,8 @@ position = Vector2( 482, 474 )
 autostart = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
 bus = "Music"
 
 [connection signal="body_entered" from="NextStageArrow" to="." method="_on_NextStageArrow_body_entered"]

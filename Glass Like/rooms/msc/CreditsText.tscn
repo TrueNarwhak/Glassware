@@ -395,7 +395,7 @@ margin_top = 512.0
 margin_right = 960.0
 margin_bottom = 578.0
 custom_fonts/font = ExtResource( 2 )
-text = "\"Bar Jazz\" - Freesound Music (catalouge theme)"
+text = "\"Her Topiary\" - Patrica Taxxon (credits theme)"
 align = 1
 valign = 1
 __meta__ = {
@@ -404,9 +404,9 @@ __meta__ = {
 
 [node name="CreditText6" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 512.0
+margin_top = 577.0
 margin_right = 960.0
-margin_bottom = 578.0
+margin_bottom = 643.0
 custom_fonts/font = ExtResource( 2 )
 text = "\"Bar Jazz\" - Freesound Music (catalouge theme)"
 align = 1
@@ -446,9 +446,9 @@ position = Vector2( 0, -269 )
 
 [node name="CreditText" type="Label" parent="Assets2"]
 anchor_right = 1.0
-margin_top = 2616.0
+margin_top = 2760.0
 margin_right = 960.0
-margin_bottom = 2682.0
+margin_bottom = 2826.0
 custom_fonts/font = ExtResource( 2 )
 text = "Thank you for playing :)"
 align = 1

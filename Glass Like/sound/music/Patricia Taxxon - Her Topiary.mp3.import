@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Patricia Taxxon - Her Topiary.mp3-5de6c7ac2807f8196fb6a3f349e4788b.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Patricia Taxxon - Her Topiary.mp3"
+dest_files=[ "res://.import/Patricia Taxxon - Her Topiary.mp3-5de6c7ac2807f8196fb6a3f349e4788b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
