@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://objects/resorces/CreditsHeader.tres" type="DynamicFont" id=1]
 [ext_resource path="res://objects/resorces/CreditsText.tres" type="DynamicFont" id=2]
@@ -15,8 +15,9 @@
 [ext_resource path="res://images/Credits/People/Chepic.png" type="Texture" id=13]
 [ext_resource path="res://images/Credits/People/doc.png" type="Texture" id=14]
 [ext_resource path="res://images/Credits/logo/Godot.png" type="Texture" id=15]
+[ext_resource path="res://images/Credits/People/Jolta.png" type="Texture" id=16]
 
-[node name="CreditsTex" type="Control"]
+[node name="CreditsText" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 29.0
@@ -329,6 +330,11 @@ position = Vector2( 579.824, 414 )
 scale = Vector2( 0.519084, 0.519084 )
 texture = ExtResource( 13 )
 
+[node name="Sprite13" type="Sprite" parent="Playtestsers"]
+position = Vector2( 120, 414 )
+scale = Vector2( 0.436781, 0.436781 )
+texture = ExtResource( 16 )
+
 [node name="Assets" type="Node2D" parent="."]
 position = Vector2( 0, 1675 )
 
@@ -344,6 +350,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CreditHeader2" type="Label" parent="Assets"]
+anchor_right = 1.0
+margin_top = 376.0
+margin_right = 960.0
+margin_bottom = 445.0
+custom_fonts/font = ExtResource( 1 )
+text = "Music (3rd Party) used:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CreditText" type="Label" parent="Assets"]
 anchor_right = 1.0
 margin_top = 57.0
@@ -351,6 +370,45 @@ margin_right = 960.0
 margin_bottom = 123.0
 custom_fonts/font = ExtResource( 2 )
 text = "Platformer Controller by Heartbeast"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText4" type="Label" parent="Assets"]
+anchor_right = 1.0
+margin_top = 448.0
+margin_right = 960.0
+margin_bottom = 514.0
+custom_fonts/font = ExtResource( 2 )
+text = "\"Her Foyer\" - Patrica Taxxon (main theme)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText5" type="Label" parent="Assets"]
+anchor_right = 1.0
+margin_top = 512.0
+margin_right = 960.0
+margin_bottom = 578.0
+custom_fonts/font = ExtResource( 2 )
+text = "\"Bar Jazz\" - Freesound Music (catalouge theme)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditText6" type="Label" parent="Assets"]
+anchor_right = 1.0
+margin_top = 512.0
+margin_right = 960.0
+margin_bottom = 578.0
+custom_fonts/font = ExtResource( 2 )
+text = "\"Bar Jazz\" - Freesound Music (catalouge theme)"
 align = 1
 valign = 1
 __meta__ = {
@@ -388,9 +446,9 @@ position = Vector2( 0, -269 )
 
 [node name="CreditText" type="Label" parent="Assets2"]
 anchor_right = 1.0
-margin_top = 2347.0
+margin_top = 2616.0
 margin_right = 960.0
-margin_bottom = 2413.0
+margin_bottom = 2682.0
 custom_fonts/font = ExtResource( 2 )
 text = "Thank you for playing :)"
 align = 1

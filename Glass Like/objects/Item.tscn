@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://images/lights/light.png" type="Texture" id=1]
 [ext_resource path="res://images/Items/v1/seal.png" type="Texture" id=2]
 [ext_resource path="res://objects/Item.gd" type="Script" id=3]
 [ext_resource path="res://objects/DiscardedItem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://sound/sfx/Risk of rain spawn pickup.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 77.2787
@@ -310,6 +311,11 @@ anims/TooltipPop = SubResource( 8 )
 anims/Destroy = SubResource( 4 )
 anims/Idle = SubResource( 2 )
 anims/RESET = SubResource( 3 )
+
+[node name="ooooooo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -2.54
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]
 [connection signal="area_exited" from="TooltipArea" to="." method="_on_TooltipArea_area_exited"]

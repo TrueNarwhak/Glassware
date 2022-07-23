@@ -107,10 +107,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 1, 2, 4.4, 5, 7.3 ),
-"transitions": PoolRealArray( 0.353554, 1, 0.258816, 1, 0.225313, 1 ),
+"times": PoolRealArray( 0, 0.2, 1, 2, 4.4, 5, 7.3 ),
+"transitions": PoolRealArray( 0.353554, 0.353554, 1, 0.258816, 1, 0.225313, 1 ),
 "update": 0,
-"values": [ Vector2( 45, 295 ), Vector2( 45, 80 ), Vector2( 45, 80 ), Vector2( 45, -105 ), Vector2( 45, -105 ), Vector2( 45, -297 ) ]
+"values": [ Vector2( 45, 295 ), Vector2( 45, 295 ), Vector2( 45, 80 ), Vector2( 45, 80 ), Vector2( 45, -105 ), Vector2( 45, -105 ), Vector2( 45, -297 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Tint:color")
@@ -546,6 +546,7 @@ text = "Credits"
 [node name="Tag2" parent="TagsHolder" instance=ExtResource( 10 )]
 position = Vector2( 169, 148 )
 scale = Vector2( 0.57748, 0.57748 )
+room_path = "res://objects/ui/Catalouge.tscn"
 
 [node name="Label" parent="TagsHolder/Tag2" index="1"]
 text = "Catalouge"

@@ -74,6 +74,11 @@ animations = [ {
 "name": "Walk",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "BullRam",
+"speed": 0.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Jump",
@@ -82,6 +87,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Shatter",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
@@ -93,16 +103,6 @@ animations = [ {
 "loop": true,
 "name": "Spin",
 "speed": 40.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "BullRam",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Shatter",
-"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
@@ -198,13 +198,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 14 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 14 )
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 
@@ -280,7 +280,7 @@ bus = "SoundEffects"
 
 [node name="Flap" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 43 )
-volume_db = 3.41
+volume_db = 3.976
 bus = "SoundEffects"
 
 [connection signal="animation_finished" from="DeathEffect" to="." method="_on_DeathEffect_animation_finished"]

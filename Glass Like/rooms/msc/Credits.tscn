@@ -82,7 +82,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 37.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 300 ), Vector2( 0, -2011.06 ) ]
+"values": [ Vector2( 0, 300 ), Vector2( 0, -2255.06 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -201,8 +201,8 @@ size = Vector2( 960, 540 )
 transparent_bg = true
 
 [node name="CreditsTex" parent="Viewport" instance=ExtResource( 8 )]
-margin_right = 6720.0
-margin_bottom = 3809.0
+margin_right = 9600.0
+margin_bottom = 5429.0
 
 [node name="CreditsSprite" type="Sprite" parent="."]
 position = Vector2( 479, 232 )
@@ -234,6 +234,9 @@ position = Vector2( 482, 474 )
 
 [node name="BalloonTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 
 [connection signal="body_entered" from="NextStageArrow" to="." method="_on_NextStageArrow_body_entered"]
 [connection signal="timeout" from="BalloonTimer" to="." method="_on_BalloonTimer_timeout"]

@@ -8,6 +8,8 @@ onready var anim_tooltip = $TooltipArea/TooltipAnim
 onready var tooltip_holder = $TooltipArea/TooltipHolder
 onready var tooltip = $TooltipArea/TooltipHolder/Label
 
+onready var oooo_sound = $ooooooo
+
 onready var itemhud = get_parent().get_parent().get_parent().get_node("ItemHud")
 export(PackedScene) var discarded_item
 
@@ -28,6 +30,9 @@ func _ready():
 	sprite.texture = ItemAndStages.item_sprites[item_index]
 	item_selected = ItemAndStages.items_current[item_index]
 	tooltip.text = ItemAndStages.item_tooltips[item_index]
+	
+	# Sound
+	oooo_sound.play()
 	
 	# Start anim
 	anim.play("Idle") 

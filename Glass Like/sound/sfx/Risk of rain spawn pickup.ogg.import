@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Risk of rain spawn pickup.ogg-70925a04c97360b99a00e2724d441361.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/Risk of rain spawn pickup.ogg"
+dest_files=[ "res://.import/Risk of rain spawn pickup.ogg-70925a04c97360b99a00e2724d441361.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

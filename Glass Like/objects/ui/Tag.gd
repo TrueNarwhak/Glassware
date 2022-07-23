@@ -16,6 +16,7 @@ func _process(delta):
 
 func _on_TextureButton_button_down():
 	get_tree().change_scene(room_path)
+	ItemAndStages.reset_all()
 
 func _on_TextureButton_mouse_entered():
 	rotate_destination = mouseover_destination

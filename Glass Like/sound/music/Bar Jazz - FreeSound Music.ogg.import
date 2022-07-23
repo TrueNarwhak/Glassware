@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bar Jazz - FreeSound Music.ogg-ff33e7938de53feb9af0111ac39db31c.oggstr"
+
+[deps]
+
+source_file="res://sound/music/Bar Jazz - FreeSound Music.ogg"
+dest_files=[ "res://.import/Bar Jazz - FreeSound Music.ogg-ff33e7938de53feb9af0111ac39db31c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

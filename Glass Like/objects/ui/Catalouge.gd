@@ -22,9 +22,25 @@ onready var sidebar_l = $Camera2D/Sidebar
 onready var sidebar_r = $Camera2D/Sidebar2
 
 func _ready():
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	
+	OS.window_fullscreen = Options.fullscreen
+	
+	$Jazz.play()
 
 func _process(delta):
+	
+	# Full Screen
+	if Input.is_action_just_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+		Options.fullscreen = OS.window_fullscreen
+	
+	if OS.window_fullscreen:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	
+	
 	
 	sidebar_r.modulate.a = lerp(sidebar_r.modulate.a, target_modulation_r, modulation_speed)
 	sidebar_l.modulate.a = lerp(sidebar_l.modulate.a, target_modulation_l, modulation_speed)
