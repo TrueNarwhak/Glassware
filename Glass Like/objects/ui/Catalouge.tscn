@@ -40,11 +40,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="Camera2D"]
-margin_left = 279.0
-margin_top = -271.0
-margin_right = 375.0
-margin_bottom = -169.0
+[node name="XHold" type="Position2D" parent="Camera2D"]
+position = Vector2( -486, -279 )
+
+[node name="TextureButton" type="TextureButton" parent="Camera2D/XHold"]
+margin_left = 765.0
+margin_top = -1.0
+margin_right = 861.0
+margin_bottom = 101.0
 rect_scale = Vector2( 0.747661, 0.747661 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
@@ -66,4 +69,6 @@ stream = ExtResource( 4 )
 [connection signal="mouse_exited" from="Camera2D/Sidebar" to="." method="_on_Sidebar_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/Sidebar2" to="." method="_on_Sidebar2_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Sidebar2" to="." method="_on_Sidebar2_mouse_exited"]
-[connection signal="pressed" from="Camera2D/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Camera2D/XHold/TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/XHold/TextureButton" to="." method="_on_TextureButton_mouse_exited"]
+[connection signal="pressed" from="Camera2D/XHold/TextureButton" to="." method="_on_TextureButton_pressed"]

@@ -15,8 +15,14 @@ export var base_modulate = 0.84
 var target_modulation_r = 0.0
 var target_modulation_l = 0.0
 
+var x_hold_max = -270
+var x_hold_base = -277
+var x_hold_target = x_hold_base
+
+
 onready var catalouge = $Catalouge
 onready var camera = $Camera2D
+onready var x_hold = $Camera2D/XHold
 
 onready var sidebar_l = $Camera2D/Sidebar
 onready var sidebar_r = $Camera2D/Sidebar2
@@ -44,6 +50,8 @@ func _process(delta):
 	
 	sidebar_r.modulate.a = lerp(sidebar_r.modulate.a, target_modulation_r, modulation_speed)
 	sidebar_l.modulate.a = lerp(sidebar_l.modulate.a, target_modulation_l, modulation_speed)
+	x_hold.position.y = lerp(x_hold.position.y, x_hold_target, modulation_speed)
+	
 	
 	camera.global_position.x = clamp(camera.global_position.x, min_catalouge, max_catalouge)
 	
@@ -79,3 +87,11 @@ func _on_Sidebar2_mouse_exited():
 
 func _on_TextureButton_pressed():
 	get_tree().change_scene("res://rooms/Controller.tscn")
+
+
+func _on_TextureButton_mouse_entered():
+	x_hold_target = x_hold_max
+
+
+func _on_TextureButton_mouse_exited():
+	x_hold_target = x_hold_base
