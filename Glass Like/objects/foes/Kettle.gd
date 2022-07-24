@@ -98,8 +98,10 @@ func _on_ActivationArea_body_entered(body):
 
 func _on_ActivationArea_body_exited(body):
 	if body.is_in_group("Player"):
+#		if body.position.x > 64 and body.position.x < 890 and body.position.y > 40 and body.position.x < 600:
 		can_move = true
-
+#	body.position.x = clamp(body.position.x, 64, 896)
+#	body.position.y = clamp(body.position.y, 40, 600)
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	if anim_name == "charger":
