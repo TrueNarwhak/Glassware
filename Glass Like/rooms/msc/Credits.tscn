@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://rooms/msc/CreditsAnim.gd" type="Script" id=9]
 [ext_resource path="res://objects/Balloon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://sound/music/Patricia Taxxon - Her Topiary.mp3" type="AudioStream" id=11]
+[ext_resource path="res://objects/LoopZone.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 401, 8 )
@@ -216,8 +217,8 @@ size = Vector2( 960, 540 )
 transparent_bg = true
 
 [node name="CreditsTex" parent="Viewport" instance=ExtResource( 8 )]
-margin_right = 9600.0
-margin_bottom = 5429.0
+margin_right = 11520.0
+margin_bottom = 6509.0
 
 [node name="CreditsSprite" type="Sprite" parent="."]
 position = Vector2( 479, 232 )
@@ -254,6 +255,14 @@ autostart = true
 stream = ExtResource( 11 )
 autoplay = true
 bus = "Music"
+
+[node name="LoopZone" parent="." instance=ExtResource( 12 )]
+position = Vector2( 514, 808 )
+scale = Vector2( -136.631, 1.86748 )
+
+[node name="LoopZone2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 514, -324 )
+scale = Vector2( -136.631, 1.86748 )
 
 [connection signal="body_entered" from="NextStageArrow" to="." method="_on_NextStageArrow_body_entered"]
 [connection signal="timeout" from="BalloonTimer" to="." method="_on_BalloonTimer_timeout"]

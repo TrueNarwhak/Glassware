@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/foes/Cup.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/cup/Cup1.png" type="Texture" id=2]
 [ext_resource path="res://images/enemies/cup/Cup.png" type="Texture" id=3]
 [ext_resource path="res://sound/sfx/Impact Medium/impactWood_medium_001.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sound/sfx/GlassBreak/BTD glass break 1.ogg" type="AudioStream" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -55,6 +56,11 @@ autostart = true
 stream = ExtResource( 4 )
 volume_db = 1.246
 bus = "SoundEffects"
+
+[node name="Break" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 2.96
+bus = "Break"
 
 [connection signal="body_entered" from="KinematicBody2D/Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="timeout" from="KinematicBody2D/JumpTimer" to="." method="_on_Timer_timeout"]

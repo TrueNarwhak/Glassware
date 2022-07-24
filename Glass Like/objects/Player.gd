@@ -49,11 +49,20 @@ onready var bull_attack_ding_sound = $Sounds/BullAttackDing
 onready var bull_shoot_sound = $Sounds/BullShoot
 onready var bull_hit_sound = $Sounds/BullHit
 onready var flap_sound = $Sounds/Flap
+onready var frog_sound = $Sounds/FrogJump
+onready var break_sound = $Sounds/Break
 
 onready var bat_wings = $BatWings
 onready var baseball_bat = $AnimatedSprite/BaseballBat
 
 onready var camera = get_parent().get_node("LeanCamera")
+
+var break_sounds = [
+	load("res://sound/sfx/GlassBreak/BTD glass break 1.ogg"), 
+	load("res://sound/sfx/GlassBreak/BTD glass break 2.ogg"), 
+	load("res://sound/sfx/GlassBreak/BTD glass break 3.ogg"), 
+	load("res://sound/sfx/GlassBreak/BTD glass break 4.ogg")
+]
 
 # ------------------------------------ #
 
@@ -248,6 +257,9 @@ func frog_item(delta):
 		
 		this_lilipad.position = Vector2(-500, -500)
 		get_parent().add_child(this_lilipad)
+		
+		# Sound
+		frog_sound.play()
 
 
 func mushroom_item_stomp(body):
@@ -439,6 +451,9 @@ func _on_DeathTimer_timeout():
 		var this_shard = shard.instance()
 		this_shard.position = get_global_position()
 		get_parent().add_child(this_shard)
+	
+	break_sound.stream = break_sounds[randi() % break_sounds.size()]
+	break_sound.play()
 	
 	stat_timer.start()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://images/player/PlayerStand.png" type="Texture" id=1]
 [ext_resource path="res://images/player/PlayerWalk.png" type="Texture" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://sound/sfx/Bull Hit.ogg" type="AudioStream" id=41]
 [ext_resource path="res://sound/sfx/Bull Shoot.ogg" type="AudioStream" id=42]
 [ext_resource path="res://sound/sfx/flap.ogg" type="AudioStream" id=43]
+[ext_resource path="res://sound/sfx/Frog Jump.ogg" type="AudioStream" id=44]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -64,24 +65,19 @@ animations = [ {
 "name": "default",
 "speed": 0.1
 }, {
-"frames": [ ExtResource( 26 ) ],
-"loop": true,
-"name": "GroundAttack",
-"speed": 65.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "BullRam",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Spin",
+"speed": 40.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Shatter",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -89,9 +85,14 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Shatter",
+"name": "Walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
@@ -99,10 +100,10 @@ animations = [ {
 "name": "Helicopter Kick",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "Spin",
-"speed": 40.0
+"name": "GroundAttack",
+"speed": 65.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
@@ -198,13 +199,13 @@ position = Vector2( -122, -46 )
 [node name="BatWingsL" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 7, -10 )
 frames = SubResource( 14 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="BatWingsR" type="AnimatedSprite" parent="BatWings"]
 position = Vector2( 239, -10 )
 frames = SubResource( 14 )
-frame = 2
+frame = 3
 playing = true
 flip_h = true
 
@@ -282,6 +283,14 @@ bus = "SoundEffects"
 stream = ExtResource( 43 )
 volume_db = 3.976
 bus = "SoundEffects"
+
+[node name="FrogJump" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 44 )
+bus = "SoundEffects"
+
+[node name="Break" type="AudioStreamPlayer" parent="Sounds"]
+volume_db = 8.525
+bus = "Break"
 
 [connection signal="animation_finished" from="DeathEffect" to="." method="_on_DeathEffect_animation_finished"]
 [connection signal="body_entered" from="AnimatedSprite/BullPosHolder/BullHitbox" to="." method="_on_BullHitbox_body_entered"]

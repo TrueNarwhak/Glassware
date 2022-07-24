@@ -60,3 +60,7 @@ position = Vector2( 480, -72 )
 stream = ExtResource( 8 )
 volume_db = -5.115
 bus = "Music"
+
+[node name="Break" type="AudioStreamPlayer" parent="."]
+volume_db = 8.525
+bus = "Break"

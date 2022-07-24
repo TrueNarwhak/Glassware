@@ -42,5 +42,8 @@ func shatter():
 		camera.rotation_degrees = [camera.rotate_shake, -camera.rotate_shake][randi() % 2]
 		camera.zoom = Vector2(camera.zoom_pop, camera.zoom_pop)
 	
+	# Sound
+	get_parent().get_parent().get_parent().play_break()
+	
 	print("death of enemy")
 	queue_free()

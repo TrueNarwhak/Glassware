@@ -8,9 +8,11 @@ export var x_boost = 250
 onready var sprite = $Sprite
 onready var anim = $AnimationPlayer
 
+
 var await_texture 
 
 export(PackedScene) var shard
+
 
 func _ready():
 	sprite.texture = await_texture
@@ -30,3 +32,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		get_tree().get_root().add_child(this_shard)
 	
 	queue_free()
+	
+	# Sound
+	get_parent().play_break()

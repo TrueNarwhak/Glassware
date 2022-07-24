@@ -1,7 +1,11 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+[gd_resource type="AudioBusLayout" load_steps=3 format=2]
 
 [sub_resource type="AudioEffectLowPassFilter" id=1]
 resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectAmplify" id=2]
+resource_name = "Amplify"
+volume_db = 5.11
 
 [resource]
 bus/0/volume_db = -3.76831
@@ -17,7 +21,7 @@ bus/2/name = "Music"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -2.91905
+bus/2/volume_db = -2.70802
 bus/2/send = "Master"
 bus/3/name = "SoundEffects"
 bus/3/solo = false
@@ -49,3 +53,11 @@ bus/7/mute = false
 bus/7/bypass_fx = false
 bus/7/volume_db = 1.65377
 bus/7/send = "SoundEffects"
+bus/8/name = "Break"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 6.02
+bus/8/send = "SoundEffects"
+bus/8/effect/0/effect = SubResource( 2 )
+bus/8/effect/0/enabled = true

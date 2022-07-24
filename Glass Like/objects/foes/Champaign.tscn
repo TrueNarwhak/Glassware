@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://images/enemies/champaign/1x/Champaign.png" type="Texture" id=1]
 [ext_resource path="res://objects/foes/Champaign.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://images/enemies/champaign/1x/Cap.png" type="Texture" id=11]
 [ext_resource path="res://sound/sfx/Clink/Clink1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://sound/sfx/Shake Champaign Scale.ogg" type="AudioStream" id=13]
+[ext_resource path="res://sound/sfx/GlassBreak/BTD glass break 1.ogg" type="AudioStream" id=14]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 197.681
@@ -24,14 +25,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -47,14 +48,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -201,6 +202,11 @@ bus = "SoundEffects"
 stream = ExtResource( 13 )
 volume_db = 11.0
 bus = "SoundEffects"
+
+[node name="Break" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = 2.96
+bus = "Break"
 
 [connection signal="body_entered" from="KinematicBody2D/ActivationArea" to="." method="_on_ActivationArea_body_entered"]
 [connection signal="area_entered" from="KinematicBody2D/Hitbox" to="." method="_on_Hitbox_area_entered"]

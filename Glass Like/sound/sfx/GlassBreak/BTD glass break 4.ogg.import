@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BTD glass break 4.ogg-40f181119bb25e0b1c8d7d839c8d0528.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/GlassBreak/BTD glass break 4.ogg"
+dest_files=[ "res://.import/BTD glass break 4.ogg-40f181119bb25e0b1c8d7d839c8d0528.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
