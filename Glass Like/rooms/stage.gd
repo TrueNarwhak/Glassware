@@ -74,7 +74,6 @@ func defeated_all():
 #					item_spawner.anim.play("Destroy")
 					item_spawner.discard()
 					get_parent().get_node("HerFoyer").bus = "Music"
-					
 			
 		else:
 			# Spawning Arrow

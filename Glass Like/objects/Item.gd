@@ -40,12 +40,20 @@ func _ready():
 #	print(item_index)
 #	print(item_selected)
 
+func _exit_tree():
+	if is_inside_tree():
+		get_parent().get_parent().get_parent().get_node("HerFoyer").bus = "Music"
+
+
 func _process(delta):
 #	print(ItemAndStages.items_current)
 	
 	# Check behavior based on current animation
 	if anim.current_animation == "Destroy":
 		collision_shape.disabled = true
+	
+	if is_inside_tree():
+		get_parent().get_parent().get_parent().get_node("HerFoyer").bus = "MuffledMusic"
 
 
 func _on_Item_body_entered(body):
