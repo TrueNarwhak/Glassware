@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/RollingReverse.ogg-7b8b29323be19e12b077b7a0512590a8.oggstr"
+
+[deps]
+
+source_file="res://sound/sfx/RollingReverse.ogg"
+dest_files=[ "res://.import/RollingReverse.ogg-7b8b29323be19e12b077b7a0512590a8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

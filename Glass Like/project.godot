@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Glass Like"
-run/main_scene="res://rooms/Controller.tscn"
+run/main_scene="res://rooms/Menus/KeyBypass.tscn"
 config/icon="res://images/icon.png"
 
 [autoload]
@@ -145,3 +145,4 @@ common/enable_pause_aware_picking=true
 
 environment/default_clear_color=Color( 1, 0.705882, 0.815686, 1 )
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false

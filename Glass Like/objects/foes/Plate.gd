@@ -21,6 +21,9 @@ onready var right_pos = $KinematicBody2D/RightPos
 onready var top_pos = $KinematicBody2D/TopPos
 onready var bottom_pos = $KinematicBody2D/BottomPos
 
+onready var rolling_sfx = $Roll
+onready var reverse_sfx = $Reverse
+
 var bumped_eyes = preload("res://images/enemies/Plate/Asset 62.png") 
 var normal_eyes = preload("res://images/enemies/Plate/Asset 61.png") 
 
@@ -34,6 +37,12 @@ func _physics_process(delta):
 	# Physics
 	if body.is_on_floor():
 		current_speed += accel * current_dir * delta * target_fps
+		
+	else:
+		
+		# Sound 
+		rolling_sfx.stop()
+		reverse_sfx.stop()
 	
 	current_speed = clamp(current_speed, -max_speed, max_speed)
 	
@@ -58,6 +67,18 @@ func _physics_process(delta):
 	else:
 		current_dir = -1
 	
+	
+	# Sound
+	if !skidding:
+		reverse_sfx.stop()
+		
+		if !rolling_sfx.playing and body.is_on_floor():
+			rolling_sfx.play()
+	else:
+		rolling_sfx.stop()
+		
+		if !reverse_sfx.playing and body.is_on_floor():
+			reverse_sfx.play()
 	
 	# Apply
 	motion.y += gravity * delta * target_fps

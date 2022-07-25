@@ -86,3 +86,4 @@ func reset_all():
 		"Breaking foes throws an\nexplosive. Pow!",
 		"Plant Sprouts with every step! They're slow\nto walk through BUT hitting them causes them to bloom"
 	]
+	

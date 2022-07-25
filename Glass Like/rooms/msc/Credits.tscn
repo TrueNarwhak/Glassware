@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
 [ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://rooms/msc/Credits.gd" type="Script" id=5]
 [ext_resource path="res://images/Credits/GalleryPortrait.png" type="Texture" id=6]
 [ext_resource path="res://images/stage/1x/Next Arrow.png" type="Texture" id=7]
@@ -207,9 +207,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LeanCamera" parent="." instance=ExtResource( 4 )]
-position = Vector2( 480, 272 )
-
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="Viewport" type="Viewport" parent="."]
@@ -217,8 +214,8 @@ size = Vector2( 960, 540 )
 transparent_bg = true
 
 [node name="CreditsTex" parent="Viewport" instance=ExtResource( 8 )]
-margin_right = 11520.0
-margin_bottom = 6509.0
+margin_right = 17280.0
+margin_bottom = 9749.0
 
 [node name="CreditsSprite" type="Sprite" parent="."]
 position = Vector2( 479, 232 )
@@ -245,9 +242,6 @@ anims/Credits = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 script = ExtResource( 9 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 482, 474 )
-
 [node name="BalloonTimer" type="Timer" parent="."]
 autostart = true
 
@@ -263,6 +257,12 @@ scale = Vector2( -136.631, 1.86748 )
 [node name="LoopZone2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 514, -324 )
 scale = Vector2( -136.631, 1.86748 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 481, 464 )
+
+[node name="LeanCamera" parent="." instance=ExtResource( 1 )]
+position = Vector2( 480, 270 )
 
 [connection signal="body_entered" from="NextStageArrow" to="." method="_on_NextStageArrow_body_entered"]
 [connection signal="timeout" from="BalloonTimer" to="." method="_on_BalloonTimer_timeout"]

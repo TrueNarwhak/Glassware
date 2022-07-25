@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://rooms/redirects/RedirectCatalouge.gd" type="Script" id=1]
+
+[node name="RedirectCatalouge" type="Node2D"]
+script = ExtResource( 1 )

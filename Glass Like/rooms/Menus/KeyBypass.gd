@@ -8,6 +8,7 @@ onready var down = $Keys/Down
 onready var left = $Keys/Left
 onready var right = $Keys/Right
 onready var mouse = $Keys/Mouse
+onready var break_sfx = $Break
 
 onready var goto_timer = $GotoTimer
 
@@ -17,8 +18,17 @@ export(int) var shards = 10
 
 var keys_left = 5
 
+var break_sounds = [
+	load("res://sound/sfx/GlassBreak/BTD glass break 1.ogg"), 
+	load("res://sound/sfx/GlassBreak/BTD glass break 2.ogg"), 
+	load("res://sound/sfx/GlassBreak/BTD glass break 3.ogg"), 
+	load("res://sound/sfx/GlassBreak/BTD glass break 4.ogg")
+]
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	randomize()
+	
 
 func _process(delta):
 	
@@ -38,7 +48,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("toggle_fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
 		Options.fullscreen = OS.window_fullscreen
-
+	
+	# Start Key Timer
+	if key_parent.get_child_count() == 0:
+		if goto_timer.is_stopped():
+			goto_timer.start()
 
 func remove_key(key):
 
@@ -50,8 +64,9 @@ func remove_key(key):
 		
 	
 	# Start Key Timer
-	if key_parent.get_child_count() == 1:
-		goto_timer.start()
+#	if key_parent.get_child_count() == 1:
+#		if goto_timer.is_stopped():
+#			goto_timer.start()
 	
 	# Camera
 	camera.rotation_degrees = [camera.rotate_shake*2, -camera.rotate_shake*2][randi() % 2]
@@ -59,8 +74,11 @@ func remove_key(key):
 	
 	# Free Key
 	key.queue_free()
+	
+	break_sfx.stream = break_sounds[randi() % break_sounds.size()]
+	break_sfx.play()
 
 
 func _on_GotoTimer_timeout():
-	get_tree().change_scene("res://rooms/Controller.tscn")
+	get_tree().change_scene_to(load("res://rooms/Controller.tscn"))
 	print("a")

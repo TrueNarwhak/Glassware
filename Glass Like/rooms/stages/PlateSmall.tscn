@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://rooms/stages/PlateSmall.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/Plate Small/Asset 111.png" type="Texture" id=2]
 [ext_resource path="res://images/enemies/Plate Small/Asset 112.png" type="Texture" id=3]
 [ext_resource path="res://sound/sfx/GlassBreak/BTD glass break 1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sound/sfx/Rolling.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sound/sfx/RollingReverse1.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 91.351
@@ -45,3 +47,11 @@ position = Vector2( 5.71429, 0 )
 stream = ExtResource( 4 )
 volume_db = 2.96
 bus = "Break"
+
+[node name="Roll" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Roll"
+
+[node name="Reverse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Roll"

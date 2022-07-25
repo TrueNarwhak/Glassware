@@ -324,7 +324,7 @@ anims/Star = SubResource( 8 )
 
 [node name="Spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = 7.327
+volume_db = 7.663
 bus = "SoundEffects"
 
 [node name="Evil" type="AudioStreamPlayer" parent="."]
