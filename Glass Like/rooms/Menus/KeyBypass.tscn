@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://images/ui/KeyBypass/A.png" type="Texture" id=1]
 [ext_resource path="res://images/ui/KeyBypass/DownArrow.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=12]
 [ext_resource path="res://rooms/Menus/KeyBypass.gd" type="Script" id=13]
 [ext_resource path="res://fonts/OpenDyslexic-Regular.otf" type="DynamicFontData" id=14]
+[ext_resource path="res://objects/VolumeControls.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -69,28 +70,29 @@ script = ExtResource( 13 )
 [node name="Down" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 355, 323.5 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Up" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 355, 192 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Right" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 492.5, 323.5 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Left" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 219.5, 323.5 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="Mouse" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 740.5, 304 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="LeanCamera" parent="." instance=ExtResource( 11 )]
@@ -104,7 +106,7 @@ margin_top = 4.0
 margin_right = 252.0
 margin_bottom = 51.0
 custom_fonts/font = SubResource( 6 )
-text = "(early draft: 0.0.6)"
+text = "(early draft: 0.0.7)"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -117,5 +119,7 @@ one_shot = true
 [node name="Break" type="AudioStreamPlayer" parent="."]
 volume_db = 8.525
 bus = "Break"
+
+[node name="VolumeControls" parent="." instance=ExtResource( 15 )]
 
 [connection signal="timeout" from="GotoTimer" to="." method="_on_GotoTimer_timeout"]

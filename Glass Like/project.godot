@@ -58,6 +58,7 @@ config/icon="res://images/icon.png"
 
 Options="*res://global scripts/Options.gd"
 ItemAndStages="*res://global scripts/ItemAndStages.gd"
+Volume="*res://global scripts/volume.gd"
 
 [display]
 

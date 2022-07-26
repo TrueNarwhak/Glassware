@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/VolumeControls.gd" type="Script" id=1]
+[ext_resource path="res://images/volume/bar.png" type="Texture" id=2]
+[ext_resource path="res://images/volume/Speaker.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VolumeIcon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VolumeIcon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Volume"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("VolumeIcon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VolumeIcon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5 ),
+"transitions": PoolRealArray( 1, 0.164939, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="VolumeControls" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="VolumeIcon" type="Node2D" parent="."]
+visible = false
+position = Vector2( 691, 0 )
+scale = Vector2( 1.46954, 1.46954 )
+
+[node name="Speaker" type="Sprite" parent="VolumeIcon"]
+position = Vector2( 15, 18 )
+scale = Vector2( 0.354839, 0.354839 )
+texture = ExtResource( 3 )
+
+[node name="bar" type="Sprite" parent="VolumeIcon"]
+position = Vector2( 44.6667, 18 )
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 2 )
+
+[node name="bar2" type="Sprite" parent="VolumeIcon"]
+position = Vector2( 71.6667, 18 )
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 2 )
+
+[node name="bar3" type="Sprite" parent="VolumeIcon"]
+position = Vector2( 98.6667, 18 )
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 2 )
+
+[node name="bar4" type="Sprite" parent="VolumeIcon"]
+position = Vector2( 125.667, 18 )
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 2 )
+
+[node name="bar5" type="Sprite" parent="VolumeIcon"]
+position = Vector2( 152.667, 18 )
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/Volume = SubResource( 2 )
