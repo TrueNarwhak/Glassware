@@ -17,6 +17,8 @@ var all_enemies_gone_called = false
 var can_shift = false 
 var arrows_before_item = 3
 
+var current_shift_speed = shift_speed
+
 func ready():
 	pass
 
@@ -27,8 +29,13 @@ func _process(delta):
 		defeated_all()
 	
 	
+	# Clamp Shift Speed
+	current_shift_speed = shift_speed + (ItemAndStages.stages_cleared + 1)
+	current_shift_speed = clamp(current_shift_speed, 30, 55)
+	
 	# Constantly shift
-	position.x -= (shift_speed + (ItemAndStages.stages_cleared + 1)) * TARGET_FPS * delta
+	position.x -= current_shift_speed * TARGET_FPS * delta
+	
 #	position.x = lerp(position.x, -4500*int(all_enemies_gone_called), 0.09)
 	
 	# Clamp so the stage can actually be effected by shift speed
