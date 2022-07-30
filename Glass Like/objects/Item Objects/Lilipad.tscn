@@ -38,6 +38,8 @@ position = Vector2( 0, 5.5093 )
 polygon = PoolVector2Array( 0, -44.0744, -117.532, -44.0744, -220.372, 220.372, 0, 220.372, 220.372, 220.372, 117.532, -44.0744 )
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 modulate = Color( 1, 0, 0, 1 )
