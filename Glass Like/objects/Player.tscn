@@ -70,11 +70,6 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "Spin",
-"speed": 40.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Fall",
@@ -90,20 +85,25 @@ animations = [ {
 "name": "GroundAttack",
 "speed": 65.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "BullRam",
-"speed": 0.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Helicopter Kick",
 "speed": 30.0
 }, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "BullRam",
+"speed": 0.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Spin",
+"speed": 40.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
