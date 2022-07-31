@@ -64,34 +64,37 @@ font_data = ExtResource( 14 )
 script = ExtResource( 13 )
 
 [node name="Wall" parent="." instance=ExtResource( 12 )]
+position = Vector2( -127, -60 )
+scale = Vector2( 1.28027, 1.28027 )
 
 [node name="Keys" type="Node2D" parent="."]
 
 [node name="Down" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 355, 323.5 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Up" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 355, 192 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Right" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 492.5, 323.5 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Left" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 219.5, 323.5 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="Mouse" type="AnimatedSprite" parent="Keys"]
 position = Vector2( 740.5, 304 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="LeanCamera" parent="." instance=ExtResource( 11 )]

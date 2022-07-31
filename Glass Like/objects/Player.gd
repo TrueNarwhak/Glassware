@@ -66,7 +66,7 @@ var break_sounds = [
 
 # ------------------------------------ #
 
-var inventory = []
+var inventory = ["anvil"]
 var inventory_max = 3
 
 var can_seal = true
