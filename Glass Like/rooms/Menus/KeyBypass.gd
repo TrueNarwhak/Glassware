@@ -26,7 +26,8 @@ var break_sounds = [
 ]
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	if !OS.has_feature("HTML"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	randomize()
 	
 
