@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://images/Attacks/Octopus/Tenticle.png" type="Texture" id=1]
 [ext_resource path="res://objects/Item Objects/Tentacle.gd" type="Script" id=2]
 [ext_resource path="res://sound/sfx/Stretch.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sound/sfx/pop.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 12.0
@@ -154,7 +155,7 @@ tracks/2/keys = {
 
 [node name="Tentacle" type="Position2D"]
 script = ExtResource( 2 )
-pull_force = 484
+pull_force = 804
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, -35 )
@@ -165,7 +166,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ActivationBox"]
 modulate = Color( 0, 0.698039, 0.501961, 1 )
-polygon = PoolVector2Array( -56, 0, -72, -144, 0, -144, 72, -144, 56, 0 )
+polygon = PoolVector2Array( -24, 0, -40, -88, 0, -88, 48, -88, 24, 0 )
 disabled = true
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -185,6 +186,16 @@ stream = ExtResource( 3 )
 volume_db = 10.258
 bus = "SoundEffects"
 
+[node name="UncurlSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.672
+bus = "SoundEffects"
+
+[node name="UncurlTimer" type="Timer" parent="."]
+wait_time = 12.133
+one_shot = true
+
 [connection signal="body_entered" from="ActivationBox" to="." method="_on_ActivationBox_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="UncurlTimer" to="." method="_on_UncurlTimer_timeout"]
