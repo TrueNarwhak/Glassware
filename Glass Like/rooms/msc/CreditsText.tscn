@@ -306,7 +306,7 @@ scale = Vector2( 0.571644, 0.571644 )
 texture = ExtResource( 5 )
 
 [node name="Sprite14" type="Sprite" parent="Playtestsers"]
-position = Vector2( 304, 808 )
+position = Vector2( 304, 822 )
 scale = Vector2( 0.571644, 0.571644 )
 texture = ExtResource( 17 )
 

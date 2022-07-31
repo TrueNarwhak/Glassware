@@ -42,7 +42,7 @@ func _on_NextStageArrow_body_entered(body):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Spawn":
-		anim.play("Idle")
+		anim.play("Idle2")
 		spawned = true
 
 
