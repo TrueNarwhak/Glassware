@@ -10,6 +10,8 @@ onready var tooltip = $TooltipArea/TooltipHolder/Label
 
 onready var oooo_sound = $ooooooo
 
+onready var player = get_parent().get_parent().get_parent().get_node("Player")
+
 onready var itemhud = get_parent().get_parent().get_parent().get_node("ItemHud")
 export(PackedScene) var discarded_item
 
@@ -35,7 +37,7 @@ func _ready():
 	oooo_sound.play()
 	
 	# Start anim
-	anim.play("Idle") 
+	anim.play("Idle")
 #	print(items_current)
 #	print(item_index)
 #	print(item_selected)
@@ -54,7 +56,10 @@ func _process(delta):
 	
 	if is_inside_tree():
 		get_parent().get_parent().get_parent().get_node("HerFoyer").bus = "MuffledMusic"
-
+	
+	# Player Items
+#	if visible and player.inventory.has("bat"):
+#		player.current_bat_flap = player.bat_flap
 
 func _on_Item_body_entered(body):
 	if body.is_in_group("Player"):

@@ -3,12 +3,18 @@ extends Area2D
 onready var anim = $AnimationPlayer
 var spawned = false
 
+onready var player = get_parent().get_parent().get_node("Player")
+
 func _ready():
-	pass
+	$CollisionShape2D.disabled = true
 
 func _process(delta):
 #	print(spawned)
 	pass
+	
+	# Player Items
+#	if spawned and player.inventory.has("bat"):
+#		player.current_bat_flap = player.bat_flap
 
 func _on_NextStageArrow_body_entered(body):
 	if body.is_in_group("Player"):
