@@ -66,7 +66,7 @@ var break_sounds = [
 
 # ------------------------------------ #
 
-var inventory = ["bat"]
+var inventory = []
 var inventory_max = 3
 
 var can_seal = true

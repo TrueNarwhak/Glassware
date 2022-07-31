@@ -8,7 +8,7 @@
 [ext_resource path="res://objects/foes/Champaign.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 285.5, 8 )
+extents = Vector2( 226, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 185.5, 8 )
@@ -19,10 +19,10 @@ script = ExtResource( 3 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Cup2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 670, 126 )
+position = Vector2( 670, 165 )
 
 [node name="Cup3" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 63, 463 )
+position = Vector2( 181, 459 )
 
 [node name="Champaign2" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 664, 299 )
@@ -43,12 +43,12 @@ collision_layer = 9
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Shelf"]
-position = Vector2( 190.5, 8 )
+position = Vector2( 250, 8 )
 shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="Sprite" type="Sprite" parent="Ground/Shelf"]
-position = Vector2( -75, 10 )
+position = Vector2( 42, 10 )
 texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="Ground/Shelf"]
@@ -57,7 +57,7 @@ texture = ExtResource( 4 )
 flip_h = true
 
 [node name="ColorRect" type="ColorRect" parent="Ground/Shelf"]
-margin_left = -57.0
+margin_left = 60.0
 margin_right = 439.0
 margin_bottom = 12.0
 color = Color( 0.690196, 0.639216, 0.658824, 1 )
@@ -94,7 +94,7 @@ __meta__ = {
 }
 
 [node name="Shelf3" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
-position = Vector2( 636, 150 )
+position = Vector2( 636, 189 )
 collision_layer = 9
 collision_mask = 9
 
