@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://objects/resorces/CreditsHeader.tres" type="DynamicFont" id=1]
 [ext_resource path="res://objects/resorces/CreditsText.tres" type="DynamicFont" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://images/Credits/People/doc.png" type="Texture" id=14]
 [ext_resource path="res://images/Credits/logo/Godot.png" type="Texture" id=15]
 [ext_resource path="res://images/Credits/People/Jolta.png" type="Texture" id=16]
+[ext_resource path="res://images/Credits/People/1x/XVI.png" type="Texture" id=17]
 
 [node name="CreditsText" type="Control"]
 anchor_right = 1.0
@@ -242,6 +243,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CreditText14" type="Label" parent="Playtestsers"]
+anchor_right = 1.0
+margin_left = 320.0
+margin_top = 792.0
+margin_right = 682.0
+margin_bottom = 858.0
+custom_fonts/font = ExtResource( 2 )
+text = "XVI The Tower"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CreditText12" type="Label" parent="Playtestsers"]
 anchor_right = 1.0
 margin_left = 121.0
@@ -289,6 +304,11 @@ texture = ExtResource( 3 )
 position = Vector2( 291.144, 712 )
 scale = Vector2( 0.571644, 0.571644 )
 texture = ExtResource( 5 )
+
+[node name="Sprite14" type="Sprite" parent="Playtestsers"]
+position = Vector2( 304, 808 )
+scale = Vector2( 0.571644, 0.571644 )
+texture = ExtResource( 17 )
 
 [node name="Sprite2" type="Sprite" parent="Playtestsers"]
 position = Vector2( 118.824, 232.01 )
@@ -340,8 +360,9 @@ position = Vector2( 0, 1675 )
 
 [node name="CreditHeader" type="Label" parent="Assets"]
 anchor_right = 1.0
+margin_top = 80.0
 margin_right = 960.0
-margin_bottom = 69.0
+margin_bottom = 149.0
 custom_fonts/font = ExtResource( 1 )
 text = "With 3rd Party Assets from:"
 align = 1
@@ -352,9 +373,9 @@ __meta__ = {
 
 [node name="CreditHeader2" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 376.0
+margin_top = 456.0
 margin_right = 960.0
-margin_bottom = 445.0
+margin_bottom = 525.0
 custom_fonts/font = ExtResource( 1 )
 text = "Music (3rd Party) used:"
 align = 1
@@ -365,9 +386,9 @@ __meta__ = {
 
 [node name="CreditText" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 57.0
+margin_top = 137.0
 margin_right = 960.0
-margin_bottom = 123.0
+margin_bottom = 203.0
 custom_fonts/font = ExtResource( 2 )
 text = "Platformer Controller by Heartbeast"
 align = 1
@@ -378,9 +399,9 @@ __meta__ = {
 
 [node name="CreditText4" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 448.0
+margin_top = 528.0
 margin_right = 960.0
-margin_bottom = 514.0
+margin_bottom = 594.0
 custom_fonts/font = ExtResource( 2 )
 text = "\"Her Foyer\" - Patrica Taxxon (main theme)"
 align = 1
@@ -391,9 +412,9 @@ __meta__ = {
 
 [node name="CreditText5" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 512.0
+margin_top = 592.0
 margin_right = 960.0
-margin_bottom = 578.0
+margin_bottom = 658.0
 custom_fonts/font = ExtResource( 2 )
 text = "\"Her Topiary\" - Patrica Taxxon (credits theme)"
 align = 1
@@ -404,9 +425,9 @@ __meta__ = {
 
 [node name="CreditText6" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 577.0
+margin_top = 657.0
 margin_right = 960.0
-margin_bottom = 643.0
+margin_bottom = 723.0
 custom_fonts/font = ExtResource( 2 )
 text = "\"Bar Jazz\" - Freesound Music (catalouge theme)"
 align = 1
@@ -417,9 +438,9 @@ __meta__ = {
 
 [node name="CreditText3" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 152.0
+margin_top = 232.0
 margin_right = 960.0
-margin_bottom = 218.0
+margin_bottom = 298.0
 custom_fonts/font = ExtResource( 2 )
 text = "Impact Sounds by Kenny"
 align = 1
@@ -430,9 +451,9 @@ __meta__ = {
 
 [node name="CreditText2" type="Label" parent="Assets"]
 anchor_right = 1.0
-margin_top = 103.0
+margin_top = 183.0
 margin_right = 960.0
-margin_bottom = 169.0
+margin_bottom = 249.0
 custom_fonts/font = ExtResource( 2 )
 text = "Lean Camera by samsface"
 align = 1
@@ -446,9 +467,9 @@ position = Vector2( 0, -269 )
 
 [node name="CreditText" type="Label" parent="Assets2"]
 anchor_right = 1.0
-margin_top = 2760.0
+margin_top = 2840.0
 margin_right = 960.0
-margin_bottom = 2826.0
+margin_bottom = 2906.0
 custom_fonts/font = ExtResource( 2 )
 text = "Thank you for playing :)"
 align = 1

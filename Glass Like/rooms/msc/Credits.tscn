@@ -85,7 +85,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 37.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 300 ), Vector2( 0, -2350.06 ) ]
+"values": [ Vector2( 0, 300 ), Vector2( 0, -2450.06 ) ]
 }
 tracks/5/type = "audio"
 tracks/5/path = NodePath("Music")
