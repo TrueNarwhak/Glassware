@@ -51,13 +51,21 @@ onready var intensity_1_stages = [
 
 onready var next_stage = intensity_1_stages[randi() % intensity_1_stages.size()]
 
+const SAVE_FILE_PATH = "user://savedata.save"
+
 # Logic
 var stages_cleared = 0
+var highscore_stages_cleared = 0
 
 func _ready():
 	randomize()
+	load_highscore()
 
 func reset_all():
+	
+	print(highscore_stages_cleared)
+	
+	# Rest
 	stages_cleared = -1
 	
 	items_current = ["anvil", "baseball", "bat", "frog", "ghost", "octopus",
@@ -88,3 +96,26 @@ func reset_all():
 		"Plant Sprouts with every step! They're slow\nto walk through BUT hitting them causes them to bloom"
 	]
 	
+
+func update_highscore():
+	
+	# Higschore
+	if stages_cleared > highscore_stages_cleared:
+		highscore_stages_cleared = stages_cleared
+		save_highscore()
+
+
+func save_highscore():
+	var save_data = File.new()
+	save_data.open(SAVE_FILE_PATH, File.WRITE)
+	save_data.store_var(highscore_stages_cleared)
+	save_data.close()
+
+func load_highscore():
+	
+	var save_data = File.new()
+	
+	if save_data.file_exists(SAVE_FILE_PATH):
+		save_data.open(SAVE_FILE_PATH, File.READ)
+		highscore_stages_cleared = save_data.get_var()
+		save_data.close()

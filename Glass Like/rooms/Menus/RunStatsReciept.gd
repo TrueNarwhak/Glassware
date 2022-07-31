@@ -8,6 +8,8 @@ onready var slot_large1 = $Recipt/Slots/SlotLarge1
 onready var slot_large2 = $Recipt/Slots/SlotLarge2
 
 onready var stages_cleared_num = $Recipt/Score/StagesClearedNum
+onready var highest_stages_cleared = $Recipt/Score/HighestScore
+onready var highest_stages_cleared_num = $Recipt/Score/HighestScoreNum
 
 var restart_flag = false
 var is_over_ui = false
@@ -18,11 +20,16 @@ var is_over_ui = false
 func _ready():
 	anim.play("ComeIn")
 	
+	# Visible
 	slot_large0.texture = item_hud.slot0.texture
 	slot_large1.texture = item_hud.slot1.texture
 	slot_large2.texture = item_hud.slot2.texture
 	
+	# Highscore
+	ItemAndStages.update_highscore()
+	
 	stages_cleared_num.text = str(ItemAndStages.stages_cleared)
+	highest_stages_cleared_num.text = str(ItemAndStages.highscore_stages_cleared)
 
 func _process(delta):
 	

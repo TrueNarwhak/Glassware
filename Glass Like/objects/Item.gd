@@ -43,8 +43,7 @@ func _ready():
 #	print(item_selected)
 
 func _exit_tree():
-	if is_inside_tree():
-		get_parent().get_parent().get_parent().get_node("HerFoyer").bus = "Music"
+	get_parent().get_parent().get_parent().get_node("HerFoyer").bus = "Music"
 
 
 func _process(delta):

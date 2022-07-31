@@ -15,6 +15,9 @@ export(PackedScene) var shard
 
 
 func _ready():
+	
+	get_parent().get_node("HerFoyer").bus = "Music"
+	
 	sprite.texture = await_texture
 	anim.play("Decay")
 	
@@ -22,7 +25,7 @@ func _ready():
 	apply_central_impulse(jump)
 
 func _process(delta):
-	pass
+	get_parent().get_node("HerFoyer").bus = "Music"
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	# Shard

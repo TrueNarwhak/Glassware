@@ -22,7 +22,7 @@ script = ExtResource( 3 )
 position = Vector2( 670, 165 )
 
 [node name="Cup3" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 181, 459 )
+position = Vector2( 241, 459 )
 
 [node name="Champaign2" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 664, 299 )
