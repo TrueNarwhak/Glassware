@@ -235,11 +235,11 @@ wait_time = 0.284
 autostart = true
 
 [node name="InvincibilityTimer" type="Timer" parent="Timers"]
-wait_time = 1.4
+wait_time = 1.1
 one_shot = true
 
 [node name="ShortInvincibilityTimer" type="Timer" parent="Timers"]
-wait_time = 0.747
+wait_time = 0.843
 one_shot = true
 
 [node name="BullChargeTimer" type="Timer" parent="Timers"]
