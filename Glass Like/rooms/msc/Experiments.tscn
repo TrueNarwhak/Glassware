@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://rooms/stage.gd" type="Script" id=1]
 [ext_resource path="res://images/stage/Asset 80.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://objects/foes/Kettle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://thankyousab.png" type="Texture" id=6]
+[ext_resource path="res://rooms/stages/PlateSmall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/foes/Plate.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 401, 8 )
@@ -23,6 +25,12 @@ position = Vector2( 0, -1 )
 
 [node name="Kettle" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 448, 41 )
+
+[node name="PlateSmall" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 776, 449 )
+
+[node name="Plate" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 656, 425 )
 
 [node name="Spawners" type="Node2D" parent="."]
 position = Vector2( 0, -1 )

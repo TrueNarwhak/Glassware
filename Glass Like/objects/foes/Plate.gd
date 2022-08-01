@@ -20,6 +20,7 @@ onready var left_pos = $KinematicBody2D/LeftPos
 onready var right_pos = $KinematicBody2D/RightPos
 onready var top_pos = $KinematicBody2D/TopPos
 onready var bottom_pos = $KinematicBody2D/BottomPos
+onready var hitbox = $KinematicBody2D/Hitbox
 
 onready var rolling_sfx = $Roll
 onready var reverse_sfx = $Reverse
@@ -30,7 +31,7 @@ var normal_eyes = preload("res://images/enemies/Plate/Asset 61.png")
 # ------------------------------------------- #
 
 func _ready():
-	pass
+	hitbox.connect("body_entered", self, "_on_Hitbox_body_entered")
 
 func _physics_process(delta):
 	

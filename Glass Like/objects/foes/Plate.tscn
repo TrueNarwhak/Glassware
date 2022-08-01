@@ -62,5 +62,3 @@ bus = "Roll"
 [node name="Reverse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 bus = "Roll"
-
-[connection signal="body_entered" from="KinematicBody2D/Hitbox" to="." method="_on_Hitbox_body_entered"]
