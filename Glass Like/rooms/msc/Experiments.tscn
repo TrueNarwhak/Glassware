@@ -22,7 +22,7 @@ texture = ExtResource( 6 )
 position = Vector2( 0, -1 )
 
 [node name="Kettle" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 920, 41 )
+position = Vector2( 448, 41 )
 
 [node name="Spawners" type="Node2D" parent="."]
 position = Vector2( 0, -1 )
@@ -63,6 +63,32 @@ color = Color( 0.690196, 0.639216, 0.658824, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Shelf2" type="StaticBody2D" parent="Ground" groups=["StageGround"]]
+position = Vector2( 80, 305 )
+scale = Vector2( 0.394829, 2.2951 )
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Shelf2"]
+position = Vector2( 400, 8 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Sprite" type="Sprite" parent="Ground/Shelf2"]
+position = Vector2( 20, 10 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Ground/Shelf2"]
+position = Vector2( 782, 10 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="Ground/Shelf2"]
+margin_left = 38.0
+margin_right = 770.0
+margin_bottom = 12.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
 
 [node name="NextStageArrow" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 201 )

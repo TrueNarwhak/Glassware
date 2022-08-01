@@ -19,6 +19,7 @@ export var speed = 20
 export var knock_back_force = 179
 export var knock_back_drag = 3
 export var accel = 0.02
+export var max_height = 136
 
 var can_knock_back = false
 var current_speed = speed
@@ -65,7 +66,7 @@ func _physics_process(delta):
 	
 	# Clamp
 #	body.position.x = clamp(body.position.x, 64, 896)
-#	body.position.y = clamp(body.position.y, 40, 600)
+#	body.global_position.y = clamp(body.position.y, 40, 600)
 
 
 func shoot():
@@ -78,8 +79,9 @@ func shoot():
 	get_parent().add_child(this_coffee_shot)
 	
 	# Knock back
-	can_knock_back = true
-	current_knock_back_force = knock_back_force
+	if body.global_position.y > max_height:
+		can_knock_back = true
+		current_knock_back_force = knock_back_force
 	
 	# Sound
 	charge_sfx.stop()
@@ -93,8 +95,7 @@ func _on_ShootTimer_timeout():
 
 func _on_ActivationArea_body_entered(body):
 	if body.is_in_group("Player"):
-		if body.global_position.y > 60:
-			can_move = false
+		can_move = false
  
 
 func _on_ActivationArea_body_exited(body):
