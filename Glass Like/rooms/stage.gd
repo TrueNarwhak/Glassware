@@ -20,7 +20,7 @@ var arrows_before_item = 3
 var current_shift_speed = shift_speed
 
 func ready():
-	pass
+	player.short_invincible_claimed = false
 
 func _process(delta):
 	
@@ -43,6 +43,9 @@ func _process(delta):
 		position.x = clamp(position.x, 0, 1500)
 	else:
 		position.x = clamp(position.x, -1500, 1500)
+		
+		player.short_invincible_claimed = false
+	
 	
 	# Destroy old stage when its far enough away
 	if position.x == -1500:
@@ -90,6 +93,14 @@ func defeated_all():
 	else:
 		if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
 			get_node("NextStageArrow").anim.play("Spawn")
+	
+	# Player invinciblity
+	if player.short_invincibility_timer.is_stopped():
+		if !player.short_invincible_claimed:
+			player.short_invincibility_timer.start()
+			player.short_invincible = true
+			player.short_invincible_claimed = true
+
 
 func stage_shift(selected_stage):
 	can_shift = true

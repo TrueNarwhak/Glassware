@@ -24,6 +24,8 @@ var motion = Vector2.ZERO
 var beachball_count = 0
 var jump_death_called = false
 var invincible = false
+var short_invincible = false
+var short_invincible_claimed = false
 
 var x_input
 
@@ -37,6 +39,7 @@ onready var bull_pos_holder = $AnimatedSprite/BullPosHolder
 
 onready var death_timer = $Timers/DeathTimer
 onready var invincibility_timer = $Timers/InvincibilityTimer
+onready var short_invincibility_timer = $Timers/ShortInvincibilityTimer
 onready var stat_timer = $Timers/StatTimer
 onready var bull_charge_timer = $Timers/BullChargeTimer
 onready var bull_recover_timer = $Timers/BullRecoverTimer
@@ -111,7 +114,10 @@ func ready():
 	pass
 
 func _physics_process(delta):
-	
+#	print(invincible)
+#	print(short_invincible_claimed)
+#	print(short_invincibility_timer.time_left)
+
 	# Get Inputs
 	if !jump_death_called and !bull_ramming:
 		x_input = Input.get_action_strength("move_right") - int(jump_death_called) - Input.get_action_strength("move_left")
@@ -466,6 +472,11 @@ func _on_StatTimer_timeout():
 func _on_invincibilityTimer_timeout():
 	invincible = false
 
+func _on_ShortInvincibilityTimer_timeout():
+	short_invincible = false
+	print("aa")
+	print(short_invincible_claimed)
+
 
 func _on_SealTimer_timeout():
 	can_seal = true
@@ -522,7 +533,7 @@ func shatter():
 	print("Shxrch!")
 	
 	
-	if !invincible:
+	if !invincible and !short_invincible:
 		# Camera
 		if !jump_death_called:
 			camera.zoom = Vector2(camera.player_death_pop, camera.player_death_pop)
@@ -546,8 +557,3 @@ func shatter():
 			death_timer.start()
 			
 			jump_death_called = true
-
-
-
-
-

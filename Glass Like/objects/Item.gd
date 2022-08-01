@@ -71,8 +71,9 @@ func _on_Item_body_entered(body):
 				body.current_bat_flap = body.bat_flap
 			
 			# Player invincibility
-			body.invincible = true
-			body.invincibility_timer.start()
+			if body.invincibility_timer.is_stopped():
+				body.invincible = true
+				body.invincibility_timer.start()
 			
 			# Attacks
 			body.can_attack_boost = true

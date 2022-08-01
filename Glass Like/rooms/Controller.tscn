@@ -4,7 +4,7 @@
 [ext_resource path="res://objects/WallBG.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/LeanCamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Blastzone.tscn" type="PackedScene" id=4]
-[ext_resource path="res://rooms/msc/Experiments.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/stages/Stage 1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://rooms/Controller.gd" type="Script" id=6]
 [ext_resource path="res://objects/ui/ItemHud.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sound/music/Patricia Taxxon - Her Foyer.mp3" type="AudioStream" id=8]
@@ -20,6 +20,8 @@ __meta__ = {
 show_behind_parent = true
 position = Vector2( -82, -48 )
 scale = Vector2( 1.19548, 1.19548 )
+
+[node name="Stage1" parent="." instance=ExtResource( 5 )]
 
 [node name="BlastZones" type="Node2D" parent="."]
 __meta__ = {
@@ -65,5 +67,3 @@ volume_db = 8.525
 bus = "Break"
 
 [node name="VolumeControls" parent="." instance=ExtResource( 9 )]
-
-[node name="Experiements" parent="." instance=ExtResource( 5 )]
