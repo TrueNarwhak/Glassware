@@ -52,7 +52,7 @@ func _physics_process(delta):
 	body.move_and_slide(motion, Vector2.ZERO)
 	
 	# Face player
-	sprite.rotation_degrees = lerp(sprite.rotation_degrees, rad2deg(get_angle_to(player.position)) + 90, aim_speed)
+	sprite.rotation_degrees = lerp(sprite.rotation_degrees, rad2deg(get_angle_to(player.global_position)) + 90, aim_speed)
 #	sprite.rotation_degrees = rad2deg(get_angle_to(get_node("../Player").position)) + 90
 	
 	if sprite.rotation_degrees <= 180.0:
