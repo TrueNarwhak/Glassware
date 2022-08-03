@@ -17,9 +17,6 @@ margin_right = 346.0
 margin_bottom = 75.0
 draw_tabs = true
 draw_spaces = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CommandInput" type="TextEdit" parent="Elements"]
 margin_left = 25.0
@@ -28,9 +25,6 @@ margin_right = 80.0
 margin_bottom = 75.0
 draw_tabs = true
 draw_spaces = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Output" type="TextEdit" parent="Elements"]
 margin_left = 24.0
@@ -48,9 +42,6 @@ margin_top = 47.0
 margin_right = 460.0
 margin_bottom = 75.0
 text = "Enter"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MouseIn" type="Area2D" parent="."]
 position = Vector2( 18, 18 )
