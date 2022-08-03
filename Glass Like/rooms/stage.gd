@@ -72,13 +72,20 @@ func defeated_all():
 		# Chose between item or arrow aslong as under max items
 		if ItemAndStages.stages_cleared % arrows_before_item == 0:
 			# Spawning Items
+			var indexes_used = [] # Collection of indexes already spawned in this stage
 			for item_spawner in spawner.get_children(): # IF IT CATCHES A NULL INSTANCE THAT MEANS THERE ARENT SPAWNERS SET UP IN STAGE
-				
 				# Spawner
 				if item_spawner is Position2D:
+					var item_index = Item.roll()
+					if(ItemAndStages.items_current.size() > 1):
+						while indexes_used.has(item_index):
+							print("already had item " + str(item_index) + ", rerolling")
+							item_index = Item.roll()
+					
+					item_spawner.item_index = item_index
 					item_spawner.anim.play("ItemSpawn")
 					get_parent().get_node("HerFoyer").bus = "MuffledMusic"
-				
+					indexes_used.append(item_index)
 				# Items 
 				if item_spawner.is_in_group("Item") and can_shift:
 #					item_spawner.anim.play("Destroy")

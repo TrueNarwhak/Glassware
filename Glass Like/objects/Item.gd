@@ -1,3 +1,5 @@
+class_name Item
+
 extends Area2D
 
 onready var sprite = $Visual/Item
@@ -9,26 +11,34 @@ onready var tooltip_holder = $TooltipArea/TooltipHolder
 onready var tooltip = $TooltipArea/TooltipHolder/Label
 
 onready var oooo_sound = $ooooooo
-
 onready var player = get_parent().get_parent().get_parent().get_node("Player")
 
 onready var itemhud = get_parent().get_parent().get_parent().get_node("ItemHud")
 export(PackedScene) var discarded_item
 
-var item_index
+var item_index = null
 var item_selected
 
 signal collected
 
 # -------------------------------------------------------------------- #
 
+func give_index(item_index):
+	self.item_index = item_index
+
+static func roll() -> int:
+	return randi() % ItemAndStages.items_current.size();
+
 func _ready():
 	randomize()
 	connect("collected", self, "_on_Item_collected")
 	
 	# Pick and remove items
-	item_index = randi() % ItemAndStages.items_current.size()
-
+	if(item_index == null):
+		item_index = roll();
+		print("item index wasn't set through give_index()!")
+	print("item index is " + str(item_index))
+	print("item sprite texture name: " + str(ItemAndStages.item_sprites[item_index]))
 	sprite.texture = ItemAndStages.item_sprites[item_index]
 	item_selected = ItemAndStages.items_current[item_index]
 	tooltip.text = ItemAndStages.item_tooltips[item_index]
