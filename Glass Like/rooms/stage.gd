@@ -79,7 +79,6 @@ func defeated_all():
 					var item_index = Item.roll()
 					if(ItemAndStages.items_current.size() > 1):
 						while indexes_used.has(item_index):
-							print("already had item " + str(item_index) + ", rerolling")
 							item_index = Item.roll()
 					
 					item_spawner.item_index = item_index

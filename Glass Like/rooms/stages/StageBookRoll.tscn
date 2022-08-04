@@ -43,10 +43,10 @@ position = Vector2( 616, 241 )
 [node name="Spawners" type="Node2D" parent="."]
 
 [node name="ItemSpawner" parent="Spawners" instance=ExtResource( 4 )]
-position = Vector2( 91.7, 210.7 )
+position = Vector2( 223, 245 )
 
 [node name="ItemSpawner2" parent="Spawners" instance=ExtResource( 4 )]
-position = Vector2( 379.7, 210.7 )
+position = Vector2( 524, 248 )
 
 [node name="Ground" type="Node2D" parent="."]
 
@@ -102,9 +102,6 @@ margin_left = 178.0
 margin_right = 495.0
 margin_bottom = 12.0
 color = Color( 0.690196, 0.639216, 0.658824, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Books" type="Node2D" parent="Ground"]
 position = Vector2( 183, 87 )

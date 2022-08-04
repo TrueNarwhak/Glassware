@@ -18,14 +18,15 @@ export(PackedScene) var shard
 export(PackedScene) var stats
 
 var MAX_SPEED = default_max_speed
-var is_attacking = false
-var can_attack_boost = true
-var motion = Vector2.ZERO
-var beachball_count = 0
-var jump_death_called = false
-var invincible = false
-var short_invincible = false
-var short_invincible_claimed = false
+var is_attacking := false
+var can_attack_boost := true
+var motion := Vector2.ZERO
+var beachball_count := 0
+var jump_death_called := false
+var invincible := false
+var short_invincible := false
+var short_invincible_claimed := false
+var jump_cache := 0
 
 var x_input
 
@@ -160,10 +161,10 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, FRICTION * delta)
 		
 		# Jumping
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") or jump_cache > 0:
 			motion.y = -current_jump
-			
 			frog_item(delta)
+			jump_cache = 0
 		
 		# Attack boosting
 		can_attack_boost = true
@@ -171,10 +172,12 @@ func _physics_process(delta):
 		# Items
 #		current_bat_flap = bat_flap
 	else:
-		
 		if Input.is_action_just_released("jump") and motion.y < -current_jump/2 and !is_attacking:
 			motion.y = -current_jump/2
-		
+		if Input.is_action_just_pressed("jump"):
+			jump_cache = 5
+		elif jump_cache > 0:
+			jump_cache -= 1
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 		
