@@ -163,8 +163,8 @@ func _physics_process(delta):
 		# Jumping
 		if Input.is_action_just_pressed("jump") or jump_cache > 0:
 			motion.y = -current_jump
-			frog_item(delta)
 			jump_cache = 0
+			frog_item(delta)
 		
 		# Attack boosting
 		can_attack_boost = true
