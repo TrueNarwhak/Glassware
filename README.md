@@ -32,3 +32,4 @@ TODO:
  - Add portal functionality
  - NOTE: All new stages are stored under the intensity_one_stages array despite them actually being intensity_two
  - Make new stages
+ - Other stuff, idk so if you are planning to work on this you should ask
