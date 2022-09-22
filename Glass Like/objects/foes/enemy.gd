@@ -8,6 +8,7 @@ onready var shard = preload("res://objects/shards/EnemyShards.tscn")
 
 onready var player = get_parent().get_parent().get_node("../Player")
 onready var camera = get_parent().get_parent().get_node("../LeanCamera")
+onready var controller = $"../../../../Controller"
 
 func _ready():
 	pass
@@ -17,7 +18,6 @@ func _process(delta):
 	# Death
 	if survive <= 0:
 		shatter()
-	
 	# Activation
 #	if get_parent().get_global_position().x == 0:
 #		set_process(true)
@@ -34,7 +34,8 @@ func shatter():
 	for i in shards:
 		var this_shard = shard.instance()
 		this_shard.position = $KinematicBody2D.get_global_position()
-		get_parent().get_parent().get_parent().add_child(this_shard)
+		if not controller == null:
+			controller.add_child(this_shard)
 	
 	# Shake
 	if camera:
@@ -43,7 +44,7 @@ func shatter():
 		camera.zoom = Vector2(camera.zoom_pop, camera.zoom_pop)
 	
 	# Sound
-	get_parent().get_parent().get_parent().play_break()
-	
+	if not controller == null:
+		controller.play_break()
 	print("death of enemy")
 	queue_free()

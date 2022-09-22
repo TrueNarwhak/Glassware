@@ -10,14 +10,14 @@ radius = 652.196
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
 "speed": 5.0
 } ]
 
@@ -212,13 +212,14 @@ tracks/7/keys = {
 "values": [ true, true, false ]
 }
 
-[node name="StationaryKettle" type="Node2D"]
+[node name="StationaryKettle" type="Node2D" groups=["Enemies"]]
 script = ExtResource( 4 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 rotation = -1.57079
 
 [node name="ActivationArea" type="Area2D" parent="KinematicBody2D"]
+scale = Vector2( 1.3, 1.3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActivationArea"]
 modulate = Color( 0.317647, 1, 0.278431, 1 )

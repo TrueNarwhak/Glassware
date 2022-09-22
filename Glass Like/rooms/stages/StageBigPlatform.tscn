@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://rooms/stage.gd" type="Script" id=1]
+[ext_resource path="res://rooms/Stage Elements/MovePlat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/foes/Kettle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/NextStageArrow.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 482, 639, 0, 0, 0, 0, 480, 357 )
+}
+
+[node name="StageBigPlatform" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="StageGround" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="StageGround"]
+curve = SubResource( 1 )
+
+[node name="MovingPlat" parent="StageGround/Path2D" instance=ExtResource( 2 )]
+position = Vector2( 481.055, 505.804 )
+offset = 132.965
+
+[node name="ColorRect" type="ColorRect" parent="StageGround/Path2D/MovingPlat/RigidBody2D" index="0"]
+margin_left = -362.0
+margin_top = -7.0
+margin_right = 375.0
+margin_bottom = 9.0
+color = Color( 0.690196, 0.639216, 0.658824, 1 )
+
+[node name="Plat" parent="StageGround/Path2D/MovingPlat/RigidBody2D" index="2"]
+visible = false
+position = Vector2( -11.4008, -2.68152 )
+scale = Vector2( 4.78313, 1.48755 )
+
+[node name="CollisionShape2D" parent="StageGround/Path2D/MovingPlat/RigidBody2D" index="3"]
+position = Vector2( 6.59921, 1.13696 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Kettle" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 172, 226 )
+
+[node name="Kettle2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 764, 297 )
+
+[node name="Kettle3" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 472, 156 )
+
+[node name="ItemSpawner" type="Node2D" parent="."]
+
+[node name="ItemSpawner" parent="ItemSpawner" instance=ExtResource( 4 )]
+position = Vector2( 239, 248 )
+
+[node name="ItemSpawner2" parent="ItemSpawner" instance=ExtResource( 4 )]
+position = Vector2( 729, 249 )
+
+[node name="NextStageArrow" parent="." instance=ExtResource( 5 )]
+position = Vector2( 477, 304 )
+
+[editable path="StageGround/Path2D/MovingPlat"]

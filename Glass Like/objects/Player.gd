@@ -224,6 +224,7 @@ func _physics_process(delta):
 		baseball_item_attack()
 	
 	# Apply physics
+
 	motion = move_and_slide(motion, Vector2.UP)
 	
 	# Items 

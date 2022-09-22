@@ -19,8 +19,14 @@ var arrows_before_item = 3
 
 var current_shift_speed = shift_speed
 
-func ready():
-	player.short_invincible_claimed = false
+func _ready():
+	if(ItemAndStages.stages_cleared == 15):
+		var portal = load("res://objects/NextStagePortal.tscn")
+		add_child(portal.instance(), true)
+		portal.set_global_position(get_node("NextStageArrow").get_global_position())
+		get_node("NextStageArrow").free()
+		portal.set_name("NextStageArrow")
+		
 
 func _process(delta):
 	
@@ -73,6 +79,8 @@ func defeated_all():
 		if ItemAndStages.stages_cleared % arrows_before_item == 0:
 			# Spawning Items
 			var indexes_used = [] # Collection of indexes already spawned in this stage
+			if(spawner == null):
+				 spawner = $ItemSpawner
 			for item_spawner in spawner.get_children(): # IF IT CATCHES A NULL INSTANCE THAT MEANS THERE ARENT SPAWNERS SET UP IN STAGE
 				# Spawner
 				if item_spawner is Position2D:
@@ -93,12 +101,10 @@ func defeated_all():
 			
 		else:
 			# Spawning Arrow
-			if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
-				get_node("NextStageArrow").anim.play("Spawn")
+			spawn_next_arrow()
 	
 	else:
-		if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
-			get_node("NextStageArrow").anim.play("Spawn")
+		spawn_next_arrow()
 	
 	# Player invinciblity
 	if player.short_invincibility_timer.is_stopped():
@@ -106,6 +112,9 @@ func defeated_all():
 			player.short_invincibility_timer.start()
 			player.short_invincible = true
 			player.short_invincible_claimed = true
+func spawn_next_arrow():
+	if get_node("NextStageArrow") and !get_node("NextStageArrow").spawned:
+			get_node("NextStageArrow").anim.play("Spawn")
 
 
 func stage_shift(selected_stage):

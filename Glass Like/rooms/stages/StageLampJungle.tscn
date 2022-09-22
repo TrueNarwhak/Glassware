@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://rooms/Stage Elements/Lamp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/foes/Cup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/stage.gd" type="Script" id=4]
+[ext_resource path="res://objects/ItemSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/NextStageArrow.tscn" type="PackedScene" id=6]
+
+[node name="StageLampJungle" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="StageGround" type="Node2D" parent="."]
+
+[node name="Lamp3" parent="StageGround" groups=["StageGround"] instance=ExtResource( 1 )]
+position = Vector2( 475, 437 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Lamp2" parent="StageGround" groups=["StageGround"] instance=ExtResource( 1 )]
+position = Vector2( 808, 185 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Lamp" parent="StageGround" groups=["StageGround"] instance=ExtResource( 1 )]
+position = Vector2( 131, 285 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Cup" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 846, 108 )
+
+[node name="Cup2" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 544, 374 )
+
+[node name="Cup3" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 8, 186 )
+
+[node name="NextStageArrow" parent="." instance=ExtResource( 6 )]
+position = Vector2( 475, 242 )
+
+[node name="ItemSpawner" type="Node2D" parent="."]
+
+[node name="ItemSpawner" parent="ItemSpawner" instance=ExtResource( 5 )]
+position = Vector2( 349, 235 )
+
+[node name="ItemSpawner2" parent="ItemSpawner" instance=ExtResource( 5 )]
+position = Vector2( 597, 235 )
