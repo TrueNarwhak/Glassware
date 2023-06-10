@@ -33,6 +33,15 @@ var item_tooltips = [
 var last_stage = ""
 
 onready var intensity_1_stages = [
+	load("res://rooms/stages/StagePlateTwoSide.tscn"),
+	load("res://rooms/stages/StageBookTower.tscn"),
+	load("res://rooms/stages/StageMovingTrinkets.tscn"),
+	load("res://rooms/stages/StageMovingTeacups.tscn"),
+	load("res://rooms/stages/StageTwoColumns.tscn"),
+	load("res://rooms/stages/StageLampJungle.tscn")
+]
+
+onready var intensity_2_stages = [
 	load("res://rooms/stages/StagePlatesLayer.tscn"),
 	load("res://rooms/stages/StageChampaignIsland.tscn"),
 	load("res://rooms/stages/StagePlatCover.tscn"),
@@ -46,7 +55,6 @@ onready var intensity_1_stages = [
 	load("res://rooms/stages/StageChampaignJump.tscn")
 #	load("res://rooms/stages/StageCrumblePlate.tscn"),
 #	load("res://rooms/stages/StageLampOverhead.tscn")
-	
 ]
 
 onready var next_stage = intensity_1_stages[randi() % intensity_1_stages.size()]

@@ -15,7 +15,6 @@ var current_jump_distance = jump_distance
 
 onready var body = $KinematicBody2D
 onready var sprite = $KinematicBody2D/AnimatedSprite
-onready var player = get_node("../Player")
 # ---------------------------------------------- #
 
 func _ready():

@@ -20,7 +20,7 @@ func _ready():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	
 	OS.window_fullscreen = Options.fullscreen
-
+var spawnedPortal := false
 func _process(delta):
 	
 	if Input.is_action_just_pressed("pause"):
@@ -35,6 +35,12 @@ func _process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	if not spawnedPortal and Input.is_key_pressed(KEY_ALT) and Input.is_key_pressed(KEY_P):
+		spawnedPortal = true
+		var scene = load("res://objects/NextStagePortal.tscn").instance()
+		scene.set_global_position(get_viewport().get_mouse_position())
+		add_child(scene)
+		scene.anim.play("Spawn")
 
 func play_break():
 	break_sfx.stream = break_sounds[randi() % break_sounds.size()]

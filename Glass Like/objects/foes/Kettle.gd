@@ -15,7 +15,7 @@ var knock_back_motion = Vector2(0.0, 0.0)
 var can_move = true
 
 export var aim_speed = 0.2
-export var speed = 20
+export var speed = 54
 export var knock_back_force = 179
 export var knock_back_drag = 3
 export var accel = 0.02
@@ -46,10 +46,9 @@ func _physics_process(delta):
 		motion = position.direction_to(player.position) * current_speed
 		
 		sprite.play("default")
-		
-	current_speed = lerp(current_speed, speed * int(can_move), accel)
-	
-	body.move_and_slide(motion, Vector2.ZERO)
+	if(speed > 0): # archonic: stationary kettle
+		current_speed = lerp(current_speed, speed * int(can_move), accel)
+		body.move_and_slide(motion, Vector2.ZERO)
 	
 	# Face player
 	sprite.rotation_degrees = lerp(sprite.rotation_degrees, rad2deg(get_angle_to(player.global_position)) + 90, aim_speed)
